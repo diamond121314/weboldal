@@ -35,19 +35,16 @@
             letter-spacing: 1px;
         }
 
-        .logo-wrapper {
+        .logo-icon {
             width: 36px;
             height: 36px;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #ef4444;
-            background-color: #260f0f;
-        }
-
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ef4444, #991b1b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
         }
 
         nav a {
@@ -73,23 +70,44 @@
             margin: 0 auto;
         }
 
-        .skin-container {
+        .visual-card {
             flex-shrink: 0;
-            background: radial-gradient(circle, rgba(41,15,15,0.6) 0%, rgba(18,8,8,0) 70%);
-            padding: 20px;
+            width: 240px;
+            height: 320px;
+            background: linear-gradient(145deg, #1c0d0d, #0d0404);
             border-radius: 20px;
             border: 2px solid #3f1515;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.7);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.8);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .skin-img {
-            width: 220px;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 10px;
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ef4444, transparent);
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.4));
+        }
+
+        .card-label {
+            color: #ef4444;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
         .hero-content {
@@ -208,9 +226,7 @@
 
     <header>
         <div class="logo">
-            <div class="logo-wrapper">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80" alt="Logo" class="logo-img">
-            </div>
+            <div class="logo-icon">💎</div>
             <span>DIAMONDSZIA</span>
         </div>
         <nav>
@@ -221,8 +237,9 @@
     </header>
 
     <section class="hero">
-        <div class="skin-container">
-            <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=400&auto=format&fit=crop&q=80" alt="Skin" class="skin-img">
+        <div class="visual-card">
+            <div class="card-icon">💎</div>
+            <div class="card-label">Diamondszia</div>
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
