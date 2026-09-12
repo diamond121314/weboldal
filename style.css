@@ -11,7 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navigáció */
 header {
     display: flex;
     justify-content: space-between;
@@ -33,6 +32,7 @@ header {
     width: 32px;
     height: 32px;
     border-radius: 4px;
+    object-fit: cover;
 }
 
 nav a {
@@ -47,39 +47,31 @@ nav a:hover {
     color: #ffffff;
 }
 
-/* Fő tartalom */
 .hero {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 75vh;
+    min-height: 70vh;
     padding: 0 8%;
-    gap: 80px;
+    gap: 60px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Skin megjelenítés */
 .skin-container {
     flex-shrink: 0;
     background: radial-gradient(circle, rgba(29,39,59,0.4) 0%, rgba(11,15,25,0) 70%);
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
 }
 
 .skin-container img {
-    width: 220px;
-    image-rendering: pixelated;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
-    transform: perspective(500px) rotateY(-8deg);
-    transition: transform 0.3s ease;
+    width: 200px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.6);
 }
 
-.skin-container img:hover {
-    transform: perspective(500px) rotateY(0deg) scale(1.03);
-}
-
-/* Szövegek */
 .hero-content {
     max-width: 650px;
 }
@@ -94,10 +86,10 @@ nav a:hover {
 }
 
 h1 {
-    font-size: 3.8rem;
+    font-size: 3.2rem;
     line-height: 1.1;
     font-weight: 800;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: #f3f4f6;
 }
 
@@ -105,7 +97,6 @@ h1 {
     color: #9ca3af;
     font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 30px;
 }
 
 .description span {
@@ -113,7 +104,6 @@ h1 {
     font-weight: 600;
 }
 
-/* Projekt kártyák alul */
 .projects {
     display: flex;
     gap: 20px;
@@ -130,11 +120,6 @@ h1 {
     border-radius: 12px;
     min-width: 200px;
     flex: 1;
-    transition: border-color 0.2s;
-}
-
-.project-card:hover {
-    border-color: #3b82f6;
 }
 
 .project-title {
@@ -150,16 +135,15 @@ h1 {
     font-weight: 600;
 }
 
-/* Reszponzivitás mobilon */
 @media (max-width: 900px) {
     .hero {
         flex-direction: column;
         text-align: center;
-        gap: 40px;
-        padding-top: 40px;
+        gap: 30px;
+        padding-top: 20px;
     }
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
     .projects {
         flex-direction: column;
