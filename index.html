@@ -19,7 +19,6 @@
             position: relative;
         }
 
-        /* Lebegő háttérelemek animációja */
         @keyframes float {
             0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(5deg); }
@@ -48,14 +47,12 @@
             z-index: 1;
         }
 
-        /* Scroll animáció alapállapota (rejtve és lejjebb tolva) */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        /* Amikor láthatóvá válik (JS adja hozzá az active classt) */
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
@@ -90,16 +87,38 @@
             box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
         nav a {
             color: #b99c9c;
             text-decoration: none;
-            margin-left: 30px;
             font-size: 0.95rem;
             transition: color 0.2s;
         }
 
         nav a:hover {
             color: #ffffff;
+        }
+
+        .lang-btn {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .lang-btn:hover {
+            background-color: #2c1212;
+            border-color: #ef4444;
         }
 
         .hero {
@@ -374,12 +393,15 @@
             <div class="logo-icon">💎</div>
             <span>DIAMONDSZIA</span>
         </div>
-        <nav>
-            <a href="#">Főoldal</a>
-            <a href="#packs">Textúrák</a>
-            <a href="#servers">Projektek</a>
-            <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
-        </nav>
+        <div class="nav-right">
+            <nav>
+                <a href="#" data-key="nav-home">Főoldal</a>
+                <a href="#packs" data-key="nav-packs">Textúrák</a>
+                <a href="#servers" data-key="nav-projects">Projektek</a>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
+            </nav>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langToggleBtn">ENG</button>
+        </div>
     </header>
 
     <section class="hero">
@@ -388,68 +410,136 @@
             <div class="card-label">Diamondszia</div>
         </div>
         <div class="hero-content">
-            <div class="subtitle">Rólam</div>
+            <div class="subtitle" data-key="hero-subtitle">Rólam</div>
             <h1>Diamondszia</h1>
-            <p class="description">
+            <p class="description" data-key="hero-desc">
                 Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!
             </p>
-            <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="discord-btn">Discord Szerver</a>
+            <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="discord-btn" data-key="hero-btn">Discord Szerver</a>
         </div>
     </section>
 
-    <!-- Hozzáadtam a 'reveal' osztályt, hogy görgetéskor betöltődjön -->
-    <div class="section-title reveal" id="packs">Textúracsomagok</div>
+    <div class="section-title reveal" id="packs" data-key="section-packs">Textúracsomagok</div>
     <div class="projects">
         <div class="project-card reveal">
             <div class="project-title">SynPack v1</div>
-            <div class="project-desc">Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
-            <div class="project-status">Elérhető</div>
+            <div class="project-desc" data-key="pack-1-desc">Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
+            <div class="project-status" data-key="status-available">Elérhető</div>
         </div>
         <div class="project-card reveal">
             <div class="project-title">SynPack v2</div>
-            <div class="project-desc">Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
-            <div class="project-status">Elérhető</div>
+            <div class="project-desc" data-key="pack-2-desc">Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
+            <div class="project-status" data-key="status-available">Elérhető</div>
         </div>
         <div class="project-card reveal">
             <div class="project-title">SynPack v3 (Hamarosan)</div>
-            <div class="project-desc">További információk és új textúrák hamarosan érkeznek.</div>
-            <div class="project-status">Fejlesztés alatt</div>
+            <div class="project-desc" data-key="pack-3-desc">További információk és új textúrák hamarosan érkeznek.</div>
+            <div class="project-status" data-key="status-dev">Fejlesztés alatt</div>
         </div>
     </div>
 
     <div class="track-record-section reveal" id="servers">
         <div class="track-header reveal">
-            <div class="track-subtitle">Tapasztalat & Pozíciók</div>
-            <h2>Szerverek és Munkák</h2>
-            <p>Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.</p>
+            <div class="track-subtitle" data-key="track-sub">Tapasztalat & Pozíciók</div>
+            <h2 data-key="track-title">Szerverek és Munkák</h2>
+            <p data-key="track-desc">Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.</p>
         </div>
 
         <div class="servers-grid">
             <div class="server-card reveal">
-                <div class="server-badge">Jelenlegi projekt</div>
+                <div class="server-badge" data-key="server-1-badge">Jelenlegi projekt</div>
                 <div class="server-name">Frostempire</div>
-                <div class="server-desc">Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.</div>
-                <span class="server-link">Aktív szerver</span>
+                <div class="server-desc" data-key="server-1-desc">Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.</div>
+                <span class="server-link" data-key="server-1-link">Aktív szerver</span>
             </div>
 
             <div class="server-card reveal">
-                <div class="server-badge">Keresés alatt</div>
+                <div class="server-badge" data-key="server-search">Keresés alatt</div>
                 <div class="server-name">Szerver #1</div>
-                <div class="server-desc">Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.</div>
-                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link">Jelentkezés Discordon ↗</a>
+                <div class="server-desc" data-key="server-2-desc">Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.</div>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-action-1">Jelentkezés Discordon ↗</a>
             </div>
 
             <div class="server-card reveal">
-                <div class="server-badge">Keresés alatt</div>
+                <div class="server-badge" data-key="server-search">Keresés alatt</div>
                 <div class="server-name">Szerver #2</div>
-                <div class="server-desc">Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.</div>
-                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link">Kapcsolatfelvétel ↗</a>
+                <div class="server-desc" data-key="server-3-desc">Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.</div>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-action-2">Kapcsolatfelvétel ↗</a>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript a görgetés felismerésére -->
     <script>
+        // Nyelvi szótár (Alapból Magyar, átváltható Angolra)
+        const translations = {
+            hu: {
+                "nav-home": "Főoldal",
+                "nav-packs": "Textúrák",
+                "nav-projects": "Projektek",
+                "hero-subtitle": "Rólam",
+                "hero-desc": 'Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!',
+                "hero-btn": "Discord Szerver",
+                "section-packs": "Textúracsomagok",
+                "pack-1-desc": "Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.",
+                "pack-2-desc": "Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.",
+                "pack-3-desc": "További információk és új textúrák hamarosan érkeznek.",
+                "status-available": "Elérhető",
+                "status-dev": "Fejlesztés alatt",
+                "track-sub": "Tapasztalat & Pozíciók",
+                "track-title": "Szerverek és Munkák",
+                "track-desc": "Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.",
+                "server-1-badge": "Jelenlegi projekt",
+                "server-1-desc": "Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.",
+                "server-1-link": "Aktív szerver",
+                "server-search": "Keresés alatt",
+                "server-2-desc": "Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.",
+                "server-3-desc": "Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.",
+                "server-action-1": "Jelentkezés Discordon ↗",
+                "server-action-2": "Kapcsolatfelvétel ↗"
+            },
+            en: {
+                "nav-home": "Home",
+                "nav-packs": "Texture Packs",
+                "nav-projects": "Projects",
+                "hero-subtitle": "About Me",
+                "hero-desc": 'Welcome to my website! I am <span>Diamondszia</span>, a Minecraft player and developer. Here you can find my custom texture packs and projects. Join the community on the Discord server!',
+                "hero-btn": "Discord Server",
+                "section-packs": "Texture Packs",
+                "pack-1-desc": "Price: 450 Fyrecoin<br>Purchase via Discord by opening a ticket.",
+                "pack-2-desc": "Price: 550 Fyrecoin<br>Purchase via Discord by opening a ticket.",
+                "pack-3-desc": "More information and new textures coming soon.",
+                "status-available": "Available",
+                "status-dev": "In Development",
+                "track-sub": "Experience & Positions",
+                "track-title": "Servers & Work",
+                "track-desc": "Past projects and servers where I have collaborated or am applying to.",
+                "server-1-badge": "Current Project",
+                "server-1-desc": "Active collaboration, handling development and management tasks on the server.",
+                "server-1-link": "Active Server",
+                "server-search": "Looking for Server",
+                "server-2-desc": "Looking for a server where I'd love to join as a manager to help the community and growth.",
+                "server-3-desc": "Looking for a server, I'd like to be an experienced manager for serious projects.",
+                "server-action-1": "Apply on Discord ↗",
+                "server-action-2": "Contact ↗"
+            }
+        };
+
+        let currentLang = 'hu';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'hu' ? 'en' : 'hu';
+            document.getElementById('langToggleBtn').innerText = currentLang === 'hu' ? 'ENG' : 'HUN';
+            
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Scroll reveal animáció
         window.addEventListener('scroll', revealOnScroll);
 
         function revealOnScroll() {
@@ -461,12 +551,11 @@
                 var elementVisible = 150;
 
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active');
+                    reveals.classList.add('active');
                 }
             }
         }
 
-        // Futtassuk egyszer betöltéskor is, hogy a felső részek rögtön látszódjanak
         revealOnScroll();
     </script>
 </body>
