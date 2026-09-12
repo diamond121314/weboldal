@@ -1,23 +1,167 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #0f172a;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
-    text-align: center;
-    background: #1e293b;
+body {
+    background-color: #0b0f19;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Navigáció */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    background: transparent;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}
+
+nav a {
+    color: #8b9bb4;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Fő tartalom */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
+    padding: 0 8%;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Skin megjelenítés */
+.skin-container {
+    flex-shrink: 0;
+    background: radial-gradient(circle, rgba(29,39,59,0.4) 0%, rgba(11,15,25,0) 70%);
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+
+.skin-container img {
+    width: 220px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+    transform: perspective(500px) rotateY(-8deg);
+    transition: transform 0.3s ease;
+}
+
+.skin-container img:hover {
+    transform: perspective(500px) rotateY(0deg) scale(1.03);
+}
+
+/* Szövegek */
+.hero-content {
+    max-width: 650px;
+}
+
+.subtitle {
+    color: #3b82f6;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
 h1 {
-    color: #38bdf8;
-    margin-bottom: 10px;
+    font-size: 3.8rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #f3f4f6;
+}
+
+.description {
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.description span {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Projekt kártyák alul */
+.projects {
+    display: flex;
+    gap: 20px;
+    padding: 0 8% 50px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: #131b2e;
+    border: 1px solid #1e293b;
+    padding: 20px 25px;
+    border-radius: 12px;
+    min-width: 200px;
+    flex: 1;
+    transition: border-color 0.2s;
+}
+
+.project-card:hover {
+    border-color: #3b82f6;
+}
+
+.project-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.project-status {
+    font-size: 0.85rem;
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* Reszponzivitás mobilon */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        padding-top: 40px;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    .projects {
+        flex-direction: column;
+    }
 }
