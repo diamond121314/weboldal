@@ -48,6 +48,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
         nav a {
@@ -82,12 +84,15 @@
             box-shadow: 0 15px 25px rgba(0,0,0,0.7);
         }
 
+        /* Sima, 2D-s kép keret */
         .skin-img {
             width: 220px;
             height: 320px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 10px;
             background-color: #1c0d0d;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
         }
 
         .hero-content {
@@ -207,7 +212,7 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100" alt="Logo" class="logo-img">
+                <img src="skin.png" alt="Logo" class="logo-img">
             </div>
             <span>DIAMONDSZIA</span>
         </div>
@@ -220,7 +225,7 @@
 
     <section class="hero">
         <div class="skin-container">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="Skin" class="skin-img">
+            <img src="skin.png" alt="Skin" class="skin-img">
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
