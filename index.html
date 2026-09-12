@@ -45,10 +45,15 @@
             position: relative;
         }
 
+        /* Ez a rész vágja ki a fejet a saját képedből a logóhoz */
         .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            position: absolute;
+            top: -10%;
+            left: -15%;
+            width: 250%;
+            height: 250%;
+            object-fit: none;
+            object-position: 25% 15%;
         }
 
         nav a {
@@ -83,10 +88,8 @@
 
         .skin-img {
             width: 220px;
-            height: 320px;
-            object-fit: cover;
-            background-color: #260f0f;
             border-radius: 15px;
+            object-fit: cover;
             box-shadow: 0 15px 25px rgba(0,0,0,0.7);
             border: 2px solid #3f1515;
         }
@@ -168,6 +171,7 @@
         }
 
         .project-title {
+            file-size: 1.15rem;
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 8px;
@@ -208,8 +212,7 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <!-- Behelyettesítettem egy ingyenes, garantáltan működő Minecraft fej linkkel -->
-                <img src="https://mc-heads.net/avatar/Diamondszia" alt="Logo" class="logo-img" id="real-logo">
+                <img src="skin.png" alt="Logo" class="logo-img">
             </div>
             <span>DIAMONDSZIA</span>
         </div>
@@ -222,8 +225,7 @@
 
     <section class="hero">
         <div class="skin-container">
-            <!-- Minecraft skin teljes test/render külső API-ból, így nem kell semmit töltened a GitHubra -->
-            <img src="https://mc-heads.net/body/Diamondszia" alt="Skin" class="skin-img" id="real-skin">
+            <img src="skin.png" alt="Skin" class="skin-img">
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
