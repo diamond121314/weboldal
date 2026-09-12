@@ -42,18 +42,12 @@
             overflow: hidden;
             border: 1px solid #ef4444;
             background-color: #260f0f;
-            position: relative;
         }
 
-        /* Kivágja a fejet a te feltöltött skinfájlodból */
         .logo-img {
-            position: absolute;
-            top: -10%;
-            left: -15%;
-            width: 250%;
-            height: 250%;
-            object-fit: none;
-            object-position: 25% 15%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             image-rendering: pixelated;
         }
 
@@ -87,14 +81,10 @@
             border-radius: 20px;
         }
 
-        /* Hogy a skin fájl ne nyúljon el, hanem pixelhelyesen látszódjon */
         .skin-img {
-            width: 180px;
-            height: 180px;
-            object-fit: none;
-            object-position: 25% 15%;
-            transform: scale(2.2);
-            transform-origin: center;
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
             background-color: #260f0f;
             border-radius: 15px;
             box-shadow: 0 15px 25px rgba(0,0,0,0.7);
@@ -186,7 +176,10 @@
         }
 
         .project-desc {
-            .project-desc { color: #9ca3af; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
 
         .project-status {
@@ -216,7 +209,7 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <img src="skin.png" alt="Logo" class="logo-img">
+                <img src="head.png" alt="Logo" class="logo-img">
             </div>
             <span>DIAMONDSZIA</span>
         </div>
@@ -229,7 +222,7 @@
 
     <section class="hero">
         <div class="skin-container">
-            <img src="skin.png" alt="Skin" class="skin-img">
+            <img src="head.png" alt="Skin" class="skin-img">
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
