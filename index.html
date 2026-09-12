@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #0b0f19;
+            background-color: #120808;
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -40,23 +40,19 @@
             height: 36px;
             border-radius: 6px;
             overflow: hidden;
-            border: 1px solid #3b82f6;
-            background-color: #131b2e;
+            border: 1px solid #ef4444;
+            background-color: #260f0f;
             position: relative;
         }
 
         .logo-img {
-            position: absolute;
-            top: -10%;
-            left: -15%;
-            width: 250%;
-            height: 250%;
-            object-fit: none;
-            object-position: 25% 15%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         nav a {
-            color: #8b9bb4;
+            color: #b99c9c;
             text-decoration: none;
             margin-left: 30px;
             font-size: 0.95rem;
@@ -80,7 +76,7 @@
 
         .skin-container {
             flex-shrink: 0;
-            background: radial-gradient(circle, rgba(29,39,59,0.4) 0%, rgba(11,15,25,0) 70%);
+            background: radial-gradient(circle, rgba(41,15,15,0.6) 0%, rgba(18,8,8,0) 70%);
             padding: 30px;
             border-radius: 20px;
         }
@@ -89,10 +85,10 @@
             width: 220px;
             height: 320px;
             object-fit: cover;
-            background-color: #131b2e;
+            background-color: #260f0f;
             border-radius: 15px;
-            box-shadow: 0 15px 25px rgba(0,0,0,0.6);
-            border: 2px solid #1e293b;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.7);
+            border: 2px solid #3f1515;
         }
 
         .hero-content {
@@ -100,7 +96,7 @@
         }
 
         .subtitle {
-            color: #3b82f6;
+            color: #ef4444;
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -153,7 +149,7 @@
             color: #f3f4f6;
         }
 
-.projects {
+        .projects {
             display: flex;
             gap: 20px;
             padding: 0 8% 80px 8%;
@@ -163,8 +159,8 @@
         }
 
         .project-card {
-            background-color: #131b2e;
-            border: 1px solid #1e293b;
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
             padding: 25px;
             border-radius: 12px;
             min-width: 250px;
@@ -212,7 +208,8 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <img src="" alt="Logo" class="logo-img" id="real-logo">
+                <!-- Behelyettesítettem egy ingyenes, garantáltan működő Minecraft fej linkkel -->
+                <img src="https://mc-heads.net/avatar/Diamondszia" alt="Logo" class="logo-img" id="real-logo">
             </div>
             <span>DIAMONDSZIA</span>
         </div>
@@ -225,7 +222,8 @@
 
     <section class="hero">
         <div class="skin-container">
-            <img src="" alt="Skin" class="skin-img" id="real-skin">
+            <!-- Minecraft skin teljes test/render külső API-ból, így nem kell semmit töltened a GitHubra -->
+            <img src="https://mc-heads.net/body/Diamondszia" alt="Skin" class="skin-img" id="real-skin">
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
@@ -256,12 +254,5 @@
         </div>
     </div>
 
-    <script>
-        // ITT ÍRD ÁT A FÁJLNEVET, HA MÁS NEVŰ VAGY KITERJESZTÉSŰ A KÉPED (pl. skin.png vagy skin.jpg)
-        const imageName = 'skin.png'; 
-
-        document.getElementById('real-skin').src = imageName;
-        document.getElementById('real-logo').src = imageName;
-    </script>
 </body>
 </html>
