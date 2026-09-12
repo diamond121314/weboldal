@@ -21,27 +21,15 @@
 
         /* Lebegő háttérelemek animációja */
         @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
         @keyframes float-reverse {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(20px) rotate(-5deg);
-            }
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
         .floating-element {
@@ -51,30 +39,26 @@
             z-index: 0;
         }
 
-        .fe-1 {
-            top: 15%;
-            left: 5%;
-            font-size: 4rem;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .fe-2 {
-            top: 45%;
-            right: 7%;
-            font-size: 5rem;
-            animation: float-reverse 8s ease-in-out infinite;
-        }
-
-        .fe-3 {
-            bottom: 20%;
-            left: 8%;
-            font-size: 4.5rem;
-            animation: float 7s ease-in-out infinite;
-        }
+        .fe-1 { top: 15%; left: 5%; font-size: 4rem; animation: float 6s ease-in-out infinite; }
+        .fe-2 { top: 45%; right: 7%; font-size: 5rem; animation: float-reverse 8s ease-in-out infinite; }
+        .fe-3 { bottom: 20%; left: 8%; font-size: 4.5rem; animation: float 7s ease-in-out infinite; }
 
         header, .hero, .section-title, .projects, .track-record-section {
             position: relative;
             z-index: 1;
+        }
+
+        /* Scroll animáció alapállapota (rejtve és lejjebb tolva) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Amikor láthatóvá válik (JS adja hozzá az active classt) */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         header {
@@ -381,7 +365,6 @@
 </head>
 <body>
 
-    <!-- Háttérben lebegő elemek -->
     <div class="floating-element fe-1">🧱</div>
     <div class="floating-element fe-2">💎</div>
     <div class="floating-element fe-3">⚔️</div>
@@ -414,48 +397,49 @@
         </div>
     </section>
 
-    <div class="section-title" id="packs">Textúracsomagok</div>
+    <!-- Hozzáadtam a 'reveal' osztályt, hogy görgetéskor betöltődjön -->
+    <div class="section-title reveal" id="packs">Textúracsomagok</div>
     <div class="projects">
-        <div class="project-card">
+        <div class="project-card reveal">
             <div class="project-title">SynPack v1</div>
             <div class="project-desc">Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
             <div class="project-status">Elérhető</div>
         </div>
-        <div class="project-card">
+        <div class="project-card reveal">
             <div class="project-title">SynPack v2</div>
             <div class="project-desc">Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
             <div class="project-status">Elérhető</div>
         </div>
-        <div class="project-card">
+        <div class="project-card reveal">
             <div class="project-title">SynPack v3 (Hamarosan)</div>
             <div class="project-desc">További információk és új textúrák hamarosan érkeznek.</div>
             <div class="project-status">Fejlesztés alatt</div>
         </div>
     </div>
 
-    <div class="track-record-section" id="servers">
-        <div class="track-header">
+    <div class="track-record-section reveal" id="servers">
+        <div class="track-header reveal">
             <div class="track-subtitle">Tapasztalat & Pozíciók</div>
             <h2>Szerverek és Munkák</h2>
             <p>Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.</p>
         </div>
 
         <div class="servers-grid">
-            <div class="server-card">
+            <div class="server-card reveal">
                 <div class="server-badge">Jelenlegi projekt</div>
                 <div class="server-name">Frostempire</div>
                 <div class="server-desc">Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.</div>
                 <span class="server-link">Aktív szerver</span>
             </div>
 
-            <div class="server-card">
+            <div class="server-card reveal">
                 <div class="server-badge">Keresés alatt</div>
                 <div class="server-name">Szerver #1</div>
                 <div class="server-desc">Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.</div>
                 <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link">Jelentkezés Discordon ↗</a>
             </div>
 
-            <div class="server-card">
+            <div class="server-card reveal">
                 <div class="server-badge">Keresés alatt</div>
                 <div class="server-name">Szerver #2</div>
                 <div class="server-desc">Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.</div>
@@ -464,5 +448,26 @@
         </div>
     </div>
 
+    <!-- JavaScript a görgetés felismerésére -->
+    <script>
+        window.addEventListener('scroll', revealOnScroll);
+
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Futtassuk egyszer betöltéskor is, hogy a felső részek rögtön látszódjanak
+        revealOnScroll();
+    </script>
 </body>
 </html>
