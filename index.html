@@ -42,16 +42,17 @@
             overflow: hidden;
             border: 1px solid #3b82f6;
             background-color: #131b2e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
         }
 
         .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            position: absolute;
+            top: -10%;
+            left: -15%;
+            width: 250%;
+            height: 250%;
+            object-fit: none;
+            object-position: 25% 15%;
         }
 
         nav a {
@@ -209,7 +210,7 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <img src="watermarked_img_8380271739027152824.jpg" alt="Diamondszia Logo" class="logo-img" id="head-logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWElEQVR4nO3OMQEAIAzEsPvXhEMWcK8r6eH6J4K+k8C7p083zT3t86p55Z3tE4eA8C5e98D4eB8C9v4A4uB8C9u4A4uB8C9u4A4uB8C9u4A4uB8C9u4A4uB8A1P6vBw97b3LAAAAAElFTkSuQmCC" alt="Diamondszia Logo" class="logo-img">
             </div>
             <span>DIAMONDSZIA</span>
         </div>
@@ -222,7 +223,7 @@
 
     <section class="hero">
         <div class="skin-container">
-            <img src="watermarked_img_8380271739027152824.jpg" alt="Diamondszia Skin" class="skin-img">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWElEQVR4nO3OMQEAIAzEsPvXhEMWcK8r6eH6J4K+k8C7p083zT3t86p55Z3tE4eA8C5e98D4eB8C9v4A4uB8C9u4A4uB8C9u4A4uB8C9u4A4uB8C9u4A4uB8A1P6vBw97b3LAAAAAElFTkSuQmCC" alt="Diamondszia Skin" class="skin-img">
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
@@ -253,20 +254,5 @@
         </div>
     </div>
 
-    <script>
-        // Ez a kód automatikusan kivágja a fejléc logóhoz a fejet a te nagy skinedből!
-        const img = new Image();
-        img.src = "watermarked_img_8380271739027152824.jpg";
-        img.onload = function() {
-            const canvas = document.createElement('canvas');
-            canvas.width = 64;
-            canvas.height = 64;
-            const ctx = canvas.getContext('2d');
-            // Fej terület másolása (Minecraft skin fej koordináták adaptálása)
-            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, 64, 64);
-            // Ha szeretnéd, hogy közvetlenül beállítódjon:
-            // document.getElementById('head-logo').src = canvas.toDataURL();
-        };
-    </script>
 </body>
 </html>
