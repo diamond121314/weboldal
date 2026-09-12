@@ -2,16 +2,228 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiamondSzia</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale5.0">
+    <title>Diamondszia | Minecraft Fejlesztő</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigáció */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background: transparent;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+        }
+
+        nav a {
+            color: #8b9bb4;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Fő tartalom */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 75vh;
+            padding: 0 8%;
+            gap: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Skin megjelenítés */
+        .skin-container {
+            flex-shrink: 0;
+            background: radial-gradient(circle, rgba(29,39,59,0.4) 0%, rgba(11,15,25,0) 70%);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .skin-container img {
+            width: 220px;
+            image-rendering: pixelated; /* Megőrzi a Minecraft textúra pixel-élességét */
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+            transform: perspective(500px) rotateY(-8deg);
+            transition: transform 0.3s ease;
+        }
+
+        .skin-container img:hover {
+            transform: perspective(500px) rotateY(0deg) scale(1.03);
+        }
+
+        /* Szövegek */
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .subtitle {
+            color: #3b82f6;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: #f3f4f6;
+        }
+
+        .description {
+            color: #9ca3af;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .description span {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Projekt kártyák alul */
+        .projects {
+            display: flex;
+            gap: 20px;
+            padding: 0 8% 50px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .project-card {
+            background-color: #131b2e;
+            border: 1px solid #1e293b;
+            padding: 20px 25px;
+            border-radius: 12px;
+            min-width: 200px;
+            flex: 1;
+            transition: border-color 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #3b82f6;
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .project-status {
+            font-size: 0.85rem;
+            color: #10b981; /* Zöld aktív szín */
+            font-weight: 600;
+        }
+
+        /* Reszponzivitás mobilon */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+                padding-top: 40px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .projects {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Üdvözöl a weboldalamon!</h1>
-        <p>Ezt az oldalt én magam kódolom a saját .hu címem alatt.</p>
+
+    <!-- Menüsor -->
+    <header>
+        <div class="logo">
+            <!-- Itt a kód beilleszti a skined fejét kis logóként is -->
+            <img src="skin.png" alt="Logo">
+            Diamondszia
+        </div>
+        <nav>
+            <a href="#">Rólam</a>
+            <a href="#">Szolgáltatások</a>
+            <a href="#">Munkáim</a>
+            <a href="#">Kapcsolat</a>
+        </nav>
+    </header>
+
+    <!-- Fő rész -->
+    <section class="hero">
+        <div class="skin-container">
+            <!-- Itt jelenik meg a skined teljes alakban -->
+            <img src="skin.png" alt="Minecraft Skin">
+        </div>
+        <div class="hero-content">
+            <div class="subtitle">KI VAGYOK ÉS MIT CSINÁLOK</div>
+            <h1>Olyan szervereket építek, amelyeken imádsz játszani.</h1>
+            <p class="description">
+                Egyedi Minecraft élményeket és szerver-rendszereket hozok létre, amelyek órákra lekötik a játékosokat. Évek óta csiszolom a szerverfejlesztés és a plugin-konfigurálás mesterségét.
+            </p>
+            <p class="description" style="font-size: 0.95rem; margin-top: -15px;">
+                Jelenleg olyan projekteken dolgozom, mint a <span>Saját Szerverem</span> és a <span>Közösségi hálózatok</span>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Alul lévő szerverek / projektek dobozok -->
+    <div class="projects">
+        <div class="project-card">
+            <div class="project-title">DiamondPvP</div>
+            <div class="project-status">Aktív</div>
+        </div>
+        <div class="project-card">
+            <div class="project-title">Kingdoms Server</div>
+            <div class="project-status">Fejlesztés alatt</div>
+        </div>
+        <div class="project-card">
+            <div class="project-title">Lobby System</div>
+            <div class="project-status">Online</div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
