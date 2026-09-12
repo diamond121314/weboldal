@@ -62,8 +62,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 8%;
+            padding: 20px 6%;
             background: transparent;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo {
@@ -90,12 +92,14 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 35px; /* Megnövelve a távolság a menü és a gomb között */
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav {
             display: flex;
-            gap: 25px; /* Elemek közötti távolság a menüben */
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -113,11 +117,11 @@
             background-color: #1c0d0d;
             border: 1px solid #3f1515;
             color: #ffffff;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: background-color 0.2s, border-color 0.2s;
         }
 
@@ -131,16 +135,16 @@
             align-items: center;
             justify-content: center;
             min-height: 70vh;
-            padding: 0 8%;
-            gap: 60px;
+            padding: 0 6%;
+            gap: 50px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .visual-card {
             flex-shrink: 0;
-            width: 240px;
-            height: 320px;
+            width: 220px;
+            height: 300px;
             background: linear-gradient(145deg, #1c0d0d, #0d0404);
             border-radius: 20px;
             border: 2px solid #3f1515;
@@ -192,7 +196,7 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 20px;
@@ -201,9 +205,9 @@
 
         .description {
             color: #9ca3af;
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 30px; /* Kicsit nagyobb hely a gomb felett */
+            margin-bottom: 25px;
         }
 
         .description span {
@@ -228,9 +232,9 @@
         }
 
         .section-title {
-            padding: 0 8%;
+            padding: 0 6%;
             max-width: 1400px;
-            margin: 50px auto 25px auto; /* Nagyobb margók a szekciók között */
+            margin: 40px auto 20px auto;
             font-size: 1.8rem;
             font-weight: 700;
             color: #f3f4f6;
@@ -238,8 +242,8 @@
 
         .projects {
             display: flex;
-            gap: 25px; /* Nagyobb távolság a projektkártyák között */
-            padding: 0 8% 60px 8%;
+            gap: 20px;
+            padding: 0 6% 50px 6%;
             max-width: 1400px;
             margin: 0 auto;
             flex-wrap: wrap;
@@ -248,9 +252,9 @@
         .project-card {
             background-color: #1c0d0d;
             border: 1px solid #3f1515;
-            padding: 30px; /* Belső margó növelve, hogy szellősebb legyen */
+            padding: 25px;
             border-radius: 12px;
-            min-width: 280px;
+            min-width: 260px;
             flex: 1;
             transition: transform 0.2s, border-color 0.2s;
             display: flex;
@@ -266,7 +270,7 @@
         .project-title {
             font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #ffffff;
         }
 
@@ -285,13 +289,13 @@
         }
 
         .track-record-section {
-            padding: 0 8% 80px 8%;
+            padding: 0 6% 70px 6%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .track-header {
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
         .track-subtitle {
@@ -304,7 +308,7 @@
         }
 
         .track-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: #f3f4f6;
             margin-bottom: 10px;
@@ -312,21 +316,21 @@
 
         .track-header p {
             color: #9ca3af;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .servers-grid {
             display: flex;
-            gap: 25px; /* Nagyobb távolság a szerverkártyák között */
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .server-card {
             background-color: #1c0d0d;
             border: 1px solid #3f1515;
-            padding: 30px;
+            padding: 25px;
             border-radius: 16px;
-            min-width: 280px;
+            min-width: 260px;
             flex: 1;
             position: relative;
             transition: transform 0.2s, border-color 0.2s;
@@ -346,11 +350,11 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .server-name {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 8px;
@@ -360,7 +364,7 @@
             color: #9ca3af;
             font-size: 0.9rem;
             line-height: 1.5;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .server-link {
@@ -380,23 +384,30 @@
         }
 
         @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 5%;
+            }
+            .nav-right {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav {
+                gap: 15px;
+            }
             .hero {
                 flex-direction: column;
                 text-align: center;
                 gap: 30px;
-                padding-top: 20px;
+                padding-top: 10px;
             }
             h1 {
-                font-size: 2.3rem;
+                font-size: 2.2rem;
             }
             .projects, .servers-grid {
                 flex-direction: column;
-            }
-            .nav-right {
-                gap: 15px;
-            }
-            nav {
-                gap: 15px;
             }
         }
     </style>
@@ -577,7 +588,7 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 100;
 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add('active');
