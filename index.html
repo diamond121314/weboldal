@@ -90,7 +90,12 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 35px; /* Megnövelve a távolság a menü és a gomb között */
+        }
+
+        nav {
+            display: flex;
+            gap: 25px; /* Elemek közötti távolság a menüben */
         }
 
         nav a {
@@ -198,7 +203,7 @@
             color: #9ca3af;
             font-size: 1.05rem;
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 30px; /* Kicsit nagyobb hely a gomb felett */
         }
 
         .description span {
@@ -225,7 +230,7 @@
         .section-title {
             padding: 0 8%;
             max-width: 1400px;
-            margin: 40px auto 20px auto;
+            margin: 50px auto 25px auto; /* Nagyobb margók a szekciók között */
             font-size: 1.8rem;
             font-weight: 700;
             color: #f3f4f6;
@@ -233,7 +238,7 @@
 
         .projects {
             display: flex;
-            gap: 20px;
+            gap: 25px; /* Nagyobb távolság a projektkártyák között */
             padding: 0 8% 60px 8%;
             max-width: 1400px;
             margin: 0 auto;
@@ -243,11 +248,14 @@
         .project-card {
             background-color: #1c0d0d;
             border: 1px solid #3f1515;
-            padding: 25px;
+            padding: 30px; /* Belső margó növelve, hogy szellősebb legyen */
             border-radius: 12px;
-            min-width: 250px;
+            min-width: 280px;
             flex: 1;
             transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .project-card:hover {
@@ -258,14 +266,14 @@
         .project-title {
             font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             color: #ffffff;
         }
 
         .project-desc {
             color: #9ca3af;
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.5;
         }
 
@@ -273,6 +281,7 @@
             font-size: 0.85rem;
             color: #10b981;
             font-weight: 600;
+            margin-top: auto;
         }
 
         .track-record-section {
@@ -282,7 +291,7 @@
         }
 
         .track-header {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .track-subtitle {
@@ -308,7 +317,7 @@
 
         .servers-grid {
             display: flex;
-            gap: 20px;
+            gap: 25px; /* Nagyobb távolság a szerverkártyák között */
             flex-wrap: wrap;
         }
 
@@ -321,6 +330,9 @@
             flex: 1;
             position: relative;
             transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .server-card:hover {
@@ -348,7 +360,7 @@
             color: #9ca3af;
             font-size: 0.9rem;
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .server-link {
@@ -360,6 +372,7 @@
             align-items: center;
             gap: 5px;
             transition: color 0.2s;
+            margin-top: auto;
         }
 
         .server-link:hover {
@@ -378,6 +391,12 @@
             }
             .projects, .servers-grid {
                 flex-direction: column;
+            }
+            .nav-right {
+                gap: 15px;
+            }
+            nav {
+                gap: 15px;
             }
         }
     </style>
@@ -422,18 +441,24 @@
     <div class="section-title reveal" id="packs" data-key="section-packs">Textúracsomagok</div>
     <div class="projects">
         <div class="project-card reveal">
-            <div class="project-title">SynPack v1</div>
-            <div class="project-desc" data-key="pack-1-desc">Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
+            <div>
+                <div class="project-title">SynPack v1</div>
+                <div class="project-desc" data-key="pack-1-desc">Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
+            </div>
             <div class="project-status" data-key="status-available">Elérhető</div>
         </div>
         <div class="project-card reveal">
-            <div class="project-title">SynPack v2</div>
-            <div class="project-desc" data-key="pack-2-desc">Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
+            <div>
+                <div class="project-title">SynPack v2</div>
+                <div class="project-desc" data-key="pack-2-desc">Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
+            </div>
             <div class="project-status" data-key="status-available">Elérhető</div>
         </div>
         <div class="project-card reveal">
-            <div class="project-title">SynPack v3 (Hamarosan)</div>
-            <div class="project-desc" data-key="pack-3-desc">További információk és új textúrák hamarosan érkeznek.</div>
+            <div>
+                <div class="project-title">SynPack v3 (Hamarosan)</div>
+                <div class="project-desc" data-key="pack-3-desc">További információk és új textúrák hamarosan érkeznek.</div>
+            </div>
             <div class="project-status" data-key="status-dev">Fejlesztés alatt</div>
         </div>
     </div>
@@ -447,23 +472,29 @@
 
         <div class="servers-grid">
             <div class="server-card reveal">
-                <div class="server-badge" data-key="server-1-badge">Jelenlegi projekt</div>
-                <div class="server-name">Frostempire</div>
-                <div class="server-desc" data-key="server-1-desc">Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.</div>
+                <div>
+                    <div class="server-badge" data-key="server-1-badge">Jelenlegi projekt</div>
+                    <div class="server-name">Frostempire</div>
+                    <div class="server-desc" data-key="server-1-desc">Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.</div>
+                </div>
                 <span class="server-link" data-key="server-1-link">Aktív szerver</span>
             </div>
 
             <div class="server-card reveal">
-                <div class="server-badge" data-key="server-search">Keresés alatt</div>
-                <div class="server-name">Szerver #1</div>
-                <div class="server-desc" data-key="server-2-desc">Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.</div>
+                <div>
+                    <div class="server-badge" data-key="server-search">Keresés alatt</div>
+                    <div class="server-name">Szerver #1</div>
+                    <div class="server-desc" data-key="server-2-desc">Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.</div>
+                </div>
                 <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-action-1">Jelentkezés Discordon ↗</a>
             </div>
 
             <div class="server-card reveal">
-                <div class="server-badge" data-key="server-search">Keresés alatt</div>
-                <div class="server-name">Szerver #2</div>
-                <div class="server-desc" data-key="server-3-desc">Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.</div>
+                <div>
+                    <div class="server-badge" data-key="server-search">Keresés alatt</div>
+                    <div class="server-name">Szerver #2</div>
+                    <div class="server-desc" data-key="server-3-desc">Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.</div>
+                </div>
                 <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-action-2">Kapcsolatfelvétel ↗</a>
             </div>
         </div>
@@ -549,7 +580,7 @@
                 var elementVisible = 150;
 
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('active'); // Itt volt a hiba, hozzá lett adva az [i]
+                    reveals[i].classList.add('active');
                 }
             }
         }
