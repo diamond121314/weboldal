@@ -87,8 +87,10 @@
 
         .skin-img {
             width: 220px;
-            border-radius: 15px;
+            height: 320px;
             object-fit: cover;
+            background-color: #131b2e;
+            border-radius: 15px;
             box-shadow: 0 15px 25px rgba(0,0,0,0.6);
             border: 2px solid #1e293b;
         }
@@ -151,7 +153,7 @@
             color: #f3f4f6;
         }
 
-        .projects {
+.projects {
             display: flex;
             gap: 20px;
             padding: 0 8% 80px 8%;
@@ -210,7 +212,6 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <!-- Itt töltheted ki a saját képforrásodat, vagy használhatsz egy küldött linket -->
                 <img src="" alt="Logo" class="logo-img" id="real-logo">
             </div>
             <span>DIAMONDSZIA</span>
@@ -256,10 +257,11 @@
     </div>
 
     <script>
-        // Ha tetszik, bemásolhatod közvetlenül a kép elérési útját ide, vagy átírhatod a src-t:
-        // Például ha a képed neve a repóban pontosan: "skin.jpg", akkor írd át alul:
-        document.getElementById('real-skin').src = 'skin.jpg';
-        document.getElementById('real-logo').src = 'skin.jpg';
+        // ITT ÍRD ÁT A FÁJLNEVET, HA MÁS NEVŰ VAGY KITERJESZTÉSŰ A KÉPED (pl. skin.png vagy skin.jpg)
+        const imageName = 'skin.png'; 
+
+        document.getElementById('real-skin').src = imageName;
+        document.getElementById('real-logo').src = imageName;
     </script>
 </body>
 </html>
