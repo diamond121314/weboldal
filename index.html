@@ -35,13 +35,23 @@
             letter-spacing: 1px;
         }
 
-        .logo-img {
+        .logo-wrapper {
             width: 36px;
             height: 36px;
             border-radius: 6px;
-            object-fit: cover;
+            overflow: hidden;
             border: 1px solid #3b82f6;
-            object-position: left top;
+            background-color: #131b2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
         }
 
         nav a {
@@ -198,7 +208,9 @@
 
     <header>
         <div class="logo">
-            <img src="watermarked_img_8380271739027152824.jpg" alt="Diamondszia Logo" class="logo-img">
+            <div class="logo-wrapper">
+                <img src="watermarked_img_8380271739027152824.jpg" alt="Diamondszia Logo" class="logo-img" id="head-logo">
+            </div>
             <span>DIAMONDSZIA</span>
         </div>
         <nav>
@@ -241,5 +253,20 @@
         </div>
     </div>
 
+    <script>
+        // Ez a kód automatikusan kivágja a fejléc logóhoz a fejet a te nagy skinedből!
+        const img = new Image();
+        img.src = "watermarked_img_8380271739027152824.jpg";
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64;
+            canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            // Fej terület másolása (Minecraft skin fej koordináták adaptálása)
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, 64, 64);
+            // Ha szeretnéd, hogy közvetlenül beállítódjon:
+            // document.getElementById('head-logo').src = canvas.toDataURL();
+        };
+    </script>
 </body>
 </html>
