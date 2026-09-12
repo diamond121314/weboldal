@@ -470,7 +470,6 @@
     </div>
 
     <script>
-        // Nyelvi szótár (Alapból Magyar, átváltható Angolra)
         const translations = {
             hu: {
                 "nav-home": "Főoldal",
@@ -539,7 +538,6 @@
             });
         }
 
-        // Scroll reveal animáció
         window.addEventListener('scroll', revealOnScroll);
 
         function revealOnScroll() {
@@ -551,7 +549,7 @@
                 var elementVisible = 150;
 
                 if (elementTop < windowHeight - elementVisible) {
-                    reveals.classList.add('active');
+                    reveals[i].classList.add('active'); // Itt volt a hiba, hozzá lett adva az [i]
                 }
             }
         }
