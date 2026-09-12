@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SynPack - DiamondSzia</title>
+    <title>Diamondszia - Portfólió</title>
     <style>
         * {
             margin: 0;
@@ -29,17 +29,18 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-weight: bold;
             font-size: 1.1rem;
             letter-spacing: 1px;
         }
 
-        .logo img {
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             object-fit: cover;
+            border: 2px solid #3b82f6;
         }
 
         nav a {
@@ -72,11 +73,13 @@
             border-radius: 20px;
         }
 
-        .skin-container img {
-            width: 200px;
-            max-width: 100%;
-            border-radius: 12px;
+        .skin-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            object-fit: cover;
             box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+            border: 2px solid #1e293b;
         }
 
         .hero-content {
@@ -128,10 +131,19 @@
             transform: translateY(-2px);
         }
 
+        .section-title {
+            padding: 0 8%;
+            max-width: 1400px;
+            margin: 40px auto 20px auto;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f3f4f6;
+        }
+
         .projects {
             display: flex;
             gap: 20px;
-            padding: 0 8% 50px 8%;
+            padding: 0 8% 80px 8%;
             max-width: 1400px;
             margin: 0 auto;
             flex-wrap: wrap;
@@ -140,17 +152,23 @@
         .project-card {
             background-color: #131b2e;
             border: 1px solid #1e293b;
-            padding: 20px 25px;
+            padding: 25px;
             border-radius: 12px;
-            min-width: 200px;
+            min-width: 250px;
             flex: 1;
         }
 
         .project-title {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 8px;
             color: #ffffff;
+        }
+
+        .project-desc {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         .project-status {
@@ -179,42 +197,46 @@
 
     <header>
         <div class="logo">
-            <img src="watermarked_img_8380271739027152824.jpg" alt="SynPack Logo">
-            <span>SYNPAK</span>
+            <img src="watermarked_img_8380271739027152824.jpg" alt="Diamondszia Logo" class="logo-img">
+            <span>DIAMONDSZIA</span>
         </div>
         <nav>
             <a href="#">Főoldal</a>
-            <a href="#">Textúrák</a>
+            <a href="#packs">Textúrák</a>
             <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="skin-container">
-            <img src="watermarked_img_8380271739027152824.jpg" alt="SynPack Character">
+            <img src="watermarked_img_8380271739027152824.jpg" alt="Diamondszia Skin" class="skin-img">
         </div>
         <div class="hero-content">
-            <div class="subtitle">Minecraft Textúracsomagok</div>
-            <h1>SynPack</h1>
+            <div class="subtitle">Rólam</div>
+            <h1>Diamondszia</h1>
             <p class="description">
-                Üdvözöllek az oldalamon! Itt saját készítésű Minecraft textúra packokat (<span>SynPack</span>) találsz, amelyekkel teljesen új élménnyé varázsolhatod a játékot. <span>Lépj be a Discord szerverre is!</span>
+                Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!
             </p>
             <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="discord-btn">Discord Szerver</a>
         </div>
     </section>
 
+    <div class="section-title" id="packs">Textúracsomagok</div>
     <div class="projects">
         <div class="project-card">
-            <div class="project-title">SynPack PvP v1</div>
-            <div class="project-status">Elérhető</div>
+            <div class="project-title">1. Textúra Pack (Hamarosan)</div>
+            <div class="project-desc">Itt lesz a részletes leírás és a letöltési gomb a packodhoz.</div>
+            <div class="project-status">Hamarosan</div>
         </div>
         <div class="project-card">
-            <div class="project-title">SynPack FPS Boost</div>
-            <div class="project-status">Fejlesztés alatt</div>
+            <div class="project-title">2. Textúra Pack (Hamarosan)</div>
+            <div class="project-desc">Itt lesz a részletes leírás és a letöltési gomb a packodhoz.</div>
+            <div class="project-status">Hamarosan</div>
         </div>
         <div class="project-card">
-            <div class="project-title">Custom UI & Overlay</div>
-            <div class="project-status">Online</div>
+            <div class="project-title">3. Textúra Pack (Hamarosan)</div>
+            <div class="project-desc">Itt lesz a részletes leírás és a letöltési gomb a packodhoz.</div>
+            <div class="project-status">Hamarosan</div>
         </div>
     </div>
 
