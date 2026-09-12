@@ -168,10 +168,33 @@
             color: #f3f4f6;
         }
 
+        .section-category {
+            padding: 0 8%;
+            max-width: 1400px;
+            margin: 0 auto 15px auto;
+            color: #ef4444;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-category::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ef4444;
+        }
+
         .projects {
             display: flex;
             gap: 20px;
-            padding: 0 8% 80px 8%;
+            padding: 0 8% 60px 8%;
             max-width: 1400px;
             margin: 0 auto;
             flex-wrap: wrap;
@@ -206,6 +229,98 @@
             font-weight: 600;
         }
 
+        /* Új szekció stílusa a referenciakép alapján */
+        .track-record-section {
+            padding: 0 8% 80px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .track-header {
+            margin-bottom: 30px;
+        }
+
+        .track-subtitle {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .track-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f3f4f6;
+            margin-bottom: 10px;
+        }
+
+        .track-header p {
+            color: #9ca3af;
+            font-size: 1rem;
+        }
+
+        .servers-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .server-card {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            padding: 30px;
+            border-radius: 16px;
+            min-width: 280px;
+            flex: 1;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .server-card:hover {
+            border-color: #ef4444;
+            transform: translateY(-3px);
+        }
+
+        .server-badge {
+            color: #38bdf8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .server-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .server-desc {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .server-link {
+            color: #f3f4f6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .server-link:hover {
+            color: #ef4444;
+        }
+
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column;
@@ -216,7 +331,7 @@
             h1 {
                 font-size: 2.3rem;
             }
-            .projects {
+            .projects, .servers-grid {
                 flex-direction: column;
             }
         }
@@ -232,6 +347,7 @@
         <nav>
             <a href="#">Főoldal</a>
             <a href="#packs">Textúrák</a>
+            <a href="#servers">Projektek</a>
             <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
         </nav>
     </header>
@@ -267,6 +383,38 @@
             <div class="project-title">SynPack v3 (Hamarosan)</div>
             <div class="project-desc">További információk és új textúrák hamarosan érkeznek.</div>
             <div class="project-status">Fejlesztés alatt</div>
+        </div>
+    </div>
+
+    <!-- Új szekció a textúrák alatt -->
+    <div class="track-record-section" id="servers">
+        <div class="track-header">
+            <div class="track-subtitle">Tapasztalat & Pozíciók</div>
+            <h2>Szerverek és Munkák</h2>
+            <p>Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.</p>
+        </div>
+
+        <div class="servers-grid">
+            <div class="server-card">
+                <div class="server-badge">Jelenlegi projekt</div>
+                <div class="server-name">Frostempire</div>
+                <div class="server-desc">Aktív közreműködés, fejlesztési és menedzsment feladatok ellátása a szerveren.</div>
+                <span class="server-link">Aktív szerver</span>
+            </div>
+
+            <div class="server-card">
+                <div class="server-badge">Keresés alatt</div>
+                <div class="server-name">Szerver #1</div>
+                <div class="server-desc">Szervert keresek, ahova szívesen csatlakoznék menedzserként, hogy segítsem a közösséget és a fejlődést.</div>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link">Jelentkezés Discordon ↗</a>
+            </div>
+
+            <div class="server-card">
+                <div class="server-badge">Keresés alatt</div>
+                <div class="server-name">Szerver #2</div>
+                <div class="server-desc">Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.</div>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link">Kapcsolatfelvétel ↗</a>
+            </div>
         </div>
     </div>
 
