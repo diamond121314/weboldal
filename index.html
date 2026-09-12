@@ -45,10 +45,15 @@
             position: relative;
         }
 
+        /* Kivágja a fejet a te feltöltött skinfájlodból */
         .logo-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            position: absolute;
+            top: -10%;
+            left: -15%;
+            width: 250%;
+            height: 250%;
+            object-fit: none;
+            object-position: 25% 15%;
             image-rendering: pixelated;
         }
 
@@ -82,10 +87,14 @@
             border-radius: 20px;
         }
 
+        /* Hogy a skin fájl ne nyúljon el, hanem pixelhelyesen látszódjon */
         .skin-img {
-            width: 200px;
-            height: 320px;
-            object-fit: contain;
+            width: 180px;
+            height: 180px;
+            object-fit: none;
+            object-position: 25% 15%;
+            transform: scale(2.2);
+            transform-origin: center;
             background-color: #260f0f;
             border-radius: 15px;
             box-shadow: 0 15px 25px rgba(0,0,0,0.7);
@@ -177,14 +186,11 @@
         }
 
         .project-desc {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            .project-desc { color: #9ca3af; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5; }
         }
 
         .project-status {
-            f-size: 0.85rem;
+            font-size: 0.85rem;
             color: #10b981;
             font-weight: 600;
         }
@@ -210,8 +216,7 @@
     <header>
         <div class="logo">
             <div class="logo-wrapper">
-                <!-- Hasítva egy létező, aktív prémium skin fiók, ami nem Steve -->
-                <img src="https://crafatar.com/avatars/85337372-97d8-4dfb-9ef7-d86b72a6bcff?size=100&overlay" alt="Logo" class="logo-img">
+                <img src="skin.png" alt="Logo" class="logo-img">
             </div>
             <span>DIAMONDSZIA</span>
         </div>
@@ -224,8 +229,7 @@
 
     <section class="hero">
         <div class="skin-container">
-            <!-- Teljes testes 3D render egyedi skinnel -->
-            <img src="https://crafatar.com/renders/body/85337372-97d8-4dfb-9ef7-d86b72a6bcff?size=300&overlay" alt="Skin" class="skin-img">
+            <img src="skin.png" alt="Skin" class="skin-img">
         </div>
         <div class="hero-content">
             <div class="subtitle">Rólam</div>
