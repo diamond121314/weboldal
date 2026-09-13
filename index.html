@@ -231,24 +231,6 @@
             transform: translateY(-2px);
         }
 
-        .stripe-btn {
-            display: inline-block;
-            background-color: #8B0000;
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-top: 12px;
-            transition: background-color 0.2s, transform 0.2s;
-        }
-
-        .stripe-btn:hover {
-            background-color: #a50000;
-            transform: translateY(-2px);
-        }
-
         .section-title {
             padding: 0 6%;
             max-width: 1400px;
@@ -295,16 +277,40 @@
         .project-desc {
             color: #9ca3af;
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.5;
+        }
+
+        .project-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: auto;
         }
 
         .project-status {
             font-size: 0.85rem;
             color: #10b981;
             font-weight: 600;
-            margin-top: auto;
-            padding-top: 15px;
+        }
+
+        .stripe-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444, #991b1b);
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: opacity 0.2s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .stripe-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         .track-record-section {
@@ -474,23 +480,30 @@
             <div>
                 <div class="project-title">SynPack v1</div>
                 <div class="project-desc" data-key="pack-1-desc">Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
-                <a href="https://buy.stripe.com/test_fZu6oJedG6qQ8oT3nZ1gs01" target="_blank" class="stripe-btn" data-key="stripe-btn-text">Vásárlás kártyával</a>
             </div>
-            <div class="project-status" data-key="status-available">Elérhető</div>
+            <div class="project-bottom">
+                <a href="https://buy.stripe.com/fZu4gy99ncHugMecQPfEk00" target="_blank" class="stripe-btn" data-key="stripe-btn-text">Vásárlás kártyával</a>
+                <div class="project-status" data-key="status-available">Elérhető</div>
+            </div>
         </div>
         <div class="project-card reveal">
             <div>
                 <div class="project-title">SynPack v2</div>
                 <div class="project-desc" data-key="pack-2-desc">Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.</div>
             </div>
-            <div class="project-status" data-key="status-available">Elérhető</div>
+            <div class="project-bottom">
+                <a href="https://buy.stripe.com/eVq6oGgBPbDq53w2cbfEk01" target="_blank" class="stripe-btn" data-key="stripe-btn-text">Vásárlás kártyával</a>
+                <div class="project-status" data-key="status-available">Elérhető</div>
+            </div>
         </div>
         <div class="project-card reveal">
             <div>
                 <div class="project-title">SynPack v3 (Hamarosan)</div>
                 <div class="project-desc" data-key="pack-3-desc">További információk és új textúrák hamarosan érkeznek.</div>
             </div>
-            <div class="project-status" data-key="status-dev">Fejlesztés alatt</div>
+            <div class="project-bottom">
+                <div class="project-status" data-key="status-dev">Fejlesztés alatt</div>
+            </div>
         </div>
     </div>
 
@@ -544,9 +557,9 @@
                 "pack-1-desc": "Ár: 450 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.",
                 "pack-2-desc": "Ár: 550 Fyrecoin<br>Vásárlás Discordon, ticket nyitásával lehetséges.",
                 "pack-3-desc": "További információk és új textúrák hamarosan érkeznek.",
-                "stripe-btn-text": "Vásárlás kártyával",
                 "status-available": "Elérhető",
                 "status-dev": "Fejlesztés alatt",
+                "stripe-btn-text": "Vásárlás kártyával",
                 "track-sub": "Tapasztalat & Pozíciók",
                 "track-title": "Szerverek és Munkák",
                 "track-desc": "Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.",
@@ -570,9 +583,9 @@
                 "pack-1-desc": "Price: 450 Fyrecoin<br>Purchase via Discord by opening a ticket.",
                 "pack-2-desc": "Price: 550 Fyrecoin<br>Purchase via Discord by opening a ticket.",
                 "pack-3-desc": "More information and new textures coming soon.",
-                "stripe-btn-text": "Buy with card",
                 "status-available": "Available",
                 "status-dev": "In Development",
+                "stripe-btn-text": "Buy with card",
                 "track-sub": "Experience & Positions",
                 "track-title": "Servers & Work",
                 "track-desc": "Past projects and servers where I have collaborated or am applying to.",
