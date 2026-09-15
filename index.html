@@ -42,7 +42,7 @@
         .fe-2 { top: 45%; right: 7%; font-size: 3.5rem; animation: float-reverse 8s ease-in-out infinite; }
         .fe-3 { bottom: 20%; left: 8%; font-size: 3rem; animation: float 7s ease-in-out infinite; }
 
-        header, .hero, .section-title, .projects, .track-record-section, footer {
+        header, .hero, .section-title, .projects, .track-record-section, .faq-section, footer {
             position: relative;
             z-index: 1;
         }
@@ -422,6 +422,71 @@
             color: #ef4444;
         }
 
+        /* GYIK Szekció */
+        .faq-section {
+            padding: 0 6% 40px 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .faq-item {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: #ef4444;
+        }
+
+        .faq-question {
+            padding: 15px 18px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #ef4444;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 18px;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 150px;
+            padding: 0 18px 15px 18px;
+        }
+
+        /* Lábléc - Mindig a legeslegutolsó */
         footer {
             border-top: 1px solid #3f1515;
             background-color: #0b0404;
@@ -505,6 +570,7 @@
                 <a href="#" data-key="nav-home">Főoldal</a>
                 <a href="#packs" data-key="nav-packs">Textúrák</a>
                 <a href="#servers" data-key="nav-projects">Projektek</a>
+                <a href="#faq" data-key="nav-faq">GYIK</a>
                 <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
             </nav>
             <button class="lang-btn" onclick="toggleLanguage()" id="langToggleBtn">ENG</button>
@@ -603,6 +669,30 @@
         </div>
     </div>
 
+    <!-- GYIK Szekció -->
+    <div class="section-title reveal" id="faq" data-key="section-faq">Gyakran Ismételt Kérdések</div>
+    <div class="faq-section reveal">
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q1">Hogyan kapom meg a textúracsomagot vásárlás után?</div>
+                <div class="faq-answer" data-key="faq-a1">A Stripe kártyás fizetés után csatlakozz a Discord szerverünkre, és nyiss egy ticketet a fizetési bizonylatossal, így manuálisan vagy automatikusan megkapod a rangot és a letöltést.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q2">Melyik Minecraft verziókhoz kompatibilisek a pakkok?</div>
+                <div class="faq-answer" data-key="faq-a2">A SynPack csomagok kifejezetten a legnépszerűbb PvP verziókhoz (pl. 1.8.9) lettek optimalizálva, de a részleteket mindig megtalálod a Discordon.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q3">Hol tudom jelezni, ha hibát találok?</div>
+                <div class="faq-answer" data-key="faq-a3">Bármilyen hiba, bug vagy vásárlási probléma esetén a Discord szerverünkön tudsz segítséget kérni jegy (ticket) nyitásával.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q4">Jelentkezhetek hozzád szerver menedzsernek?</div>
+                <div class="faq-answer" data-key="faq-a4">Természetesen! Ha komoly projekted van, vedd fel velem a kapcsolatot a Discord szerveren vagy privát üzenetben.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LÁBLÉC: Biztosan a legeslegutolsó elem -->
     <footer>
         <div data-key="footer-rights">© 2026 Diamondszia. Minden jog fenntartva.</div>
         <div class="footer-links">
@@ -617,6 +707,7 @@
                 "nav-home": "Főoldal",
                 "nav-packs": "Textúrák",
                 "nav-projects": "Projektek",
+                "nav-faq": "GYIK",
                 "hero-subtitle": "Rólam",
                 "hero-desc": 'Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!',
                 "hero-btn": "Discord Szerver",
@@ -638,6 +729,15 @@
                 "server-3-desc": "Szervert keresek, manager lennék tapasztalattal, komolyabb projektek mellé.",
                 "server-action-1": "Jelentkezés Discordon ↗",
                 "server-action-2": "Kapcsolatfelvétel ↗",
+                "section-faq": "Gyakran Ismételt Kérdések",
+                "faq-q1": "Hogyan kapom meg a textúracsomagot vásárlás után?",
+                "faq-a1": "A Stripe kártyás fizetés után csatlakozz a Discord szerverünkre, és nyiss egy ticketet a fizetési bizonylatossal, így manuálisan vagy automatikusan megkapod a rangot és a letöltést.",
+                "faq-q2": "Melyik Minecraft verziókhoz kompatibilisek a pakkok?",
+                "faq-a2": "A SynPack csomagok kifejezetten a legnépszerűbb PvP verziókhoz (pl. 1.8.9) lettek optimalizálva, de a részleteket mindig megtalálod a Discordon.",
+                "faq-q3": "Hol tudom jelezni, ha hibát találok?",
+                "faq-a3": "Bármilyen hiba, bug vagy vásárlási probléma esetén a Discord szerverünkön tudsz segítséget kérni jegy (ticket) nyitásával.",
+                "faq-q4": "Jelentkezhetek hozzád szerver menedzsernek?",
+                "faq-a4": "Természetesen! Ha komoly projekted van, vedd fel velem a kapcsolatot a Discord szerveren vagy privát üzenetben.",
                 "footer-rights": "© 2026 Diamondszia. Minden jog fenntartva.",
                 "footer-privacy": "Adatvédelmi szabályzat",
                 "footer-cookies": "Cookie szabályzat"
@@ -646,6 +746,7 @@
                 "nav-home": "Home",
                 "nav-packs": "Texture Packs",
                 "nav-projects": "Projects",
+                "nav-faq": "FAQ",
                 "hero-subtitle": "About Me",
                 "hero-desc": 'Welcome to my website! I am <span>Diamondszia</span>, a Minecraft player and developer. Here you can find my custom texture packs and projects. Join the community on the Discord server!',
                 "hero-btn": "Discord Server",
@@ -667,6 +768,15 @@
                 "server-3-desc": "Looking for a server, I'd like to be an experienced manager for serious projects.",
                 "server-action-1": "Apply on Discord ↗",
                 "server-action-2": "Contact ↗",
+                "section-faq": "Frequently Asked Questions",
+                "faq-q1": "How do I receive the texture pack after purchase?",
+                "faq-a1": "After your Stripe card payment, join our Discord server and open a ticket with your payment receipt to manually or automatically receive your role and download.",
+                "faq-q2": "Which Minecraft versions are compatible with the packs?",
+                "faq-a2": "SynPack bundles are specifically optimized for popular PvP versions (e.g., 1.8.9), but you can always find specific details on Discord.",
+                "faq-q3": "Where can I report bugs or issues?",
+                "faq-a3": "For any bugs, errors, or purchase issues, you can get support on our Discord server by opening a ticket.",
+                "faq-q4": "Can I apply to work with you as a server manager?",
+                "faq-a4": "Of course! If you have a serious project, feel free to contact me on the Discord server or via direct message.",
                 "footer-rights": "© 2026 Diamondszia. All rights reserved.",
                 "footer-privacy": "Privacy Policy",
                 "footer-cookies": "Cookie Policy"
@@ -687,6 +797,15 @@
                 }
             });
         }
+
+        // GYIK lenyíló logika
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
 
         window.addEventListener('scroll', revealOnScroll);
 
