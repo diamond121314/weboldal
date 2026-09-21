@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamondszia - Portfólió</title>
-    <!-- EZT A SORT ADD HOZZÁ: -->
     <link rel="icon" type="image/png" href="skin.png">
     
     <style>
@@ -43,18 +42,18 @@
         }
 
         .gold-pulse-btn {
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 6px;
             font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             cursor: pointer;
             border: 1px solid #cca600;
             text-decoration: none;
             display: inline-block;
             animation: colorShift 5s infinite ease-in-out;
-            margin-left: 20px;
             margin-right: 15px;
             transition: transform 0.2s;
+            white-space: nowrap;
         }
 
         .gold-pulse-btn:hover {
@@ -92,10 +91,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 6%;
+            padding: 15px 4%;
             background: transparent;
-            flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
 
         .logo {
@@ -105,6 +103,7 @@
             font-weight: bold;
             font-size: 1rem;
             letter-spacing: 1px;
+            flex-shrink: 0;
         }
 
         .logo-icon {
@@ -122,22 +121,23 @@
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 12px;
+            flex-wrap: nowrap;
         }
 
         nav {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 12px;
             align-items: center;
+            flex-wrap: nowrap;
         }
 
         nav a {
             color: #b99c9c;
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -148,12 +148,13 @@
             background-color: #1c0d0d;
             border: 1px solid #3f1515;
             color: #ffffff;
-            padding: 5px 12px;
+            padding: 5px 10px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             transition: background-color 0.2s, border-color 0.2s;
+            flex-shrink: 0;
         }
 
         .lang-btn:hover {
@@ -546,19 +547,22 @@
             color: #ef4444;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             header {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 12px 5%;
+                gap: 15px;
             }
             .nav-right {
                 width: 100%;
                 justify-content: space-between;
                 align-items: center;
+                flex-wrap: wrap;
             }
             nav {
                 gap: 10px;
+                flex-wrap: wrap;
             }
             .hero {
                 flex-direction: column;
@@ -594,10 +598,10 @@
             <div class="logo-icon">💎</div>
             <span>DIAMONDSZIA</span>
         </div>
+        <!-- Az aranyszínű gomb közvetlenül itt helyezkedik el a fejlécben, a logó és a menük között -->
+        <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="gold-pulse-btn" data-key="gold-btn">Különleges gomb</a>
         <div class="nav-right">
             <nav>
-                <!-- Aranyszínű gomb a logó és a Főoldal között, megfelelő távolsággal -->
-                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="gold-pulse-btn" data-key="gold-btn">Különleges gomb</a>
                 <a href="#" data-key="nav-home">Főoldal</a>
                 <a href="#packs" data-key="nav-packs">Textúrák</a>
                 <a href="#servers" data-key="nav-projects">Projektek</a>
@@ -713,7 +717,7 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question" data-key="faq-q3">Hol tudom jelezni, ha hibát találok?</div>
-                <div class="faq-answer" data-key="faq-a3">Bármilyen hiba, bug vagy vásárlási probléma esetén a Discord szerverünkön tudsz segítséget kérni jegy (ticket) nyitásával.</div>
+                <div class="faq-answer" data-key="faq-a3">Bármilyen hiba, bug vagy vásárlási problema esetén a Discord szerverünkön tudsz segítséget kérni jegy (ticket) nyitásával.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question" data-key="faq-q4">Jelentkezhetek hozzád szerver menedzsernek?</div>
