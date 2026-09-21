@@ -34,6 +34,33 @@
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
+        /* Aranyszínű gomb színváltakozó animációja */
+        @keyframes colorShift {
+            0% { background-color: #ffd700; color: #120808; border-color: #cca600; box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+            33% { background-color: #ffeb3b; color: #120808; border-color: #c7b61f; box-shadow: 0 0 10px rgba(255, 235, 59, 0.4); }
+            66% { background-color: #ff9999; color: #120808; border-color: #cc6666; box-shadow: 0 0 10px rgba(255, 153, 153, 0.4); }
+            100% { background-color: #ffd700; color: #120808; border-color: #cca600; box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+        }
+
+        .gold-pulse-btn {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            border: 1px solid #cca600;
+            text-decoration: none;
+            display: inline-block;
+            animation: colorShift 5s infinite ease-in-out;
+            margin-left: 20px;
+            margin-right: 15px;
+            transition: transform 0.2s;
+        }
+
+        .gold-pulse-btn:hover {
+            transform: scale(1.05);
+        }
+
         .floating-element {
             position: absolute;
             pointer-events: none;
@@ -103,6 +130,7 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         nav a {
@@ -568,6 +596,8 @@
         </div>
         <div class="nav-right">
             <nav>
+                <!-- Aranyszínű gomb a logó és a Főoldal között, megfelelő távolsággal -->
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="gold-pulse-btn" data-key="gold-btn">Különleges gomb</a>
                 <a href="#" data-key="nav-home">Főoldal</a>
                 <a href="#packs" data-key="nav-packs">Textúrák</a>
                 <a href="#servers" data-key="nav-projects">Projektek</a>
@@ -703,6 +733,7 @@
     <script>
         const translations = {
             hu: {
+                "gold-btn": "Különleges gomb",
                 "nav-home": "Főoldal",
                 "nav-packs": "Textúrák",
                 "nav-projects": "Projektek",
@@ -742,6 +773,7 @@
                 "footer-cookies": "Cookie szabályzat"
             },
             en: {
+                "gold-btn": "Special Button",
                 "nav-home": "Home",
                 "nav-packs": "Texture Packs",
                 "nav-projects": "Projects",
