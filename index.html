@@ -385,7 +385,7 @@
             opacity: 0.95;
         }
 
-        /* --- EGYSZERŰSÍTETT CSOMAG BÖNGÉSZŐ ALOLDAL --- */
+        /* --- CSOMAG BÖNGÉSZŐ ALOLDAL --- */
         #browser-view {
             display: none;
             position: fixed;
@@ -862,21 +862,38 @@
             <input type="text" class="b-search-input" placeholder="Textúracsomag keresése..." data-key-placeholder="search-placeholder">
         </div>
 
-        <div class="browser-grid">
-            <!-- Példa ingyenes kártya (itt cserélheted a sajátodra) -->
-            <div class="pack-browser-card">
+        <div class="browser-grid" id="pack-grid">
+            <!-- Artifact Overlay V2 -->
+            <div class="pack-browser-card" data-title="Artifact Overlay V2">
                 <div>
                     <div class="pbc-top">
                         <div class="pbc-icon">📦</div>
                         <div class="pbc-info">
-                            <h3>Diamondszia Free Pack v1</h3>
+                            <h3>Artifact Overlay V2</h3>
                             <div class="pbc-author">Diamondszia</div>
                         </div>
                     </div>
-                    <div class="pbc-desc" data-key="free-desc-1">Ingyenes, optimalizált textúracsomag a mindennapi játékhoz.</div>
+                    <div class="pbc-desc" data-key="free-desc-1">Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.</div>
                 </div>
                 <div class="pbc-footer">
-                    <a href="#" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                    <a href="https://www.mediafire.com/file/hhhim5mhfoisvzn/%C2%A7l!_%C2%A75%C2%A7l%C2%A7nArtifact_%C2%A76%C2%A7l%C2%A7oOverlay_%C2%A7d%C2%A7n%C2%A7l%5B%C2%A73%C2%A7l%C2%A7nV2%C2%A7d%C2%A7n%C2%A7l%5D_(1).zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                </div>
+            </div>
+
+            <!-- Heat Mending -->
+            <div class="pack-browser-card" data-title="Heat Mending">
+                <div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Heat Mending</h3>
+                            <div class="pbc-author">Diamondszia / Raquew</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc" data-key="free-desc-2">Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.</div>
+                </div>
+                <div class="pbc-footer">
+                    <a href="https://www.mediafire.com/file/3d9a9jyg15vgm2b/Heat._Mending_Raquew_sky.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
                 </div>
             </div>
         </div>
@@ -961,6 +978,23 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Keresés funkció az ingyenes packek között
+        const searchInput = document.querySelector('.b-search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.pack-browser-card');
+                cards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    if (title.includes(term)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
         const translations = {
             hu: {
                 "gold-btn": "Különleges gomb",
@@ -982,7 +1016,8 @@
                 "browser-main-title": "Ingyenes Csomagok",
                 "browser-back": "← Vissza",
                 "search-placeholder": "Textúracsomag keresése...",
-                "free-desc-1": "Ingyenes, optimalizált textúracsomag a mindennapi játékhoz.",
+                "free-desc-1": "Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.",
+                "free-desc-2": "Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.",
                 "download-btn": "Letöltés",
                 "track-sub": "Tapasztalat & Pozíciók",
                 "track-title": "Szerverek és Munkák",
@@ -1028,7 +1063,8 @@
                 "browser-main-title": "Free Packs",
                 "browser-back": "← Back",
                 "search-placeholder": "Search texture pack...",
-                "free-desc-1": "Free, optimized texture pack for everyday gameplay.",
+                "free-desc-1": "Free, optimized overlay texture pack for everyday gameplay.",
+                "free-desc-2": "Custom sky and texture combination for a more atmospheric gameplay.",
                 "download-btn": "Download",
                 "track-sub": "Experience & Positions",
                 "track-title": "Servers & Work",
