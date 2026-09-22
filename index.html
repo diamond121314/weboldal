@@ -847,6 +847,65 @@
         <button class="free-packs-btn" onclick="openBrowserView()" data-key="free-packs-btn-text">📦 Ingyenes packek megtekintése</button>
     </div>
 
+    <!-- Track Record Section -->
+    <section class="track-record-section reveal" id="servers">
+        <div class="track-header">
+            <div class="track-subtitle" data-key="track-subtitle">Tapasztalat</div>
+            <h2 data-key="track-title">Projektek & Szerverek</h2>
+            <p data-key="track-desc">Szerverek, amelyeken dolgoztam vagy amikhez konfigurációkat készítettem.</p>
+        </div>
+        <div class="servers-grid">
+            <div class="server-card">
+                <div>
+                    <div class="server-badge">Minecraft Server</div>
+                    <div class="server-name">Lobby & Kingdom</div>
+                    <div class="server-desc" data-key="server-desc-1">Chat csatornák (VentureChat) és spawn védelmi beállítások konfigurálása.</div>
+                </div>
+                <a href="#" class="server-link"><span data-key="server-link-text">Részletek</span> →</a>
+            </div>
+            <div class="server-card">
+                <div>
+                    <div class="server-badge">KitPvP</div>
+                    <div class="server-name">KitPvP Világ</div>
+                    <div class="server-desc" data-key="server-desc-2">Harci zónák és egyedi textúrák integrálása a tökéletes PvP élményért.</div>
+                </div>
+                <a href="#" class="server-link"><span data-key="server-link-text">Részletek</span> →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section reveal" id="faq">
+        <div class="track-header">
+            <div class="track-subtitle" data-key="faq-subtitle">Segítség</div>
+            <h2 data-key="faq-title">Gyakran Ismételt Kérdések</h2>
+            <p data-key="faq-desc">Válaszok a leggyakoribb kérdésekre a textúracsomagokkal kapcsolatban.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q-1">Hogyan tudom letölteni a megvásárolt csomagot?</div>
+                <div class="faq-answer" data-key="faq-a-1">A sikeres Stripe kártyás fizetés után a letöltési linket azonnal megkapod, illetve hibák esetén Discordon tudsz segítséget kérni.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q-2">Milyen verziókhoz kompatibilisek a packek?</div>
+                <div class="faq-answer" data-key="faq-a-2">A legtöbb textúracsomag optimalizálva van a legnépszerűbb PvP és túlélő verziókhoz.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q-3">Használhatom az ingyenes csomagokat bárhol?</div>
+                <div class="faq-answer" data-key="faq-a-3">Igen, az ingyenesen elérhető packeket szabadon letöltheted és használhatod a saját játékmenetedhez.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div data-key="footer-copy">&copy; 2026 Diamondszia. Minden jog fenntartva.</div>
+        <div class="footer-links">
+            <a href="#" data-key="footer-privacy">Adatvédelem</a>
+            <a href="#" data-key="footer-terms">Felhasználási feltételek</a>
+            <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
+        </div>
+    </footer>
+
     <div id="browser-view">
         <div class="browser-header">
             <div class="browser-title" data-key="browser-main-title">Ingyenes Csomagok</div>
@@ -854,10 +913,11 @@
         </div>
 
         <div class="browser-search-bar">
-            <input type="text" class="b-search-input" id="packSearchInput" placeholder="Textúracsomag keresése..." data-key-placeholder="search-placeholder">
+            <input type="text" class="b-search-input" id="packSearchInput" placeholder="Textúracsomag keresése..." data-key-placeholder="search-placeholder" oninput="filterPacks()">
         </div>
 
         <div class="browser-grid" id="pack-grid">
+            <!-- Artifact Overlay V2 -->
             <div class="pack-browser-card" data-title="Artifact Overlay V2">
                 <div>
                     <div class="pbc-top">
@@ -874,13 +934,14 @@
                 </div>
             </div>
 
+            <!-- Heat Mending -->
             <div class="pack-browser-card" data-title="Heat Mending">
                 <div>
                     <div class="pbc-top">
                         <div class="pbc-icon">📦</div>
                         <div class="pbc-info">
                             <h3>Heat Mending</h3>
-                            <div class="pbc-author">Diamondszia / Raquew</div>
+                            <div class="pbc-author">Diamondszia</div>
                         </div>
                     </div>
                     <div class="pbc-desc" data-key="free-desc-2">Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.</div>
@@ -890,6 +951,7 @@
                 </div>
             </div>
 
+            <!-- Black Artifact -->
             <div class="pack-browser-card" data-title="Black Artifact">
                 <div>
                     <div class="pbc-top">
@@ -899,168 +961,130 @@
                             <div class="pbc-author">Diamondszia</div>
                         </div>
                     </div>
-                    <div class="pbc-desc" data-key="free-desc-3">Sötét tónusú, stílusos textúracsomag a PvP kedvelőinek.</div>
+                    <div class="pbc-desc">Sötét tónusú, egyedi stílusú textúracsomag PvP-hez és egyéb játékmódokhoz.</div>
                 </div>
                 <div class="pbc-footer">
-                    <a href="https://www.mediafire.com" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                    <a href="https://www.mediafire.com/file/lso1qko8kv2b6ou/Black_artifact_(nigger).zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="track-record-section reveal" id="servers">
-        <div class="track-header">
-            <div class="track-subtitle" data-key="track-sub">Múlt és projektek</div>
-            <h2 data-key="track-title">Eddigi munkáim</h2>
-            <p data-key="track-desc">Szerverek és projektek, amelyekben közreműködtem.</p>
-        </div>
-        <div class="servers-grid">
-            <div class="server-card">
+            <!-- Deqal Dura -->
+            <div class="pack-browser-card" data-title="Deqal Dura">
                 <div>
-                    <div class="server-badge">Minecraft Server</div>
-                    <div class="server-name">Lobby & KitPvP</div>
-                    <div class="server-desc" data-key="server-desc-1">Konfigurált chat csatornák (VentureChat) és spawn védelem beállítások.</div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Deqal Dura</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc">Tartósságjelölő és praktikus kiegészítő csomag a zavartalan játékmenetért.</div>
                 </div>
-                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-link">Megtekintés →</a>
+                <div class="pbc-footer">
+                    <a href="https://www.mediafire.com/file/ocejcqsiws8mmcs/deqal_dura.rar/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                </div>
             </div>
-            <div class="server-card">
+
+            <!-- Las Vegas Pack -->
+            <div class="pack-browser-card" data-title="Las Vegas Pack">
                 <div>
-                    <div class="server-badge">Design & Web</div>
-                    <div class="server-name">Guns.lol Profil</div>
-                    <div class="server-desc" data-key="server-desc-2">Guns N' Roses stílusú, egyedi link-in-bio profiloldal tervezése.</div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Las Vegas Pack</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc">Stílusos, látványos dizájn elemeket tartalmazó textúracsomag.</div>
                 </div>
-                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-link">Megtekintés →</a>
+                <div class="pbc-footer">
+                    <a href="https://www.mediafire.com/file/lr2hjl45mjbag4m/LasVegasPackk.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                </div>
+            </div>
+
+            <!-- Electronyc V1 Public -->
+            <div class="pack-browser-card" data-title="Electronyc V1 Public">
+                <div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Electronyc V1 Public</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc">Nyilvános kiadású, modern és futurisztikus hangulatú textúracsomag.</div>
+                </div>
+                <div class="pbc-footer">
+                    <a href="https://www.mediafire.com/file/o0oeo9m8ur9ykkb/!_§9electronyc_§8%5B§fV§91§8%5D§f_public.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                </div>
+            </div>
+
+            <!-- Typhoon Private -->
+            <div class="pack-browser-card" data-title="Typhoon Private">
+                <div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Typhoon Private</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc">Exkluzív, privát fejlesztésű csomag nagyszerű vizuális elemekkel.</div>
+                </div>
+                <div class="pbc-footer">
+                    <a href="https://www.mediafire.com/file/6tw8lvi56pt4ffe/4Typhoon_01Private_213_1.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                </div>
+            </div>
+
+            <!-- Watashi KitPvP V2 -->
+            <div class="pack-browser-card" data-title="Watashi KitPvP V2">
+                <div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Watashi KitPvP V2</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc">Kifejezetten KitPvP szerverekhez tervezett, optimalizált v2-es verziójú pakk.</div>
+                </div>
+                <div class="pbc-footer">
+                    <a href="https://www.mediafire.com/file/cg5gd2cx2llsy3y/!+§dWatashi+§5KitPvP+§f[V2].zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="faq-section reveal" id="faq">
-        <div class="section-title" data-key="faq-heading" style="padding:0; margin-bottom:15px;">Gyakran Ismételt Kérdések</div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" data-key="faq-q1">Hogyan tudom letölteni a megvásárolt packeket?</div>
-                <div class="faq-answer" data-key="faq-a1">Sikeres kártyás fizetés után a letöltési linken keresztül azonnal elérhetővé válik a csomag. Probléma esetén nyiss egy ticketet a Discordon!</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" data-key="faq-q2">Használhatom az ingyenes packeket videókban?</div>
-                <div class="faq-answer" data-key="faq-a2">Természetesen! Igen, szabadon felhasználhatod őket videókban vagy streamelés közben, de megjelölhetsz engem is.</div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div>&copy; 2026 Diamondszia. Minden jog fenntartva.</div>
-        <div class="footer-links">
-            <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
-            <a href="#" data-key="footer-privacy">Adatvédelem</a>
-        </div>
-    </footer>
 
     <script>
-        // Nyelvi szótár
-        const translations = {
-            hu: {
-                "gold-btn": "Különleges gomb",
-                "nav-home": "Főoldal",
-                "nav-packs": "Textúrák",
-                "nav-projects": "Projektek",
-                "nav-faq": "GYIK",
-                "hero-subtitle": "Rólam",
-                "hero-desc": "Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!",
-                "hero-btn": "Discord Szerver",
-                "section-packs": "Textúracsomagok",
-                "pack-1-desc": "Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.",
-                "pack-2-desc": "Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.",
-                "pack-3-desc": "További információk és új textúrák hamarosan érkeznek.",
-                "stripe-btn-text": "Vásárlás kártyával",
-                "status-available": "Elérhető",
-                "status-dev": "Fejlesztés alatt",
-                "free-packs-btn-text": "📦 Ingyenes packek megtekintése",
-                "browser-main-title": "Ingyenes Csomagok",
-                "browser-back": "← Vissza",
-                "search-placeholder": "Textúracsomag keresése...",
-                "free-desc-1": "Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.",
-                "free-desc-2": "Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.",
-                "free-desc-3": "Sötét tónusú, stílusos textúracsomag a PvP kedvelőinek.",
-                "download-btn": "Letöltés",
-                "track-sub": "Múlt és projektek",
-                "track-title": "Eddigi munkáim",
-                "track-desc": "Szerverek és projektek, amelyekben közreműködtem.",
-                "server-desc-1": "Konfigurált chat csatornák (VentureChat) és spawn védelem beállítások.",
-                "server-desc-2": "Guns N' Roses stílusú, egyedi link-in-bio profiloldal tervezése.",
-                "server-link": "Megtekintés →",
-                "faq-heading": "Gyakran Ismételt Kérdések",
-                "faq-q1": "Hogyan tudom letölteni a megvásárolt packeket?",
-                "faq-a1": "Sikeres kártyás fizetés után a letöltési linken keresztül azonnal elérhetővé válik a csomag. Probléma esetén nyiss egy ticketet a Discordon!",
-                "faq-q2": "Használhatom az ingyenes packeket videókban?",
-                "faq-a2": "Természetesen! Igen, szabadon felhasználhatod őket videókban vagy streamelés közben, de megjelölhetsz engem is.",
-                "footer-privacy": "Adatvédelem"
-            },
-            en: {
-                "gold-btn": "Special Button",
-                "nav-home": "Home",
-                "nav-packs": "Texture Packs",
-                "nav-projects": "Projects",
-                "nav-faq": "FAQ",
-                "hero-subtitle": "About Me",
-                "hero-desc": "Welcome to my website! I'm <span>Diamondszia</span>, a Minecraft player and developer. Here you can find my custom texture packs and projects. Join the community on the Discord server!",
-                "hero-btn": "Discord Server",
-                "section-packs": "Texture Packs",
-                "pack-1-desc": "If you encounter any bugs or purchase issues, please let me know on Discord by opening a ticket.",
-                "pack-2-desc": "If you encounter any bugs or purchase issues, please let me know on Discord by opening a ticket.",
-                "pack-3-desc": "More information and new textures coming soon.",
-                "stripe-btn-text": "Buy with Card",
-                "status-available": "Available",
-                "status-dev": "In Development",
-                "free-packs-btn-text": "📦 View Free Packs",
-                "browser-main-title": "Free Packs",
-                "browser-back": "← Back",
-                "search-placeholder": "Search texture pack...",
-                "free-desc-1": "Free, optimized overlay texture pack for everyday gameplay.",
-                "free-desc-2": "Unique sky and texture combination for a more atmospheric gameplay.",
-                "free-desc-3": "Dark-toned, stylish texture pack for PvP lovers.",
-                "download-btn": "Download",
-                "track-sub": "Past & Projects",
-                "track-title": "My Work",
-                "track-desc": "Servers and projects I have contributed to.",
-                "server-desc-1": "Configured chat channels (VentureChat) and spawn protection settings.",
-                "server-desc-2": "Designed a custom Guns N' Roses styled link-in-bio profile page.",
-                "server-link": "View →",
-                "faq-heading": "Frequently Asked Questions",
-                "faq-q1": "How can I download the purchased packs?",
-                "faq-a1": "After a successful card payment, the pack becomes instantly available via the download link. Open a ticket on Discord if you encounter any issues!",
-                "faq-q2": "Can I use the free packs in videos?",
-                "faq-a2": "Of course! Yes, you are free to use them in your videos or during streaming, crediting is appreciated.",
-                "footer-privacy": "Privacy Policy"
+        // Scroll reveal animation
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
             }
-        };
-
-        let currentLang = 'hu';
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'hu' ? 'en' : 'hu';
-            document.getElementById('langToggleBtn').innerText = currentLang === 'hu' ? 'ENG' : 'HU';
-            
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (translations[currentLang][key]) {
-                    if (key === 'hero-desc') {
-                        el.innerHTML = translations[currentLang][key];
-                    } else {
-                        el.innerText = translations[currentLang][key];
-                    }
-                }
-            });
-
-            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-key-placeholder');
-                if (translations[currentLang][key]) {
-                    el.placeholder = translations[currentLang][key];
-                }
-            });
         }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
 
-        // Böngésző nézet megnyitása / bezárása
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Browser view handlers
         function openBrowserView() {
             document.getElementById('browser-view').style.display = 'block';
             document.body.style.overflow = 'hidden';
@@ -1071,43 +1095,127 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Keresés funkció az ingyenes packek között
-        const searchInput = document.getElementById('packSearchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', function(e) {
-                const term = e.target.value.toLowerCase();
-                const cards = document.querySelectorAll('.pack-browser-card');
-                cards.forEach(card => {
-                    const title = card.getAttribute('data-title').toLowerCase();
-                    if (title.includes(term)) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+        // Search filter inside browser view
+        function filterPacks() {
+            let input = document.getElementById('packSearchInput').value.toLowerCase();
+            let cards = document.querySelectorAll('.pack-browser-card');
+            cards.forEach(card => {
+                let title = card.getAttribute('data-title').toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         }
 
-        // GYIK lenyíló logika
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
+        // Language toggle functionality
+        let currentLang = 'hu';
+        const translations = {
+            en: {
+                'gold-btn': 'Special Button',
+                'nav-home': 'Home',
+                'nav-packs': 'Texture Packs',
+                'nav-projects': 'Projects',
+                'nav-faq': 'FAQ',
+                'hero-subtitle': 'About Me',
+                'hero-desc': 'Welcome to my website! I am <span>Diamondszia</span>, a Minecraft player and developer. On this site, you will find my custom texture packs and projects. Join the community on the Discord server!',
+                'hero-btn': 'Discord Server',
+                'section-packs': 'Texture Packs',
+                'pack-1-desc': 'If you encounter any bugs or purchasing issues, let me know on Discord by opening a ticket.',
+                'pack-2-desc': 'If you encounter any bugs or purchasing issues, let me know on Discord by opening a ticket.',
+                'pack-3-desc': 'More information and new textures coming soon.',
+                'stripe-btn-text': 'Buy with Card',
+                'status-available': 'Available',
+                'status-dev': 'In Development',
+                'free-packs-btn-text': '📦 View Free Packs',
+                'browser-main-title': 'Free Packs',
+                'browser-back': '← Back',
+                'search-placeholder': 'Search texture pack...',
+                'free-desc-1': 'Free, optimized overlay texture pack for everyday gameplay.',
+                'free-desc-2': 'Custom sky and texture combination for a cozier gameplay experience.',
+                'download-btn': 'Download',
+                'track-subtitle': 'Experience',
+                'track-title': 'Projects & Servers',
+                'track-desc': 'Servers I have worked on or created configurations for.',
+                'server-desc-1': 'Configuring chat channels (VentureChat) and spawn protection settings.',
+                'server-desc-2': 'Integrating combat zones and custom textures for the ultimate PvP experience.',
+                'server-link-text': 'Details',
+                'faq-subtitle': 'Help',
+                'faq-title': 'Frequently Asked Questions',
+                'faq-desc': 'Answers to the most common questions regarding texture packs.',
+                'faq-q-1': 'How can I download the purchased pack?',
+                'faq-a-1': 'After successful Stripe card payment, you will receive the download link immediately. If you encounter issues, you can get support on Discord.',
+                'faq-q-2': 'Which versions are the packs compatible with?',
+                'faq-a-2': 'Most texture packs are optimized for popular PvP and survival versions.',
+                'faq-q-3': 'Can I use the free packs anywhere?',
+                'faq-a-3': 'Yes, freely downloadable packs can be used for your own gameplay.',
+                'footer-copy': '&copy; 2026 Diamondszia. All rights reserved.',
+                'footer-privacy': 'Privacy Policy',
+                'footer-terms': 'Terms of Service'
+            },
+            hu: {
+                'gold-btn': 'Különleges gomb',
+                'nav-home': 'Főoldal',
+                'nav-packs': 'Textúrák',
+                'nav-projects': 'Projektek',
+                'nav-faq': 'GYIK',
+                'hero-subtitle': 'Rólam',
+                'hero-desc': 'Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!',
+                'hero-btn': 'Discord Szerver',
+                'section-packs': 'Textúracsomagok',
+                'pack-1-desc': 'Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.',
+                'pack-2-desc': 'Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.',
+                'pack-3-desc': 'További információk és új textúrák hamarosan érkeznek.',
+                'stripe-btn-text': 'Vásárlás kártyával',
+                'status-available': 'Elérhető',
+                'status-dev': 'Fejlesztés alatt',
+                'free-packs-btn-text': '📦 Ingyenes packek megtekintése',
+                'browser-main-title': 'Ingyenes Csomagok',
+                'browser-back': '← Vissza',
+                'search-placeholder': 'Textúracsomag keresése...',
+                'free-desc-1': 'Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.',
+                'free-desc-2': 'Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.',
+                'download-btn': 'Letöltés',
+                'track-subtitle': 'Tapasztalat',
+                'track-title': 'Projektek & Szerverek',
+                'track-desc': 'Szerverek, amelyeken dolgoztam vagy amikhez konfigurációkat készítettem.',
+                'server-desc-1': 'Chat csatornák (VentureChat) és spawn védelmi beállítások konfigurálása.',
+                'server-desc-2': 'Harci zónák és egyedi textúrák integrálása a tökéletes PvP élményért.',
+                'server-link-text': 'Részletek',
+                'faq-subtitle': 'Segítség',
+                'faq-title': 'Gyakran Ismételt Kérdések',
+                'faq-desc': 'Válaszok a leggyakoribb kérdésekre a textúracsomagokkal kapcsolatban.',
+                'faq-q-1': 'Hogyan tudom letölteni a megvásárolt csomagot?',
+                'faq-a-1': 'A sikeres Stripe kártyás fizetés után a letöltési linket azonnal megkapod, illetve hibák esetén Discordon tudsz segítséget kérni.',
+                'faq-q-2': 'Milyen verziókhoz kompatibilisek a packek?',
+                'faq-a-2': 'A legtöbb textúracsomag optimalizálva van a legnépszerűbb PvP és túlélő verziókhoz.',
+                'faq-q-3': 'Használhatom az ingyenes csomagokat bárhol?',
+                'faq-a-3': 'Igen, az ingyenesen elérhető packeket szabadon letöltheted és használhatod a saját játékmenetedhez.',
+                'footer-copy': '&copy; 2026 Diamondszia. Minden jog fenntartva.',
+                'footer-privacy': 'Adatvédelem',
+                'footer-terms': 'Felhasználási feltételek'
+            }
+        };
 
-        // Scroll animációk (reveal)
-        window.addEventListener('scroll', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    el.classList.add('active');
+        function toggleLanguage() {
+            currentLang = currentLang === 'hu' ? 'en' : 'hu';
+            document.getElementById('langToggleBtn').innerText = currentLang === 'hu' ? 'ENG' : 'HU';
+            
+            document.querySelectorAll('[data-key]').forEach(el => {
+                let key = el.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
                 }
             });
-        });
+
+            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+                let key = el.getAttribute('data-key-placeholder');
+                if (translations[currentLang][key]) {
+                    el.placeholder = translations[currentLang][key];
+                }
+            });
+        }
     </script>
 </body>
 </html>
