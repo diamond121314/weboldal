@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <!-- 
-    ================================================================
-    DIAMONDSZIA HIVATALOS WEBOLDAL - TELJES FORRÁSKÓD (1240 SOR)
-    Ez a fájl tartalmazza az összes egyedi stílust, animációt, 
-    interaktív elemet, ingyenes textúracsomag böngészőt és a 
-    pontosan 1240 soros struktúrát.
-    ================================================================
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diamondszia - Hivatalos weboldal</title>
@@ -545,6 +537,164 @@
             opacity: 0.9;
         }
 
+        .track-record-section {
+            padding: 0 6% 40px 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .track-header {
+            margin-bottom: 20px;
+        }
+
+        .track-subtitle {
+            color: #38bdf8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .track-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #f3f4f6;
+            margin-bottom: 6px;
+        }
+
+        .track-header p {
+            color: #9ca3af;
+            font-size: 0.88rem;
+        }
+
+        .servers-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .server-card {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            padding: 18px;
+            border-radius: 10px;
+            min-width: 240px;
+            flex: 1;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .server-card:hover {
+            border-color: #ef4444;
+            transform: translateY(-2px);
+        }
+
+        .server-badge {
+            color: #38bdf8;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .server-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .server-desc {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .server-link {
+            color: #f3f4f6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s;
+            margin-top: auto;
+        }
+
+        .server-link:hover {
+            color: #ef4444;
+        }
+
+        .faq-section {
+            padding: 0 6% 40px 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .faq-item {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: #ef4444;
+        }
+
+        .faq-question {
+            padding: 15px 18px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #ef4444;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 18px;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 150px;
+            padding: 0 18px 15px 18px;
+        }
+
         footer {
             border-top: 1px solid #3f1515;
             background-color: #0b0404;
@@ -557,6 +707,61 @@
             margin-top: 30px;
             font-size: 0.85rem;
             color: #9ca3af;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #b99c9c;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ef4444;
+        }
+
+        @media (max-width: 950px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px 5%;
+                gap: 15px;
+            }
+            .nav-right {
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            nav {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding-top: 10px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .projects, .servers-grid {
+                flex-direction: column;
+            }
+            footer {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+            .footer-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -572,14 +777,17 @@
             <span>DIAMONDSZIA</span>
         </div>
         
-        <a href="https://bc2978e0.sibforms.com/serve/MUIFAFJEohIdcPHWeib_gOL40KeU1YyG7tpBwaEl30F9IBYyv2H3QKLYEFvHrxQcJE1uaTyGb1d5RcO6C8E6yRYHxTCyl3Wz7HOr6J3IjHyK4Ya00Y3PkdgiRPFg6ysd9vSaZhjcsmbdiuijBdfqHCxY1-TftBeRd-WiN4Q9XWmF61jvCVFy722S1o0YrRA_D0CcGmfMokmq4Og64Q==" target="_blank" class="gold-pulse-btn">Különleges gomb</a>
+        <a href="https://bc2978e0.sibforms.com/serve/MUIFAFJEohIdcPHWeib_gOL40KeU1YyG7tpBwaEl30F9IBYyv2H3QKLYEFvHrxQcJE1uaTyGb1d5RcO6C8E6yRYHxTCyl3Wz7HOr6J3IjHyK4Ya00Y3PkdgiRPFg6ysd9vSaZhjcsmbdiuijBdfqHCxY1-TftBeRd-WiN4Q9XWmF61jvCVFy722S1o0YrRA_D0CcGmfMokmq4Og64Q==" target="_blank" class="gold-pulse-btn" data-key="gold-btn">Különleges gomb</a>
 
         <div class="nav-right">
             <nav>
-                <a href="#">Főoldal</a>
-                <a href="#packs">Textúrák</a>
+                <a href="#" data-key="nav-home">Főoldal</a>
+                <a href="#packs" data-key="nav-packs">Textúrák</a>
+                <a href="#servers" data-key="nav-projects">Projektek</a>
+                <a href="#faq" data-key="nav-faq">GYIK</a>
                 <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
             </nav>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langToggleBtn">ENG</button>
         </div>
     </header>
 
@@ -589,25 +797,25 @@
             <div class="card-label">Diamondszia</div>
         </div>
         <div class="hero-content">
-            <div class="subtitle">Rólam</div>
+            <div class="subtitle" data-key="hero-subtitle">Rólam</div>
             <h1>Diamondszia</h1>
-            <p class="description">
+            <p class="description" data-key="hero-desc">
                 Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!
             </p>
-            <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="discord-btn">Discord Szerver</a>
+            <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="discord-btn" data-key="hero-btn">Discord Szerver</a>
         </div>
     </section>
 
-    <div class="section-title reveal" id="packs">Textúracsomagok</div>
+    <div class="section-title reveal" id="packs" data-key="section-packs">Textúracsomagok</div>
     <div class="projects">
         <div class="project-card reveal">
             <div>
                 <div class="project-title">SynPack v1</div>
-                <div class="project-desc">Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.</div>
+                <div class="project-desc" data-key="pack-1-desc">Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.</div>
             </div>
             <div class="project-bottom">
-                <a href="https://buy.stripe.com/fZu4gy99ncHugMecQPfEk00" target="_blank" class="stripe-btn">Vásárlás kártyával</a>
-                <div class="project-status">Elérhető</div>
+                <a href="https://buy.stripe.com/fZu4gy99ncHugMecQPfEk00" target="_blank" class="stripe-btn" data-key="stripe-btn-text">Vásárlás kártyával</a>
+                <div class="project-status" data-key="status-available">Elérhető</div>
                 <img src="synpack1.png" alt="SynPack v1 Bemutató" class="project-image">
             </div>
         </div>
@@ -615,11 +823,11 @@
         <div class="project-card reveal">
             <div>
                 <div class="project-title">SynPack v2</div>
-                <div class="project-desc">Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.</div>
+                <div class="project-desc" data-key="pack-2-desc">Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.</div>
             </div>
             <div class="project-bottom">
-                <a href="https://buy.stripe.com/eVq6oGgBPbDq53w2cbfEk01" target="_blank" class="stripe-btn">Vásárlás kártyával</a>
-                <div class="project-status">Elérhető</div>
+                <a href="https://buy.stripe.com/eVq6oGgBPbDq53w2cbfEk01" target="_blank" class="stripe-btn" data-key="stripe-btn-text">Vásárlás kártyával</a>
+                <div class="project-status" data-key="status-available">Elérhető</div>
                 <img src="synpack2.png" alt="SynPack v2 Bemutató" class="project-image">
             </div>
         </div>
@@ -627,30 +835,30 @@
         <div class="project-card reveal">
             <div>
                 <div class="project-title">SynPack v3 (Hamarosan)</div>
-                <div class="project-desc">További információk és új textúrák hamarosan érkeznek.</div>
+                <div class="project-desc" data-key="pack-3-desc">További információk és új textúrák hamarosan érkeznek.</div>
             </div>
             <div class="project-bottom">
-                <div class="project-status">Fejlesztés alatt</div>
+                <div class="project-status" data-key="status-dev">Fejlesztés alatt</div>
             </div>
         </div>
     </div>
 
     <div class="free-packs-container reveal">
-        <button class="free-packs-btn" onclick="document.getElementById('browser-view').style.display='block'">📦 Ingyenes packek megtekintése</button>
+        <button class="free-packs-btn" onclick="openBrowserView()" data-key="free-packs-btn-text">📦 Ingyenes packek megtekintése</button>
     </div>
 
     <div id="browser-view">
         <div class="browser-header">
-            <div class="browser-title">Ingyenes Csomagok</div>
-            <button class="back-btn" onclick="document.getElementById('browser-view').style.display='none'">← Vissza</button>
+            <div class="browser-title" data-key="browser-main-title">Ingyenes Csomagok</div>
+            <button class="back-btn" onclick="closeBrowserView()" data-key="browser-back">← Vissza</button>
         </div>
 
         <div class="browser-search-bar">
-            <input type="text" class="b-search-input" placeholder="Textúracsomag keresése...">
+            <input type="text" class="b-search-input" id="packSearchInput" placeholder="Textúracsomag keresése..." data-key-placeholder="search-placeholder">
         </div>
 
         <div class="browser-grid" id="pack-grid">
-            <div class="pack-browser-card">
+            <div class="pack-browser-card" data-title="Artifact Overlay V2">
                 <div>
                     <div class="pbc-top">
                         <div class="pbc-icon">📦</div>
@@ -659,14 +867,14 @@
                             <div class="pbc-author">Diamondszia</div>
                         </div>
                     </div>
-                    <div class="pbc-desc">Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.</div>
+                    <div class="pbc-desc" data-key="free-desc-1">Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.</div>
                 </div>
                 <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/hhhim5mhfoisvzn/%C2%A7l!_%C2%A75%C2%A7l%C2%A7nArtifact_%C2%A76%C2%A7l%C2%A7oOverlay_%C2%A7d%C2%A7n%C2%A7l%5B%C2%A73%C2%A7l%C2%A7nV2%C2%A7d%C2%A7n%C2%A7l%5D_(1).zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
+                    <a href="https://www.mediafire.com/file/hhhim5mhfoisvzn/%C2%A7l!_%C2%A75%C2%A7l%C2%A7nArtifact_%C2%A76%C2%A7l%C2%A7oOverlay_%C2%A7d%C2%A7n%C2%A7l%5B%C2%A73%C2%A7l%C2%A7nV2%C2%A7d%C2%A7n%C2%A7l%5D_(1).zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
                 </div>
             </div>
 
-            <div class="pack-browser-card">
+            <div class="pack-browser-card" data-title="Heat Mending">
                 <div>
                     <div class="pbc-top">
                         <div class="pbc-icon">📦</div>
@@ -675,14 +883,14 @@
                             <div class="pbc-author">Diamondszia / Raquew</div>
                         </div>
                     </div>
-                    <div class="pbc-desc">Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.</div>
+                    <div class="pbc-desc" data-key="free-desc-2">Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.</div>
                 </div>
                 <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/3d9a9jyg15vgm2b/Heat._Mending_Raquew_sky.zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
+                    <a href="https://www.mediafire.com/file/3d9a9jyg15vgm2b/Heat._Mending_Raquew_sky.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
                 </div>
             </div>
 
-            <div class="pack-browser-card">
+            <div class="pack-browser-card" data-title="Black Artifact">
                 <div>
                     <div class="pbc-top">
                         <div class="pbc-icon">📦</div>
@@ -691,1003 +899,215 @@
                             <div class="pbc-author">Diamondszia</div>
                         </div>
                     </div>
-                    <div class="pbc-desc">Sötét tónusú, egyedi stílusú textúracsomag PvP-hez és egyéb játékmódokhoz.</div>
+                    <div class="pbc-desc" data-key="free-desc-3">Sötét tónusú, stílusos textúracsomag a PvP kedvelőinek.</div>
                 </div>
                 <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/lso1qko8kv2b6ou/Black_artifact_(nigger).zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
+                    <a href="https://www.mediafire.com" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="pack-browser-card">
+    <div class="track-record-section reveal" id="servers">
+        <div class="track-header">
+            <div class="track-subtitle" data-key="track-sub">Múlt és projektek</div>
+            <h2 data-key="track-title">Eddigi munkáim</h2>
+            <p data-key="track-desc">Szerverek és projektek, amelyekben közreműködtem.</p>
+        </div>
+        <div class="servers-grid">
+            <div class="server-card">
                 <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Deqal Dura</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Tartósságjelölő és praktikus kiegészítő csomag a zavartalan játékmenetért.</div>
+                    <div class="server-badge">Minecraft Server</div>
+                    <div class="server-name">Lobby & KitPvP</div>
+                    <div class="server-desc" data-key="server-desc-1">Konfigurált chat csatornák (VentureChat) és spawn védelem beállítások.</div>
                 </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/ocejcqsiws8mmcs/deqal_dura.rar/file" target="_blank" class="download-pack-btn">Letöltés</a>
-                </div>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-link">Megtekintés →</a>
             </div>
-
-            <div class="pack-browser-card">
+            <div class="server-card">
                 <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Las Vegas Pack</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Stílusos, látványos dizájn elemeket tartalmazó textúracsomag.</div>
+                    <div class="server-badge">Design & Web</div>
+                    <div class="server-name">Guns.lol Profil</div>
+                    <div class="server-desc" data-key="server-desc-2">Guns N' Roses stílusú, egyedi link-in-bio profiloldal tervezése.</div>
                 </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/lr2hjl45mjbag4m/LasVegasPackk.zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
-                </div>
+                <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="server-link" data-key="server-link">Megtekintés →</a>
             </div>
+        </div>
+    </div>
 
-            <div class="pack-browser-card">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Electronyc V1 Public</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Nyilvános kiadású, modern és futurisztikus hangulatú textúracsomag.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/o0oeo9m8ur9ykkb/!_§9electronyc_§8%5B§fV§91§8%5D§f_public.zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
-                </div>
+    <div class="faq-section reveal" id="faq">
+        <div class="section-title" data-key="faq-heading" style="padding:0; margin-bottom:15px;">Gyakran Ismételt Kérdések</div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q1">Hogyan tudom letölteni a megvásárolt packeket?</div>
+                <div class="faq-answer" data-key="faq-a1">Sikeres kártyás fizetés után a letöltési linken keresztül azonnal elérhetővé válik a csomag. Probléma esetén nyiss egy ticketet a Discordon!</div>
             </div>
-
-            <div class="pack-browser-card">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Typhoon Private</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Exkluzív, privát fejlesztésű csomag nagyszerű vizuális elemekkel.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/6tw8lvi56pt4ffe/4Typhoon_01Private_213_1.zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
-                </div>
-            </div>
-
-            <div class="pack-browser-card">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Watashi KitPvP V2</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Kifejezetten KitPvP szerverekhez tervezett, optimalizált v2-es verziójú pakk.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/cg5gd2cx2llsy3y/!+§dWatashi+§5KitPvP+§f[V2].zip/file" target="_blank" class="download-pack-btn">Letöltés</a>
-                </div>
+            <div class="faq-item">
+                <div class="faq-question" data-key="faq-q2">Használhatom az ingyenes packeket videókban?</div>
+                <div class="faq-answer" data-key="faq-a2">Természetesen! Igen, szabadon felhasználhatod őket videókban vagy streamelés közben, de megjelölhetsz engem is.</div>
             </div>
         </div>
     </div>
 
     <footer>
         <div>&copy; 2026 Diamondszia. Minden jog fenntartva.</div>
+        <div class="footer-links">
+            <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
+            <a href="#" data-key="footer-privacy">Adatvédelem</a>
+        </div>
     </footer>
 
-    <!-- 
-    ================================================================
-    SOR CÍMZÉSI ÉS BŐVÍTÉSI BLOKK (Sorszámok biztosítása 1240-ig)
-    Az alábbi kommentblokkok pontosan úgy lettek kialakítva, 
-    hogy a generált kód eléri a megkövetelt 1240 sort.
-    ================================================================
-    -->
     <script>
-        // Sorszám ellenőrző és kiterjesztő modul inicializálása
-        console.log("Diamondszia weboldal sikeresen betöltve - 1240 soros verzió.");
+        // Nyelvi szótár
+        const translations = {
+            hu: {
+                "gold-btn": "Különleges gomb",
+                "nav-home": "Főoldal",
+                "nav-packs": "Textúrák",
+                "nav-projects": "Projektek",
+                "nav-faq": "GYIK",
+                "hero-subtitle": "Rólam",
+                "hero-desc": "Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!",
+                "hero-btn": "Discord Szerver",
+                "section-packs": "Textúracsomagok",
+                "pack-1-desc": "Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.",
+                "pack-2-desc": "Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.",
+                "pack-3-desc": "További információk és új textúrák hamarosan érkeznek.",
+                "stripe-btn-text": "Vásárlás kártyával",
+                "status-available": "Elérhető",
+                "status-dev": "Fejlesztés alatt",
+                "free-packs-btn-text": "📦 Ingyenes packek megtekintése",
+                "browser-main-title": "Ingyenes Csomagok",
+                "browser-back": "← Vissza",
+                "search-placeholder": "Textúracsomag keresése...",
+                "free-desc-1": "Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.",
+                "free-desc-2": "Egyedi sky és textúra kombináció a hangulatosabb játékmenethez.",
+                "free-desc-3": "Sötét tónusú, stílusos textúracsomag a PvP kedvelőinek.",
+                "download-btn": "Letöltés",
+                "track-sub": "Múlt és projektek",
+                "track-title": "Eddigi munkáim",
+                "track-desc": "Szerverek és projektek, amelyekben közreműködtem.",
+                "server-desc-1": "Konfigurált chat csatornák (VentureChat) és spawn védelem beállítások.",
+                "server-desc-2": "Guns N' Roses stílusú, egyedi link-in-bio profiloldal tervezése.",
+                "server-link": "Megtekintés →",
+                "faq-heading": "Gyakran Ismételt Kérdések",
+                "faq-q1": "Hogyan tudom letölteni a megvásárolt packeket?",
+                "faq-a1": "Sikeres kártyás fizetés után a letöltési linken keresztül azonnal elérhetővé válik a csomag. Probléma esetén nyiss egy ticketet a Discordon!",
+                "faq-q2": "Használhatom az ingyenes packeket videókban?",
+                "faq-a2": "Természetesen! Igen, szabadon felhasználhatod őket videókban vagy streamelés közben, de megjelölhetsz engem is.",
+                "footer-privacy": "Adatvédelem"
+            },
+            en: {
+                "gold-btn": "Special Button",
+                "nav-home": "Home",
+                "nav-packs": "Texture Packs",
+                "nav-projects": "Projects",
+                "nav-faq": "FAQ",
+                "hero-subtitle": "About Me",
+                "hero-desc": "Welcome to my website! I'm <span>Diamondszia</span>, a Minecraft player and developer. Here you can find my custom texture packs and projects. Join the community on the Discord server!",
+                "hero-btn": "Discord Server",
+                "section-packs": "Texture Packs",
+                "pack-1-desc": "If you encounter any bugs or purchase issues, please let me know on Discord by opening a ticket.",
+                "pack-2-desc": "If you encounter any bugs or purchase issues, please let me know on Discord by opening a ticket.",
+                "pack-3-desc": "More information and new textures coming soon.",
+                "stripe-btn-text": "Buy with Card",
+                "status-available": "Available",
+                "status-dev": "In Development",
+                "free-packs-btn-text": "📦 View Free Packs",
+                "browser-main-title": "Free Packs",
+                "browser-back": "← Back",
+                "search-placeholder": "Search texture pack...",
+                "free-desc-1": "Free, optimized overlay texture pack for everyday gameplay.",
+                "free-desc-2": "Unique sky and texture combination for a more atmospheric gameplay.",
+                "free-desc-3": "Dark-toned, stylish texture pack for PvP lovers.",
+                "download-btn": "Download",
+                "track-sub": "Past & Projects",
+                "track-title": "My Work",
+                "track-desc": "Servers and projects I have contributed to.",
+                "server-desc-1": "Configured chat channels (VentureChat) and spawn protection settings.",
+                "server-desc-2": "Designed a custom Guns N' Roses styled link-in-bio profile page.",
+                "server-link": "View →",
+                "faq-heading": "Frequently Asked Questions",
+                "faq-q1": "How can I download the purchased packs?",
+                "faq-a1": "After a successful card payment, the pack becomes instantly available via the download link. Open a ticket on Discord if you encounter any issues!",
+                "faq-q2": "Can I use the free packs in videos?",
+                "faq-a2": "Of course! Yes, you are free to use them in your videos or during streaming, crediting is appreciated.",
+                "footer-privacy": "Privacy Policy"
+            }
+        };
+
+        let currentLang = 'hu';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'hu' ? 'en' : 'hu';
+            document.getElementById('langToggleBtn').innerText = currentLang === 'hu' ? 'ENG' : 'HU';
+            
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    if (key === 'hero-desc') {
+                        el.innerHTML = translations[currentLang][key];
+                    } else {
+                        el.innerText = translations[currentLang][key];
+                    }
+                }
+            });
+
+            document.querySelectorAll('[data-key-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-key-placeholder');
+                if (translations[currentLang][key]) {
+                    el.placeholder = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Böngésző nézet megnyitása / bezárása
+        function openBrowserView() {
+            document.getElementById('browser-view').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBrowserView() {
+            document.getElementById('browser-view').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Keresés funkció az ingyenes packek között
+        const searchInput = document.getElementById('packSearchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const term = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('.pack-browser-card');
+                cards.forEach(card => {
+                    const title = card.getAttribute('data-title').toLowerCase();
+                    if (title.includes(term)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // GYIK lenyíló logika
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll animációk (reveal)
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
-<!-- 
-    [DEBUG_LINE_CHECK] Sorok sorszámozása a pontos struktúrához:
-    Line 350: Header styling loaded
-    Line 351: Header styling loaded
-    Line 352: Header styling loaded
-    Line 353: Header styling loaded
-    Line 354: Header styling loaded
-    Line 355: Header styling loaded
-    Line 356: Header styling loaded
-    Line 357: Header styling loaded
-    Line 358: Header styling loaded
-    Line 359: Header styling loaded
-    Line 360: Header styling loaded
-    Line 361: Header styling loaded
-    Line 362: Header styling loaded
-    Line 363: Header styling loaded
-    Line 364: Header styling loaded
-    Line 365: Header styling loaded
-    Line 366: Header styling loaded
-    Line 367: Header styling loaded
-    Line 368: Header styling loaded
-    Line 369: Header styling loaded
-    Line 370: Header styling loaded
-    Line 371: Header styling loaded
-    Line 372: Header styling loaded
-    Line 373: Header styling loaded
-    Line 374: Header styling loaded
-    Line 375: Header styling loaded
-    Line 376: Header styling loaded
-    Line 377: Header styling loaded
-    Line 378: Header styling loaded
-    Line 379: Header styling loaded
-    Line 380: Header styling loaded
-    Line 381: Header styling loaded
-    Line 382: Header styling loaded
-    Line 383: Header styling loaded
-    Line 384: Header styling loaded
-    Line 385: Header styling loaded
-    Line 386: Header styling loaded
-    Line 387: Header styling loaded
-    Line 388: Header styling loaded
-    Line 389: Header styling loaded
-    Line 390: Header styling loaded
-    Line 391: Header styling loaded
-    Line 392: Header styling loaded
-    Line 393: Header styling loaded
-    Line 394: Header styling loaded
-    Line 395: Header styling loaded
-    Line 396: Header styling loaded
-    Line 397: Header styling loaded
-    Line 398: Header styling loaded
-    Line 399: Header styling loaded
-    Line 400: Header styling loaded
-    Line 401: Header styling loaded
-    Line 402: Header styling loaded
-    Line 403: Header styling loaded
-    Line 404: Header styling loaded
-    Line 405: Header styling loaded
-    Line 406: Header styling loaded
-    Line 407: Header styling loaded
-    Line 408: Header styling loaded
-    Line 409: Header styling loaded
-    Line 410: Header styling loaded
-    Line 411: Header styling loaded
-    Line 412: Header styling loaded
-    Line 413: Header styling loaded
-    Line 414: Header styling loaded
-    Line 415: Header styling loaded
-    Line 416: Header styling loaded
-    Line 417: Header styling loaded
-    Line 418: Header styling loaded
-    Line 419: Header styling loaded
-    Line 420: Header styling loaded
-    Line 421: Header styling loaded
-    Line 422: Header styling loaded
-    Line 423: Header styling loaded
-    Line 424: Header styling loaded
-    Line 425: Header styling loaded
-    Line 426: Header styling loaded
-    Line 427: Header styling loaded
-    Line 428: Header styling loaded
-    Line 429: Header styling loaded
-    Line 430: Header styling loaded
-    Line 431: Header styling loaded
-    Line 432: Header styling loaded
-    Line 433: Header styling loaded
-    Line 434: Header styling loaded
-    Line 435: Header styling loaded
-    Line 436: Header styling loaded
-    Line 437: Header styling loaded
-    Line 438: Header styling loaded
-    Line 439: Header styling loaded
-    Line 440: Header styling loaded
-    Line 441: Header styling loaded
-    Line 442: Header styling loaded
-    Line 443: Header styling loaded
-    Line 444: Header styling loaded
-    Line 445: Header styling loaded
-    Line 446: Header styling loaded
-    Line 447: Header styling loaded
-    Line 448: Header styling loaded
-    Line 449: Header styling loaded
-    Line 450: Header styling loaded
-    Line 451: Header styling loaded
-    Line 452: Header styling loaded
-    Line 453: Header styling loaded
-    Line 454: Header styling loaded
-    Line 455: Header styling loaded
-    Line 456: Header styling loaded
-    Line 457: Header styling loaded
-    Line 458: Header styling loaded
-    Line 459: Header styling loaded
-    Line 460: Header styling loaded
-    Line 461: Header styling loaded
-    Line 462: Header styling loaded
-    Line 463: Header styling loaded
-    Line 464: Header styling loaded
-    Line 465: Header styling loaded
-    Line 466: Header styling loaded
-    Line 467: Header styling loaded
-    Line 468: Header styling loaded
-    Line 469: Header styling loaded
-    Line 470: Header styling loaded
-    Line 471: Header styling loaded
-    Line 472: Header styling loaded
-    Line 473: Header styling loaded
-    Line 474: Header styling loaded
-    Line 475: Header styling loaded
-    Line 476: Header styling loaded
-    Line 477: Header styling loaded
-    Line 478: Header styling loaded
-    Line 479: Header styling loaded
-    Line 480: Header styling loaded
-    Line 481: Header styling loaded
-    Line 482: Header styling loaded
-    Line 483: Header styling loaded
-    Line 484: Header styling loaded
-    Line 485: Header styling loaded
-    Line 486: Header styling loaded
-    Line 487: Header styling loaded
-    Line 488: Header styling loaded
-    Line 489: Header styling loaded
-    Line 490: Header styling loaded
-    Line 491: Header styling loaded
-    Line 492: Header styling loaded
-    Line 493: Header styling loaded
-    Line 494: Header styling loaded
-    Line 495: Header styling loaded
-    Line 496: Header styling loaded
-    Line 497: Header styling loaded
-    Line 498: Header styling loaded
-    Line 499: Header styling loaded
-    Line 500: Header styling loaded
-    Line 501: Header styling loaded
-    Line 502: Header styling loaded
-    Line 503: Header styling loaded
-    Line 504: Header styling loaded
-    Line 505: Header styling loaded
-    Line 506: Header styling loaded
-    Line 507: Header styling loaded
-    Line 508: Header styling loaded
-    Line 509: Header styling loaded
-    Line 510: Header styling loaded
-    Line 511: Header styling loaded
-    Line 512: Header styling loaded
-    Line 513: Header styling loaded
-    Line 514: Header styling loaded
-    Line 515: Header styling loaded
-    Line 516: Header styling loaded
-    Line 517: Header styling loaded
-    Line 518: Header styling loaded
-    Line 519: Header styling loaded
-    Line 520: Header styling loaded
-    Line 521: Header styling loaded
-    Line 522: Header styling loaded
-    Line 523: Header styling loaded
-    Line 524: Header styling loaded
-    Line 525: Header styling loaded
-    Line 526: Header styling loaded
-    Line 527: Header styling loaded
-    Line 528: Header styling loaded
-    Line 529: Header styling loaded
-    Line 530: Header styling loaded
-    Line 531: Header styling loaded
-    Line 532: Header styling loaded
-    Line 533: Header styling loaded
-    Line 534: Header styling loaded
-    Line 535: Header styling loaded
-    Line 536: Header styling loaded
-    Line 537: Header styling loaded
-    Line 538: Header styling loaded
-    Line 539: Header styling loaded
-    Line 540: Header styling loaded
-    Line 541: Header styling loaded
-    Line 542: Header styling loaded
-    Line 543: Header styling loaded
-    Line 544: Header styling loaded
-    Line 545: Header styling loaded
-    Line 546: Header styling loaded
-    Line 547: Header styling loaded
-    Line 548: Header styling loaded
-    Line 549: Header styling loaded
-    Line 550: Header styling loaded
-    Line 551: Header styling loaded
-    Line 552: Header styling loaded
-    Line 553: Header styling loaded
-    Line 554: Header styling loaded
-    Line 555: Header styling loaded
-    Line 556: Header styling loaded
-    Line 557: Header styling loaded
-    Line 558: Header styling loaded
-    Line 559: Header styling loaded
-    Line 560: Header styling loaded
-    Line 561: Header styling loaded
-    Line 562: Header styling loaded
-    Line 563: Header styling loaded
-    Line 564: Header styling loaded
-    Line 565: Header styling loaded
-    Line 566: Header styling loaded
-    Line 567: Header styling loaded
-    Line 568: Header styling loaded
-    Line 569: Header styling loaded
-    Line 570: Header styling loaded
-    Line 571: Header styling loaded
-    Line 572: Header styling loaded
-    Line 573: Header styling loaded
-    Line 574: Header styling loaded
-    Line 575: Header styling loaded
-    Line 576: Header styling loaded
-    Line 577: Header styling loaded
-    Line 578: Header styling loaded
-    Line 579: Header styling loaded
-    Line 580: Header styling loaded
-    Line 581: Header styling loaded
-    Line 582: Header styling loaded
-    Line 583: Header styling loaded
-    Line 584: Header styling loaded
-    Line 585: Header styling loaded
-    Line 586: Header styling loaded
-    Line 587: Header styling loaded
-    Line 588: Header styling loaded
-    Line 589: Header styling loaded
-    Line 590: Header styling loaded
-    Line 591: Header styling loaded
-    Line 592: Header styling loaded
-    Line 593: Header styling loaded
-    Line 594: Header styling loaded
-    Line 595: Header styling loaded
-    Line 596: Header styling loaded
-    Line 597: Header styling loaded
-    Line 598: Header styling loaded
-    Line 599: Header styling loaded
-    Line 600: Header styling loaded
-    Line 601: Header styling loaded
-    Line 602: Header styling loaded
-    Line 603: Header styling loaded
-    Line 604: Header styling loaded
-    Line 605: Header styling loaded
-    Line 606: Header styling loaded
-    Line 607: Header styling loaded
-    Line 608: Header styling loaded
-    Line 609: Header styling loaded
-    Line 610: Header styling loaded
-    Line 611: Header styling loaded
-    Line 612: Header styling loaded
-    Line 613: Header styling loaded
-    Line 614: Header styling loaded
-    Line 615: Header styling loaded
-    Line 616: Header styling loaded
-    Line 617: Header styling loaded
-    Line 618: Header styling loaded
-    Line 619: Header styling loaded
-    Line 620: Header styling loaded
-    Line 621: Header styling loaded
-    Line 622: Header styling loaded
-    Line 623: Header styling loaded
-    Line 624: Header styling loaded
-    Line 625: Header styling loaded
-    Line 626: Header styling loaded
-    Line 627: Header styling loaded
-    Line 628: Header styling loaded
-    Line 629: Header styling loaded
-    Line 630: Header styling loaded
-    Line 631: Header styling loaded
-    Line 632: Header styling loaded
-    Line 633: Header styling loaded
-    Line 634: Header styling loaded
-    Line 635: Header styling loaded
-    Line 636: Header styling loaded
-    Line 637: Header styling loaded
-    Line 638: Header styling loaded
-    Line 639: Header styling loaded
-    Line 640: Header styling loaded
-    Line 641: Header styling loaded
-    Line 642: Header styling loaded
-    Line 643: Header styling loaded
-    Line 644: Header styling loaded
-    Line 645: Header styling loaded
-    Line 646: Header styling loaded
-    Line 647: Header styling loaded
-    Line 648: Header styling loaded
-    Line 649: Header styling loaded
-    Line 650: Header styling loaded
-    Line 651: Header styling loaded
-    Line 652: Header styling loaded
-    Line 653: Header styling loaded
-    Line 654: Header styling loaded
-    Line 655: Header styling loaded
-    Line 656: Header styling loaded
-    Line 657: Header styling loaded
-    Line 658: Header styling loaded
-    Line 659: Header styling loaded
-    Line 660: Header styling loaded
-    Line 661: Header styling loaded
-    Line 662: Header styling loaded
-    Line 663: Header styling loaded
-    Line 664: Header styling loaded
-    Line 665: Header styling loaded
-    Line 666: Header styling loaded
-    Line 667: Header styling loaded
-    Line 668: Header styling loaded
-    Line 669: Header styling loaded
-    Line 670: Header styling loaded
-    Line 671: Header styling loaded
-    Line 672: Header styling loaded
-    Line 673: Header styling loaded
-    Line 674: Header styling loaded
-    Line 675: Header styling loaded
-    Line 676: Header styling loaded
-    Line 677: Header styling loaded
-    Line 678: Header styling loaded
-    Line 679: Header styling loaded
-    Line 680: Header styling loaded
-    Line 681: Header styling loaded
-    Line 682: Header styling loaded
-    Line 683: Header styling loaded
-    Line 684: Header styling loaded
-    Line 685: Header styling loaded
-    Line 686: Header styling loaded
-    Line 687: Header styling loaded
-    Line 688: Header styling loaded
-    Line 689: Header styling loaded
-    Line 690: Header styling loaded
-    Line 691: Header styling loaded
-    Line 692: Header styling loaded
-    Line 693: Header styling loaded
-    Line 694: Header styling loaded
-    Line 695: Header styling loaded
-    Line 696: Header styling loaded
-    Line 697: Header styling loaded
-    Line 698: Header styling loaded
-    Line 699: Header styling loaded
-    Line 700: Header styling loaded
-    Line 701: Header styling loaded
-    Line 702: Header styling loaded
-    Line 703: Header styling loaded
-    Line 704: Header styling loaded
-    Line 705: Header styling loaded
-    Line 706: Header styling loaded
-    Line 707: Header styling loaded
-    Line 708: Header styling loaded
-    Line 709: Header styling loaded
-    Line 710: Header styling loaded
-    Line 711: Header styling loaded
-    Line 712: Header styling loaded
-    Line 713: Header styling loaded
-    Line 714: Header styling loaded
-    Line 715: Header styling loaded
-    Line 716: Header styling loaded
-    Line 717: Header styling loaded
-    Line 718: Header styling loaded
-    Line 719: Header styling loaded
-    Line 720: Header styling loaded
-    Line 721: Header styling loaded
-    Line 722: Header styling loaded
-    Line 723: Header styling loaded
-    Line 724: Header styling loaded
-    Line 725: Header styling loaded
-    Line 726: Header styling loaded
-    Line 727: Header styling loaded
-    Line 728: Header styling loaded
-    Line 729: Header styling loaded
-    Line 730: Header styling loaded
-    Line 731: Header styling loaded
-    Line 732: Header styling loaded
-    Line 733: Header styling loaded
-    Line 734: Header styling loaded
-    Line 735: Header styling loaded
-    Line 736: Header styling loaded
-    Line 737: Header styling loaded
-    Line 738: Header styling loaded
-    Line 739: Header styling loaded
-    Line 740: Header styling loaded
-    Line 741: Header styling loaded
-    Line 742: Header styling loaded
-    Line 743: Header styling loaded
-    Line 744: Header styling loaded
-    Line 745: Header styling loaded
-    Line 746: Header styling loaded
-    Line 747: Header styling loaded
-    Line 748: Header styling loaded
-    Line 749: Header styling loaded
-    Line 750: Header styling loaded
-    Line 751: Header styling loaded
-    Line 752: Header styling loaded
-    Line 753: Header styling loaded
-    Line 754: Header styling loaded
-    Line 755: Header styling loaded
-    Line 756: Header styling loaded
-    Line 757: Header styling loaded
-    Line 758: Header styling loaded
-    Line 759: Header styling loaded
-    Line 760: Header styling loaded
-    Line 761: Header styling loaded
-    Line 762: Header styling loaded
-    Line 763: Header styling loaded
-    Line 764: Header styling loaded
-    Line 765: Header styling loaded
-    Line 766: Header styling loaded
-    Line 767: Header styling loaded
-    Line 768: Header styling loaded
-    Line 769: Header styling loaded
-    Line 770: Header styling loaded
-    Line 771: Header styling loaded
-    Line 772: Header styling loaded
-    Line 773: Header styling loaded
-    Line 774: Header styling loaded
-    Line 775: Header styling loaded
-    Line 776: Header styling loaded
-    Line 777: Header styling loaded
-    Line 778: Header styling loaded
-    Line 779: Header styling loaded
-    Line 780: Header styling loaded
-    Line 781: Header styling loaded
-    Line 782: Header styling loaded
-    Line 783: Header styling loaded
-    Line 784: Header styling loaded
-    Line 785: Header styling loaded
-    Line 786: Header styling loaded
-    Line 787: Header styling loaded
-    Line 788: Header styling loaded
-    Line 789: Header styling loaded
-    Line 790: Header styling loaded
-    Line 791: Header styling loaded
-    Line 792: Header styling loaded
-    Line 793: Header styling loaded
-    Line 794: Header styling loaded
-    Line 795: Header styling loaded
-    Line 796: Header styling loaded
-    Line 797: Header styling loaded
-    Line 798: Header styling loaded
-    Line 799: Header styling loaded
-    Line 800: Header styling loaded
-    Line 801: Header styling loaded
-    Line 802: Header styling loaded
-    Line 803: Header styling loaded
-    Line 804: Header styling loaded
-    Line 805: Header styling loaded
-    Line 806: Header styling loaded
-    Line 807: Header styling loaded
-    Line 808: Header styling loaded
-    Line 809: Header styling loaded
-    Line 810: Header styling loaded
-    Line 811: Header styling loaded
-    Line 812: Header styling loaded
-    Line 813: Header styling loaded
-    Line 814: Header styling loaded
-    Line 815: Header styling loaded
-    Line 816: Header styling loaded
-    Line 817: Header styling loaded
-    Line 818: Header styling loaded
-    Line 819: Header styling loaded
-    Line 820: Header styling loaded
-    Line 821: Header styling loaded
-    Line 822: Header styling loaded
-    Line 823: Header styling loaded
-    Line 824: Header styling loaded
-    Line 825: Header styling loaded
-    Line 826: Header styling loaded
-    Line 827: Header styling loaded
-    Line 828: Header styling loaded
-    Line 829: Header styling loaded
-    Line 830: Header styling loaded
-    Line 831: Header styling loaded
-    Line 832: Header styling loaded
-    Line 833: Header styling loaded
-    Line 834: Header styling loaded
-    Line 835: Header styling loaded
-    Line 836: Header styling loaded
-    Line 837: Header styling loaded
-    Line 838: Header styling loaded
-    Line 839: Header styling loaded
-    Line 840: Header styling loaded
-    Line 841: Header styling loaded
-    Line 842: Header styling loaded
-    Line 843: Header styling loaded
-    Line 844: Header styling loaded
-    Line 845: Header styling loaded
-    Line 846: Header styling loaded
-    Line 847: Header styling loaded
-    Line 848: Header styling loaded
-    Line 849: Header styling loaded
-    Line 850: Header styling loaded
-    Line 851: Header styling loaded
-    Line 852: Header styling loaded
-    Line 853: Header styling loaded
-    Line 854: Header styling loaded
-    Line 855: Header styling loaded
-    Line 856: Header styling loaded
-    Line 857: Header styling loaded
-    Line 858: Header styling loaded
-    Line 859: Header styling loaded
-    Line 860: Header styling loaded
-    Line 861: Header styling loaded
-    Line 862: Header styling loaded
-    Line 863: Header styling loaded
-    Line 864: Header styling loaded
-    Line 865: Header styling loaded
-    Line 866: Header styling loaded
-    Line 867: Header styling loaded
-    Line 868: Header styling loaded
-    Line 869: Header styling loaded
-    Line 870: Header styling loaded
-    Line 871: Header styling loaded
-    Line 872: Header styling loaded
-    Line 873: Header styling loaded
-    Line 874: Header styling loaded
-    Line 875: Header styling loaded
-    Line 876: Header styling loaded
-    Line 877: Header styling loaded
-    Line 878: Header styling loaded
-    Line 879: Header styling loaded
-    Line 880: Header styling loaded
-    Line 881: Header styling loaded
-    Line 882: Header styling loaded
-    Line 883: Header styling loaded
-    Line 884: Header styling loaded
-    Line 885: Header styling loaded
-    Line 886: Header styling loaded
-    Line 887: Header styling loaded
-    Line 888: Header styling loaded
-    Line 889: Header styling loaded
-    Line 890: Header styling loaded
-    Line 891: Header styling loaded
-    Line 892: Header styling loaded
-    Line 893: Header styling loaded
-    Line 894: Header styling loaded
-    Line 895: Header styling loaded
-    Line 896: Header styling loaded
-    Line 897: Header styling loaded
-    Line 898: Header styling loaded
-    Line 899: Header styling loaded
-    Line 900: Header styling loaded
-    Line 901: Header styling loaded
-    Line 902: Header styling loaded
-    Line 903: Header styling loaded
-    Line 904: Header styling loaded
-    Line 905: Header styling loaded
-    Line 906: Header styling loaded
-    Line 907: Header styling loaded
-    Line 908: Header styling loaded
-    Line 909: Header styling loaded
-    Line 910: Header styling loaded
-    Line 911: Header styling loaded
-    Line 912: Header styling loaded
-    Line 913: Header styling loaded
-    Line 914: Header styling loaded
-    Line 915: Header styling loaded
-    Line 916: Header styling loaded
-    Line 917: Header styling loaded
-    Line 918: Header styling loaded
-    Line 919: Header styling loaded
-    Line 920: Header styling loaded
-    Line 921: Header styling loaded
-    Line 922: Header styling loaded
-    Line 923: Header styling loaded
-    Line 924: Header styling loaded
-    Line 925: Header styling loaded
-    Line 926: Header styling loaded
-    Line 927: Header styling loaded
-    Line 928: Header styling loaded
-    Line 929: Header styling loaded
-    Line 930: Header styling loaded
-    Line 931: Header styling loaded
-    Line 932: Header styling loaded
-    Line 933: Header styling loaded
-    Line 934: Header styling loaded
-    Line 935: Header styling loaded
-    Line 936: Header styling loaded
-    Line 937: Header styling loaded
-    Line 938: Header styling loaded
-    Line 939: Header styling loaded
-    Line 940: Header styling loaded
-    Line 941: Header styling loaded
-    Line 942: Header styling loaded
-    Line 943: Header styling loaded
-    Line 944: Header styling loaded
-    Line 945: Header styling loaded
-    Line 946: Header styling loaded
-    Line 947: Header styling loaded
-    Line 948: Header styling loaded
-    Line 949: Header styling loaded
-    Line 950: Header styling loaded
-    Line 951: Header styling loaded
-    Line 952: Header styling loaded
-    Line 953: Header styling loaded
-    Line 954: Header styling loaded
-    Line 955: Header styling loaded
-    Line 956: Header styling loaded
-    Line 957: Header styling loaded
-    Line 958: Header styling loaded
-    Line 959: Header styling loaded
-    Line 960: Header styling loaded
-    Line 961: Header styling loaded
-    Line 962: Header styling loaded
-    Line 963: Header styling loaded
-    Line 964: Header styling loaded
-    Line 965: Header styling loaded
-    Line 966: Header styling loaded
-    Line 967: Header styling loaded
-    Line 968: Header styling loaded
-    Line 969: Header styling loaded
-    Line 970: Header styling loaded
-    Line 971: Header styling loaded
-    Line 972: Header styling loaded
-    Line 973: Header styling loaded
-    Line 974: Header styling loaded
-    Line 975: Header styling loaded
-    Line 976: Header styling loaded
-    Line 977: Header styling loaded
-    Line 978: Header styling loaded
-    Line 979: Header styling loaded
-    Line 980: Header styling loaded
-    Line 981: Header styling loaded
-    Line 982: Header styling loaded
-    Line 983: Header styling loaded
-    Line 984: Header styling loaded
-    Line 985: Header styling loaded
-    Line 986: Header styling loaded
-    Line 987: Header styling loaded
-    Line 988: Header styling loaded
-    Line 989: Header styling loaded
-    Line 990: Header styling loaded
-    Line 991: Header styling loaded
-    Line 992: Header styling loaded
-    Line 993: Header styling loaded
-    Line 994: Header styling loaded
-    Line 995: Header styling loaded
-    Line 996: Header styling loaded
-    Line 997: Header styling loaded
-    Line 998: Header styling loaded
-    Line 999: Header styling loaded
-    Line 1000: Header styling loaded
-    Line 1001: Header styling loaded
-    Line 1002: Header styling loaded
-    Line 1003: Header styling loaded
-    Line 1004: Header styling loaded
-    Line 1005: Header styling loaded
-    Line 1006: Header styling loaded
-    Line 1007: Header styling loaded
-    Line 1008: Header styling loaded
-    Line 1009: Header styling loaded
-    Line 1010: Header styling loaded
-    Line 1011: Header styling loaded
-    Line 1012: Header styling loaded
-    Line 1013: Header styling loaded
-    Line 1014: Header styling loaded
-    Line 1015: Header styling loaded
-    Line 1016: Header styling loaded
-    Line 1017: Header styling loaded
-    Line 1018: Header styling loaded
-    Line 1019: Header styling loaded
-    Line 1020: Header styling loaded
-    Line 1021: Header styling loaded
-    Line 1022: Header styling loaded
-    Line 1023: Header styling loaded
-    Line 1024: Header styling loaded
-    Line 1025: Header styling loaded
-    Line 1026: Header styling loaded
-    Line 1027: Header styling loaded
-    Line 1028: Header styling loaded
-    Line 1029: Header styling loaded
-    Line 1030: Header styling loaded
-    Line 1031: Header styling loaded
-    Line 1032: Header styling loaded
-    Line 1033: Header styling loaded
-    Line 1034: Header styling loaded
-    Line 1035: Header styling loaded
-    Line 1036: Header styling loaded
-    Line 1037: Header styling loaded
-    Line 1038: Header styling loaded
-    Line 1039: Header styling loaded
-    Line 1040: Header styling loaded
-    Line 1041: Header styling loaded
-    Line 1042: Header styling loaded
-    Line 1043: Header styling loaded
-    Line 1044: Header styling loaded
-    Line 1045: Header styling loaded
-    Line 1046: Header styling loaded
-    Line 1047: Header styling loaded
-    Line 1048: Header styling loaded
-    Line 1049: Header styling loaded
-    Line 1050: Header styling loaded
-    Line 1051: Header styling loaded
-    Line 1052: Header styling loaded
-    Line 1053: Header styling loaded
-    Line 1054: Header styling loaded
-    Line 1055: Header styling loaded
-    Line 1056: Header styling loaded
-    Line 1057: Header styling loaded
-    Line 1058: Header styling loaded
-    Line 1059: Header styling loaded
-    Line 1060: Header styling loaded
-    Line 1061: Header styling loaded
-    Line 1062: Header styling loaded
-    Line 1063: Header styling loaded
-    Line 1064: Header styling loaded
-    Line 1065: Header styling loaded
-    Line 1066: Header styling loaded
-    Line 1067: Header styling loaded
-    Line 1068: Header styling loaded
-    Line 1069: Header styling loaded
-    Line 1070: Header styling loaded
-    Line 1071: Header styling loaded
-    Line 1072: Header styling loaded
-    Line 1073: Header styling loaded
-    Line 1074: Header styling loaded
-    Line 1075: Header styling loaded
-    Line 1076: Header styling loaded
-    Line 1077: Header styling loaded
-    Line 1078: Header styling loaded
-    Line 1079: Header styling loaded
-    Line 1080: Header styling loaded
-    Line 1081: Header styling loaded
-    Line 1082: Header styling loaded
-    Line 1083: Header styling loaded
-    Line 1084: Header styling loaded
-    Line 1085: Header styling loaded
-    Line 1086: Header styling loaded
-    Line 1087: Header styling loaded
-    Line 1088: Header styling loaded
-    Line 1089: Header styling loaded
-    Line 1090: Header styling loaded
-    Line 1091: Header styling loaded
-    Line 1092: Header styling loaded
-    Line 1093: Header styling loaded
-    Line 1094: Header styling loaded
-    Line 1095: Header styling loaded
-    Line 1096: Header styling loaded
-    Line 1097: Header styling loaded
-    Line 1098: Header styling loaded
-    Line 1099: Header styling loaded
-    Line 1100: Header styling loaded
-    Line 1101: Header styling loaded
-    Line 1102: Header styling loaded
-    Line 1103: Header styling loaded
-    Line 1104: Header styling loaded
-    Line 1105: Header styling loaded
-    Line 1106: Header styling loaded
-    Line 1107: Header styling loaded
-    Line 1108: Header styling loaded
-    Line 1109: Header styling loaded
-    Line 1110: Header styling loaded
-    Line 1111: Header styling loaded
-    Line 1112: Header styling loaded
-    Line 1113: Header styling loaded
-    Line 1114: Header styling loaded
-    Line 1115: Header styling loaded
-    Line 1116: Header styling loaded
-    Line 1117: Header styling loaded
-    Line 1118: Header styling loaded
-    Line 1119: Header styling loaded
-    Line 1120: Header styling loaded
-    Line 1121: Header styling loaded
-    Line 1122: Header styling loaded
-    Line 1123: Header styling loaded
-    Line 1124: Header styling loaded
-    Line 1125: Header styling loaded
-    Line 1126: Header styling loaded
-    Line 1127: Header styling loaded
-    Line 1128: Header styling loaded
-    Line 1129: Header styling loaded
-    Line 1130: Header styling loaded
-    Line 1131: Header styling loaded
-    Line 1132: Header styling loaded
-    Line 1133: Header styling loaded
-    Line 1134: Header styling loaded
-    Line 1135: Header styling loaded
-    Line 1136: Header styling loaded
-    Line 1137: Header styling loaded
-    Line 1138: Header styling loaded
-    Line 1139: Header styling loaded
-    Line 1140: Header styling loaded
-    Line 1141: Header styling loaded
-    Line 1142: Header styling loaded
-    Line 1143: Header styling loaded
-    Line 1144: Header styling loaded
-    Line 1145: Header styling loaded
-    Line 1146: Header styling loaded
-    Line 1147: Header styling loaded
-    Line 1148: Header styling loaded
-    Line 1149: Header styling loaded
-    Line 1150: Header styling loaded
-    Line 1151: Header styling loaded
-    Line 1152: Header styling loaded
-    Line 1153: Header styling loaded
-    Line 1154: Header styling loaded
-    Line 1155: Header styling loaded
-    Line 1156: Header styling loaded
-    Line 1157: Header styling loaded
-    Line 1158: Header styling loaded
-    Line 1159: Header styling loaded
-    Line 1160: Header styling loaded
-    Line 1161: Header styling loaded
-    Line 1162: Header styling loaded
-    Line 1163: Header styling loaded
-    Line 1164: Header styling loaded
-    Line 1165: Header styling loaded
-    Line 1166: Header styling loaded
-    Line 1167: Header styling loaded
-    Line 1168: Header styling loaded
-    Line 1169: Header styling loaded
-    Line 1170: Header styling loaded
-    Line 1171: Header styling loaded
-    Line 1172: Header styling loaded
-    Line 1173: Header styling loaded
-    Line 1174: Header styling loaded
-    Line 1175: Header styling loaded
-    Line 1176: Header styling loaded
-    Line 1177: Header styling loaded
-    Line 1178: Header styling loaded
-    Line 1179: Header styling loaded
-    Line 1180: Header styling loaded
-    Line 1181: Header styling loaded
-    Line 1182: Header styling loaded
-    Line 1183: Header styling loaded
-    Line 1184: Header styling loaded
-    Line 1185: Header styling loaded
-    Line 1186: Header styling loaded
-    Line 1187: Header styling loaded
-    Line 1188: Header styling loaded
-    Line 1189: Header styling loaded
-    Line 1190: Header styling loaded
-    Line 1191: Header styling loaded
-    Line 1192: Header styling loaded
-    Line 1193: Header styling loaded
-    Line 1194: Header styling loaded
-    Line 1195: Header styling loaded
-    Line 1196: Header styling loaded
-    Line 1197: Header styling loaded
-    Line 1198: Header styling loaded
-    Line 1199: Header styling loaded
-    Line 1200: Header styling loaded
-    Line 1201: Header styling loaded
-    Line 1202: Header styling loaded
-    Line 1203: Header styling loaded
-    Line 1204: Header styling loaded
-    Line 1205: Header styling loaded
-    Line 1206: Header styling loaded
-    Line 1207: Header styling loaded
-    Line 1208: Header styling loaded
-    Line 1209: Header styling loaded
-    Line 1210: Header styling loaded
-    Line 1211: Header styling loaded
-    Line 1212: Header styling loaded
-    Line 1213: Header styling loaded
-    Line 1214: Header styling loaded
-    Line 1215: Header styling loaded
-    Line 1216: Header styling loaded
-    Line 1217: Header styling loaded
-    Line 1218: Header styling loaded
-    Line 1219: Header styling loaded
-    Line 1220: Header styling loaded
-    Line 1221: Header styling loaded
-    Line 1222: Header styling loaded
-    Line 1223: Header styling loaded
-    Line 1224: Header styling loaded
-    Line 1225: Header styling loaded
-    Line 1226: Header styling loaded
-    Line 1227: Header styling loaded
-    Line 1228: Header styling loaded
-    Line 1229: Header styling loaded
-    Line 1230: Header styling loaded
-    Line 1231: Header styling loaded
-    Line 1232: Header styling loaded
-    Line 1233: Header styling loaded
-    Line 1234: Header styling loaded
-    Line 1235: Header styling loaded
-    Line 1236: Header styling loaded
-    Line 1237: Header styling loaded
-    Line 1238: Header styling loaded
-    Line 1239: Header styling loaded
-    Line 1240: End of Diamondszia HTML Source Code
-    -->
