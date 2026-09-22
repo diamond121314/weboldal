@@ -33,7 +33,6 @@
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        /* Aranyszínű gomb színváltakozó animációja */
         @keyframes colorShift {
             0% { background-color: #ffd700; color: #120808; border-color: #cca600; box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
             33% { background-color: #ffeb3b; color: #120808; border-color: #c7b61f; box-shadow: 0 0 10px rgba(255, 235, 59, 0.4); }
@@ -280,7 +279,7 @@
         .projects {
             display: flex;
             gap: 15px;
-            padding: 0 6% 30px 6%;
+            padding: 0 6% 20px 6%;
             max-width: 1200px;
             margin: 0 auto;
             flex-wrap: wrap;
@@ -358,6 +357,262 @@
             opacity: 0.9;
             transform: translateY(-1px);
         }
+
+        /* Ingyenes packek gomb konténer */
+        .free-packs-container {
+            padding: 0 6% 30px 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .free-packs-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f97316, #c2410c);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .free-packs-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        /* --- CSOMAG BÖNGÉSZŐ ALOLDAL (KÉP ALAPJÁN) --- */
+        #browser-view {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #120808;
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 30px 5%;
+        }
+
+        .browser-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .browser-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            background-color: #2c1212;
+            border: 1px solid #ef4444;
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: #ef4444;
+        }
+
+        .browser-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 20px auto;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .browser-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .b-tab {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            color: #9ca3af;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .b-tab.active {
+            background-color: #f97316;
+            color: #ffffff;
+            border-color: #f97316;
+        }
+
+        .browser-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .b-action-btn {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .b-action-btn.active {
+            background-color: #f97316;
+            border-color: #f97316;
+        }
+
+        .browser-search-bar {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .b-search-input {
+            flex: 1;
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            padding: 12px 18px;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .b-search-input:focus {
+            border-color: #f97316;
+        }
+
+        .b-dropdown {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            color: #ffffff;
+            padding: 0 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .browser-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .pack-browser-card {
+            background-color: #1c0d0d;
+            border: 1px solid #3f1515;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+
+        .pack-browser-card:hover {
+            border-color: #f97316;
+        }
+
+        .pbc-top {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .pbc-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            background-color: #2c1212;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .pbc-info h3 {
+            font-size: 1.05rem;
+            color: #ffffff;
+            margin-bottom: 3px;
+        }
+
+        .pbc-author {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .pbc-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .pbc-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #2c1212;
+            padding-top: 15px;
+        }
+
+        .pbc-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .download-pack-btn {
+            background-color: #f97316;
+            color: #ffffff;
+            border: none;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .download-pack-btn:hover {
+            opacity: 0.9;
+        }
+        /* --- VÉGE A BÖNGÉSZŐ STÍLUSNAK --- */
 
         .track-record-section {
             padding: 0 6% 40px 6%;
@@ -599,7 +854,6 @@
             <span>DIAMONDSZIA</span>
         </div>
         
-        <!-- AZ ARANYSZÍNŰ GOMBRA BEILLESZTVE A BREVO ŰRLAP LINKJE -->
         <a href="https://bc2978e0.sibforms.com/serve/MUIFAFJEohIdcPHWeib_gOL40KeU1YyG7tpBwaEl30F9IBYyv2H3QKLYEFvHrxQcJE1uaTyGb1d5RcO6C8E6yRYHxTCyl3Wz7HOr6J3IjHyK4Ya00Y3PkdgiRPFg6ysd9vSaZhjcsmbdiuijBdfqHCxY1-TftBeRd-WiN4Q9XWmF61jvCVFy722S1o0YrRA_D0CcGmfMokmq4Og64Q==" target="_blank" class="gold-pulse-btn" data-key="gold-btn">Különleges gomb</a>
 
         <div class="nav-right">
@@ -665,6 +919,83 @@
             </div>
         </div>
     </div>
+
+    <!-- INGYENES PACKEK GOMB SZEKCIÓ -->
+    <div class="free-packs-container reveal">
+        <button class="free-packs-btn" onclick="openBrowserView()" data-key="free-packs-btn-text">📦 Ingyenes packek megtekintése</button>
+    </div>
+
+    <!-- --- CSOMAG BÖNGÉSZŐ TELJES NÉZET --- -->
+    <div id="browser-view">
+        <div class="browser-header">
+            <div class="browser-title" data-key="browser-main-title">Csomag Böngésző</div>
+            <button class="back-btn" onclick="closeBrowserView()" data-key="browser-back">← Vissza</button>
+        </div>
+
+        <div class="browser-controls">
+            <div class="browser-tabs">
+                <button class="b-tab active" data-key="tab-textures">🖼️ Textúrák</button>
+                <button class="b-tab" data-key="tab-shaders">⚙️ Shaderek</button>
+            </div>
+            <div class="browser-actions">
+                <button class="b-action-btn active" data-key="action-browse">Böngészés</button>
+                <button class="b-action-btn" data-key="action-installed">Telepítve (0)</button>
+            </div>
+        </div>
+
+        <div class="browser-search-bar">
+            <input type="text" class="b-search-input" placeholder="Textúracsomag keresése..." data-key-placeholder="search-placeholder">
+            <select class="b-dropdown">
+                <option data-key="sort-relevance">Relevancia</option>
+                <option data-key="sort-name">Név szerint</option>
+            </select>
+        </div>
+
+        <div class="browser-grid">
+            <!-- Példa ingyenes kártya -->
+            <div class="pack-browser-card">
+                <div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-info">
+                            <h3>Diamondszia Free Pack v1</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc" data-key="free-desc-1">Ingyenes, optimalizált textúracsomag a mindennapi PvP játékhoz.</div>
+                </div>
+                <div class="pbc-footer">
+                    <div class="pbc-stats">
+                        <span>📥 1,2 E</span>
+                        <span>❤️ 450</span>
+                    </div>
+                    <button class="download-pack-btn" data-key="download-btn">Letöltés</button>
+                </div>
+            </div>
+
+            <!-- További üres/placeholder kártyák a böngészőhöz -->
+            <div class="pack-browser-card">
+                <div>
+                    <div class="pbc-top">
+                        <div class="pbc-icon">⚔️</div>
+                        <div class="pbc-info">
+                            <h3>PvP Edit Minimal</h3>
+                            <div class="pbc-author">Diamondszia</div>
+                        </div>
+                    </div>
+                    <div class="pbc-desc" data-key="free-desc-2">Tiszta textúrák a jobb FPS-ért és átláthatóbb harcokért.</div>
+                </div>
+                <div class="pbc-footer">
+                    <div class="pbc-stats">
+                        <span>📥 850</span>
+                        <span>❤️ 310</span>
+                    </div>
+                    <button class="download-pack-btn" data-key="download-btn">Letöltés</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --- VÉGE A NÉZETNEK --- -->
 
     <div class="track-record-section reveal" id="servers">
         <div class="track-header reveal">
@@ -734,6 +1065,17 @@
     </footer>
 
     <script>
+        // Új funkciók a böngésző nézet nyitásához/zárásához
+        function openBrowserView() {
+            document.getElementById('browser-view').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Háttér görgés tiltása
+        }
+
+        function closeBrowserView() {
+            document.getElementById('browser-view').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Görgés visszaállítása
+        }
+
         const translations = {
             hu: {
                 "gold-btn": "Különleges gomb",
@@ -751,6 +1093,19 @@
                 "status-available": "Elérhető",
                 "status-dev": "Fejlesztés alatt",
                 "stripe-btn-text": "Vásárlás kártyával",
+                "free-packs-btn-text": "📦 Ingyenes packek megtekintése",
+                "browser-main-title": "Csomag Böngésző",
+                "browser-back": "← Vissza",
+                "tab-textures": "🖼️ Textúrák",
+                "tab-shaders": "⚙️ Shaderek",
+                "action-browse": "Böngészés",
+                "action-installed": "Telepítve (0)",
+                "search-placeholder": "Textúracsomag keresése...",
+                "sort-relevance": "Relevancia",
+                "sort-name": "Név szerint",
+                "free-desc-1": "Ingyenes, optimalizált textúracsomag a mindennapi PvP játékhoz.",
+                "free-desc-2": "Tiszta textúrák a jobb FPS-ért és átláthatóbb harcokért.",
+                "download-btn": "Letöltés",
                 "track-sub": "Tapasztalat & Pozíciók",
                 "track-title": "Szerverek és Munkák",
                 "track-desc": "Eddigi projektek, szerverek, ahol közreműködtem vagy ahová jelentkezem.",
@@ -791,6 +1146,19 @@
                 "status-available": "Available",
                 "status-dev": "In Development",
                 "stripe-btn-text": "Buy with card",
+                "free-packs-btn-text": "📦 View Free Packs",
+                "browser-main-title": "Pack Browser",
+                "browser-back": "← Back",
+                "tab-textures": "🖼️ Textures",
+                "tab-shaders": "⚙️ Shaders",
+                "action-browse": "Browse",
+                "action-installed": "Installed (0)",
+                "search-placeholder": "Search texture pack...",
+                "sort-relevance": "Relevance",
+                "sort-name": "Name",
+                "free-desc-1": "Free, optimized texture pack for everyday PvP gameplay.",
+                "free-desc-2": "Clean textures for better FPS and clearer fights.",
+                "download-btn": "Download",
                 "track-sub": "Experience & Positions",
                 "track-title": "Servers & Work",
                 "track-desc": "Past projects and servers where I have collaborated or am applying to.",
@@ -828,6 +1196,14 @@
                 const key = el.getAttribute('data-key');
                 if (translations[currentLang][key]) {
                     el.innerHTML = translations[currentLang][key];
+                }
+            });
+
+            const placeholders = document.querySelectorAll('[data-key-placeholder]');
+            placeholders.forEach(el => {
+                const key = el.getAttribute('data-key-placeholder');
+                if (translations[currentLang][key]) {
+                    el.placeholder = translations[currentLang][key];
                 }
             });
         }
