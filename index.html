@@ -69,7 +69,6 @@
         .fe-1 { top: 15%; left: 5%; font-size: 3rem; animation: float 6s ease-in-out infinite; }
         .fe-2 { top: 45%; right: 7%; font-size: 3.5rem; animation: float-reverse 8s ease-in-out infinite; }
         .fe-3 { bottom: 20%; left: 8%; font-size: 3rem; animation: float 7s ease-in-out infinite; }
-        /* Új jobb oldali pókhálók */
         .fe-right-1 { top: 8%; right: 4%; font-size: 3.2rem; animation: float 7s ease-in-out infinite; }
         .fe-right-2 { top: 60%; right: 5%; font-size: 3.8rem; animation: float-reverse 9s ease-in-out infinite; }
 
@@ -192,6 +191,17 @@
             overflow: hidden;
             animation: float 5s ease-in-out infinite;
             padding: 15px;
+        }
+
+        /* Új: Nagyobb pókháló a doboz jobb alsó sarkában */
+        .card-spiderweb {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            font-size: 2.8rem;
+            opacity: 0.4;
+            pointer-events: none;
+            transform: rotate(-10deg);
         }
 
         .visual-card::before {
@@ -773,7 +783,6 @@
     <div class="floating-element fe-1">🎃</div>
     <div class="floating-element fe-2">👻</div>
     <div class="floating-element fe-3">🦇</div>
-    <!-- Új jobb oldali pókhálók -->
     <div class="floating-element fe-right-1">🕸️</div>
     <div class="floating-element fe-right-2">🕸️</div>
 
@@ -799,6 +808,9 @@
 
     <section class="hero">
         <div class="visual-card">
+            <!-- Nagyobb pókháló a doboz jobb alsó sarkában -->
+            <div class="card-spiderweb">🕸️</div>
+            
             <img src="skin.png" alt="Diamondszia Skin" class="card-skin-img">
             <div class="card-label">Spooky</div>
         </div>
