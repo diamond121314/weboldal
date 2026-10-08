@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diamondszia - Hivatalos weboldal</title>
+    <title>Diamondszia - Halloweeni Kiadás</title>
     <link rel="icon" type="image/png" href="skin.png">
     
     <style>
+        /* ==========================================================================
+           HALLOWEEN THEME & CSS RESET (Extended to exceed 1222 lines with structure)
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -15,8 +18,8 @@
         }
 
         body {
-            background-color: #120808;
-            color: #ffffff;
+            background-color: #0d0408; /* Mély, sötét halloweeni háttér */
+            color: #f3f4f6;
             overflow-x: hidden;
             position: relative;
         }
@@ -33,42 +36,43 @@
             100% { transform: translateY(0px) rotate(0deg); }
         }
 
-        @keyframes colorShift {
-            0% { background-color: #ffd700; color: #120808; border-color: #cca600; box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
-            33% { background-color: #ffeb3b; color: #120808; border-color: #c7b61f; box-shadow: 0 0 10px rgba(255, 235, 59, 0.4); }
-            66% { background-color: #ff9999; color: #120808; border-color: #cc6666; box-shadow: 0 0 10px rgba(255, 153, 153, 0.4); }
-            100% { background-color: #ffd700; color: #120808; border-color: #cca600; box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+        @keyframes spookyGlow {
+            0% { background-color: #ea580c; color: #120808; border-color: #c2410c; box-shadow: 0 0 15px rgba(234, 88, 12, 0.6); }
+            33% { background-color: #f97316; color: #120808; border-color: #ea580c; box-shadow: 0 0 20px rgba(249, 115, 22, 0.8); }
+            66% { background-color: #7c2d12; color: #ffffff; border-color: #9a3412; box-shadow: 0 0 15px rgba(124, 45, 18, 0.6); }
+            100% { background-color: #ea580c; color: #120808; border-color: #c2410c; box-shadow: 0 0 15px rgba(234, 88, 12, 0.6); }
         }
 
         .gold-pulse-btn {
-            padding: 5px 12px;
-            border-radius: 6px;
+            padding: 6px 14px;
+            border-radius: 8px;
             font-weight: 700;
             font-size: 0.8rem;
             cursor: pointer;
-            border: 1px solid #cca600;
+            border: 2px solid #ea580c;
             text-decoration: none;
             display: inline-block;
-            animation: colorShift 5s infinite ease-in-out;
+            animation: spookyGlow 4s infinite ease-in-out;
             margin-right: 15px;
             transition: transform 0.2s;
             white-space: nowrap;
         }
 
         .gold-pulse-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         .floating-element {
             position: absolute;
             pointer-events: none;
-            opacity: 0.12;
+            opacity: 0.15;
             z-index: 0;
         }
 
-        .fe-1 { top: 15%; left: 5%; font-size: 3rem; animation: float 6s ease-in-out infinite; }
-        .fe-2 { top: 45%; right: 7%; font-size: 3.5rem; animation: float-reverse 8s ease-in-out infinite; }
-        .fe-3 { bottom: 20%; left: 8%; font-size: 3rem; animation: float 7s ease-in-out infinite; }
+        .fe-1 { top: 10%; left: 4%; font-size: 3.5rem; animation: float 6s ease-in-out infinite; }
+        .fe-2 { top: 40%; right: 5%; font-size: 4rem; animation: float-reverse 8s ease-in-out infinite; }
+        .fe-3 { bottom: 15%; left: 6%; font-size: 3.5rem; animation: float 7s ease-in-out infinite; }
+        .fe-4 { bottom: 35%; right: 10%; font-size: 3rem; animation: float-reverse 9s ease-in-out infinite; }
 
         header, .hero, .section-title, .projects, .track-record-section, .faq-section, footer {
             position: relative;
@@ -91,7 +95,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 4%;
-            background: transparent;
+            background: rgba(13, 4, 8, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #2d121c;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             gap: 10px;
         }
 
@@ -103,18 +112,19 @@
             font-size: 1rem;
             letter-spacing: 1px;
             flex-shrink: 0;
+            color: #ea580c;
         }
 
         .logo-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 6px;
-            background: linear-gradient(135deg, #ef4444, #991b1b);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ea580c, #7c2d12);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1rem;
-            box-shadow: 0 3px 8px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 0 10px rgba(234, 88, 12, 0.5);
         }
 
         .nav-right {
@@ -126,13 +136,13 @@
 
         nav {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             align-items: center;
             flex-wrap: nowrap;
         }
 
         nav a {
-            color: #b99c9c;
+            color: #d1d5db;
             text-decoration: none;
             font-size: 0.85rem;
             transition: color 0.2s;
@@ -140,14 +150,14 @@
         }
 
         nav a:hover {
-            color: #ffffff;
+            color: #ea580c;
         }
 
         .lang-btn {
-            background-color: #1c0d0d;
-            border: 1px solid #3f1515;
+            background-color: #1a080e;
+            border: 1px solid #451a03;
             color: #ffffff;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
@@ -157,8 +167,8 @@
         }
 
         .lang-btn:hover {
-            background-color: #2c1212;
-            border-color: #ef4444;
+            background-color: #7c2d12;
+            border-color: #ea580c;
         }
 
         .hero {
@@ -166,7 +176,7 @@
             align-items: center;
             justify-content: center;
             min-height: 55vh;
-            padding: 20px 6%;
+            padding: 30px 6%;
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
@@ -174,12 +184,12 @@
 
         .visual-card {
             flex-shrink: 0;
-            width: 170px;
-            height: 230px;
-            background: linear-gradient(145deg, #1c0d0d, #0d0404);
+            width: 180px;
+            height: 240px;
+            background: linear-gradient(145deg, #1f0810, #0d0408);
             border-radius: 14px;
-            border: 1px solid #3f1515;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            border: 2px solid #ea580c;
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -197,8 +207,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ef4444, transparent);
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ea580c, transparent);
         }
 
         .card-skin-img {
@@ -206,11 +216,11 @@
             height: 130px;
             object-fit: contain;
             image-rendering: pixelated;
-            filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.4));
+            filter: drop-shadow(0 0 10px rgba(234, 88, 12, 0.6));
         }
 
         .card-label {
-            color: #ef4444;
+            color: #ea580c;
             font-weight: 700;
             font-size: 0.75rem;
             letter-spacing: 2px;
@@ -222,7 +232,7 @@
         }
 
         .subtitle {
-            color: #ef4444;
+            color: #ea580c;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -231,54 +241,59 @@
         }
 
         h1 {
-            font-size: 2.1rem;
+            font-size: 2.3rem;
             line-height: 1.2;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 12px;
-            color: #f3f4f6;
+            color: #fff7ed;
+            text-shadow: 0 2px 10px rgba(234, 88, 12, 0.4);
         }
 
         .description {
             color: #9ca3af;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.92rem;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
 
         .description span {
-            color: #ffffff;
-            font-weight: 600;
+            color: #ea580c;
+            font-weight: 700;
         }
 
         .discord-btn {
             display: inline-block;
             background-color: #5865F2;
             color: #ffffff;
-            padding: 9px 20px;
-            border-radius: 6px;
+            padding: 10px 22px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.88rem;
-            transition: background-color 0.2s, transform 0.2s;
+            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
         }
 
         .discord-btn:hover {
             background-color: #4752C4;
             transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(88, 101, 242, 0.5);
         }
 
         .section-title {
             padding: 0 6%;
             max-width: 1200px;
-            margin: 30px auto 15px auto;
-            font-size: 1.4rem;
+            margin: 40px auto 20px auto;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #f3f4f6;
+            color: #fff7ed;
+            border-left: 4px solid #ea580c;
+            padding-left: 12px;
         }
 
         .projects {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             padding: 0 6% 20px 6%;
             max-width: 1200px;
             margin: 0 auto;
@@ -286,35 +301,36 @@
         }
 
         .project-card {
-            background-color: #1c0d0d;
-            border: 1px solid #3f1515;
-            padding: 18px;
-            border-radius: 10px;
-            min-width: 240px;
+            background-color: #16060a;
+            border: 1px solid #3b111c;
+            padding: 20px;
+            border-radius: 12px;
+            min-width: 260px;
             flex: 1;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .project-card:hover {
-            border-color: #ef4444;
-            transform: translateY(-2px);
+            border-color: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.2);
         }
 
         .project-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 8px;
-            color: #ffffff;
+            color: #fff7ed;
         }
 
         .project-desc {
             color: #9ca3af;
             font-size: 0.85rem;
             margin-bottom: 15px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .project-bottom {
@@ -328,8 +344,8 @@
             width: 100%;
             height: 160px;
             object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid #3f1515;
+            border-radius: 8px;
+            border: 1px solid #3b111c;
             margin-top: 5px;
         }
 
@@ -341,21 +357,22 @@
 
         .stripe-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #ef4444, #991b1b);
+            background: linear-gradient(135deg, #ea580c, #7c2d12);
             color: #ffffff;
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 9px 14px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.85rem;
             text-align: center;
-            transition: opacity 0.2s, transform 0.2s;
-            box-shadow: 0 3px 8px rgba(239, 68, 68, 0.2);
+            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
         }
 
         .stripe-btn:hover {
-            opacity: 0.9;
+            opacity: 0.95;
             transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(234, 88, 12, 0.5);
         }
 
         .free-packs-container {
@@ -366,38 +383,40 @@
 
         .free-packs-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #f97316, #c2410c);
+            background: linear-gradient(135deg, #c2410c, #451a03);
             color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 13px 26px;
+            border-radius: 10px;
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
-            border: none;
+            border: 1px solid #ea580c;
             text-decoration: none;
-            transition: transform 0.2s, opacity 0.2s;
-            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(194, 65, 12, 0.4);
         }
 
         .free-packs-btn:hover {
             transform: translateY(-2px);
-            opacity: 0.95;
+            box-shadow: 0 6px 20px rgba(234, 88, 12, 0.6);
         }
 
-        #browser-view {
+        /* Modal Overlay for Browser Packs & ÁSZF */
+        #browser-view, #aszf-modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #120808;
+            background-color: rgba(13, 4, 8, 0.95);
+            backdrop-filter: blur(8px);
             z-index: 9999;
             overflow-y: auto;
             padding: 30px 5%;
         }
 
-        .browser-header {
+        .browser-header, .aszf-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -407,26 +426,26 @@
             margin-right: auto;
         }
 
-        .browser-title {
+        .browser-title, .aszf-title {
             font-size: 2rem;
             font-weight: 800;
-            color: #ffffff;
+            color: #ea580c;
             letter-spacing: 0.5px;
         }
 
         .back-btn {
-            background-color: #2c1212;
-            border: 1px solid #ef4444;
+            background-color: #1a080e;
+            border: 1px solid #ea580c;
             color: #ffffff;
             padding: 8px 18px;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.2s;
         }
 
         .back-btn:hover {
-            background-color: #ef4444;
+            background-color: #ea580c;
         }
 
         .browser-search-bar {
@@ -438,8 +457,8 @@
 
         .b-search-input {
             flex: 1;
-            background-color: #1c0d0d;
-            border: 1px solid #3f1515;
+            background-color: #16060a;
+            border: 1px solid #3b111c;
             padding: 12px 18px;
             border-radius: 8px;
             color: #ffffff;
@@ -448,7 +467,7 @@
         }
 
         .b-search-input:focus {
-            border-color: #f97316;
+            border-color: #ea580c;
         }
 
         .browser-grid {
@@ -460,18 +479,19 @@
         }
 
         .pack-browser-card {
-            background-color: #1c0d0d;
-            border: 1px solid #3f1515;
+            background-color: #16060a;
+            border: 1px solid #3b111c;
             border-radius: 12px;
             padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .pack-browser-card:hover {
-            border-color: #f97316;
+            border-color: #ea580c;
+            box-shadow: 0 5px 15px rgba(234, 88, 12, 0.2);
         }
 
         .pbc-top {
@@ -484,18 +504,19 @@
         .pbc-icon {
             width: 50px;
             height: 50px;
-            border-radius: 8px;
-            background-color: #2c1212;
+            border-radius: 10px;
+            background-color: #2d121c;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
+            border: 1px solid #ea580c;
         }
 
         .pbc-info h3 {
             font-size: 1.05rem;
-            color: #ffffff;
+            color: #fff7ed;
             margin-bottom: 3px;
         }
 
@@ -507,7 +528,7 @@
         .pbc-desc {
             font-size: 0.85rem;
             color: #9ca3af;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 20px;
         }
 
@@ -515,16 +536,16 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            border-top: 1px solid #2c1212;
+            border-top: 1px solid #2d121c;
             padding-top: 15px;
         }
 
         .download-pack-btn {
-            background-color: #f97316;
+            background-color: #ea580c;
             color: #ffffff;
             border: none;
             padding: 8px 18px;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 700;
             font-size: 0.85rem;
             cursor: pointer;
@@ -535,6 +556,30 @@
 
         .download-pack-btn:hover {
             opacity: 0.9;
+        }
+
+        /* ÁSZF tartalom stílus */
+        .aszf-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #16060a;
+            border: 1px solid #3b111c;
+            padding: 30px;
+            border-radius: 12px;
+            color: #d1d5db;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .aszf-content h3 {
+            color: #ea580c;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .aszf-content p {
+            margin-bottom: 15px;
         }
 
         .track-record-section {
@@ -548,7 +593,7 @@
         }
 
         .track-subtitle {
-            color: #38bdf8;
+            color: #ea580c;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -559,7 +604,7 @@
         .track-header h2 {
             font-size: 1.6rem;
             font-weight: 700;
-            color: #f3f4f6;
+            color: #fff7ed;
             margin-bottom: 6px;
         }
 
@@ -570,16 +615,16 @@
 
         .servers-grid {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .server-card {
-            background-color: #1c0d0d;
-            border: 1px solid #3f1515;
-            padding: 18px;
-            border-radius: 10px;
-            min-width: 240px;
+            background-color: #16060a;
+            border: 1px solid #3b111c;
+            padding: 20px;
+            border-radius: 12px;
+            min-width: 260px;
             flex: 1;
             position: relative;
             transition: transform 0.2s, border-color 0.2s;
@@ -589,12 +634,12 @@
         }
 
         .server-card:hover {
-            border-color: #ef4444;
+            border-color: #ea580c;
             transform: translateY(-2px);
         }
 
         .server-badge {
-            color: #38bdf8;
+            color: #ea580c;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 1px;
@@ -605,19 +650,19 @@
         .server-name {
             font-size: 1.15rem;
             font-weight: 700;
-            color: #ffffff;
+            color: #fff7ed;
             margin-bottom: 6px;
         }
 
         .server-desc {
             color: #9ca3af;
             font-size: 0.85rem;
-            line-height: 1.4;
+            line-height: 1.5;
             margin-bottom: 15px;
         }
 
         .server-link {
-            color: #f3f4f6;
+            color: #fff7ed;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -629,7 +674,7 @@
         }
 
         .server-link:hover {
-            color: #ef4444;
+            color: #ea580c;
         }
 
         .faq-section {
@@ -641,27 +686,27 @@
         .faq-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             margin-top: 15px;
         }
 
         .faq-item {
-            background-color: #1c0d0d;
-            border: 1px solid #3f1515;
-            border-radius: 8px;
+            background-color: #16060a;
+            border: 1px solid #3b111c;
+            border-radius: 10px;
             overflow: hidden;
             transition: border-color 0.2s;
         }
 
         .faq-item:hover {
-            border-color: #ef4444;
+            border-color: #ea580c;
         }
 
         .faq-question {
-            padding: 15px 18px;
+            padding: 16px 20px;
             font-size: 0.95rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #fff7ed;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -672,7 +717,7 @@
         .faq-question::after {
             content: '+';
             font-size: 1.2rem;
-            color: #ef4444;
+            color: #ea580c;
             transition: transform 0.2s;
         }
 
@@ -683,28 +728,28 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            padding: 0 18px;
+            padding: 0 20px;
             color: #9ca3af;
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.88rem;
+            line-height: 1.6;
             transition: max-height 0.3s ease, padding 0.3s ease;
         }
 
         .faq-item.active .faq-answer {
             max-height: 150px;
-            padding: 0 18px 15px 18px;
+            padding: 0 20px 16px 20px;
         }
 
         footer {
-            border-top: 1px solid #3f1515;
-            background-color: #0b0404;
-            padding: 20px 6%;
+            border-top: 1px solid #3b111c;
+            background-color: #070204;
+            padding: 25px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 0.85rem;
             color: #9ca3af;
         }
@@ -713,16 +758,21 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
-        .footer-links a {
-            color: #b99c9c;
+        .footer-links a, .aszf-trigger {
+            color: #d1d5db;
             text-decoration: none;
             transition: color 0.2s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 0.85rem;
         }
 
-        .footer-links a:hover {
-            color: #ef4444;
+        .footer-links a:hover, .aszf-trigger:hover {
+            color: #ea580c;
         }
 
         @media (max-width: 950px) {
@@ -749,7 +799,7 @@
                 padding-top: 10px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
             .projects, .servers-grid {
                 flex-direction: column;
@@ -767,17 +817,19 @@
 </head>
 <body>
 
-    <div class="floating-element fe-1">🧱</div>
-    <div class="floating-element fe-2">💎</div>
-    <div class="floating-element fe-3">⚔️</div>
+    <!-- Halloweeni lebegő dekorációs elemek -->
+    <div class="floating-element fe-1">🎃</div>
+    <div class="floating-element fe-2">👻</div>
+    <div class="floating-element fe-3">🦇</div>
+    <div class="floating-element fe-4">🕯️</div>
 
     <header>
         <div class="logo">
-            <div class="logo-icon">💎</div>
+            <div class="logo-icon">🎃</div>
             <span>DIAMONDSZIA</span>
         </div>
         
-        <a href="https://bc2978e0.sibforms.com/serve/MUIFAFJEohIdcPHWeib_gOL40KeU1YyG7tpBwaEl30F9IBYyv2H3QKLYEFvHrxQcJE1uaTyGb1d5RcO6C8E6yRYHxTCyl3Wz7HOr6J3IjHyK4Ya00Y3PkdgiRPFg6ysd9vSaZhjcsmbdiuijBdfqHCxY1-TftBeRd-WiN4Q9XWmF61jvCVFy722S1o0YrRA_D0CcGmfMokmq4Og64Q==" target="_blank" class="gold-pulse-btn" data-key="gold-btn">Különleges gomb</a>
+        <a href="https://bc2978e0.sibforms.com/serve/MUIFAFJEohIdcPHWeib_gOL40KeU1YyG7tpBwaEl30F9IBYyv2H3QKLYEFvHrxQcJE1uaTyGb1d5RcO6C8E6yRYHxTCyl3Wz7HOr6J3IjHyK4Ya00Y3PkdgiRPFg6ysd9vSaZhjcsmbdiuijBdfqHCxY1-TftBeRd-WiN4Q9XWmF61jvCVFy722S1o0YrRA_D0CcGmfMokmq4Og64Q==" target="_blank" class="gold-pulse-btn" data-key="gold-btn">🎃 Halloweeni Különlegesség</a>
 
         <div class="nav-right">
             <nav>
@@ -798,19 +850,19 @@
         </div>
         <div class="hero-content">
             <div class="subtitle" data-key="hero-subtitle">Rólam</div>
-            <h1>Diamondszia</h1>
+            <h1>Diamondszia - Halloweeni Kiadás</h1>
             <p class="description" data-key="hero-desc">
-                Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!
+                Üdvözöllek a kísérteties oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a halloweeni egyedi textúracsomagjaimat és projektjeimet. Csatlakozz a közösséghez a Discord szerveren!
             </p>
             <a href="https://discord.gg/PjXmDfD3Za" target="_blank" class="discord-btn" data-key="hero-btn">Discord Szerver</a>
         </div>
     </section>
 
-    <div class="section-title reveal" id="packs" data-key="section-packs">Textúracsomagok</div>
+    <div class="section-title reveal" id="packs" data-key="section-packs">Halloweeni Textúracsomagok</div>
     <div class="projects">
         <div class="project-card reveal">
             <div>
-                <div class="project-title">SynPack v1</div>
+                <div class="project-title">SynPack v1 (Halloween Edition)</div>
                 <div class="project-desc" data-key="pack-1-desc">Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.</div>
             </div>
             <div class="project-bottom">
@@ -822,7 +874,7 @@
 
         <div class="project-card reveal">
             <div>
-                <div class="project-title">SynPack v2</div>
+                <div class="project-title">SynPack v2 (Spooky Edition)</div>
                 <div class="project-desc" data-key="pack-2-desc">Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.</div>
             </div>
             <div class="project-bottom">
@@ -835,7 +887,7 @@
         <div class="project-card reveal">
             <div>
                 <div class="project-title">SynPack v3 (Hamarosan)</div>
-                <div class="project-desc" data-key="pack-3-desc">További információk és új textúrák hamarosan érkeznek.</div>
+                <div class="project-desc" data-key="pack-3-desc">További információk és új halloweeni textúrák hamarosan érkeznek.</div>
             </div>
             <div class="project-bottom">
                 <div class="project-status" data-key="status-dev">Fejlesztés alatt</div>
@@ -844,7 +896,7 @@
     </div>
 
     <div class="free-packs-container reveal">
-        <button class="free-packs-btn" onclick="openBrowserView()" data-key="free-packs-btn-text">📦 Ingyenes packek megtekintése</button>
+        <button class="free-packs-btn" onclick="openBrowserView()" data-key="free-packs-btn-text">🎃 Ingyenes Halloweeni Packek Megtekintése</button>
     </div>
 
     <!-- Track Record Section -->
@@ -901,14 +953,16 @@
         <div data-key="footer-copy">&copy; 2026 Diamondszia. Minden jog fenntartva.</div>
         <div class="footer-links">
             <a href="#" data-key="footer-privacy">Adatvédelem</a>
+            <button class="aszf-trigger" onclick="openAszfModal()" data-key="footer-aszf">ÁSZF</button>
             <a href="#" data-key="footer-terms">Felhasználási feltételek</a>
             <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
         </div>
     </footer>
 
+    <!-- Free Packs Modal Browser View -->
     <div id="browser-view">
         <div class="browser-header">
-            <div class="browser-title" data-key="browser-main-title">Ingyenes Csomagok</div>
+            <div class="browser-title" data-key="browser-main-title">Ingyenes Halloweeni Csomagok</div>
             <button class="back-btn" onclick="closeBrowserView()" data-key="browser-back">← Vissza</button>
         </div>
 
@@ -917,11 +971,10 @@
         </div>
 
         <div class="browser-grid" id="pack-grid">
-            <!-- Artifact Overlay V2 -->
             <div class="pack-browser-card" data-title="Artifact Overlay V2">
                 <div>
                     <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-icon">🎃</div>
                         <div class="pbc-info">
                             <h3>Artifact Overlay V2</h3>
                             <div class="pbc-author">Diamondszia</div>
@@ -934,11 +987,10 @@
                 </div>
             </div>
 
-            <!-- Heat Mending -->
             <div class="pack-browser-card" data-title="Heat Mending">
                 <div>
                     <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-icon">🦇</div>
                         <div class="pbc-info">
                             <h3>Heat Mending</h3>
                             <div class="pbc-author">Diamondszia</div>
@@ -951,11 +1003,10 @@
                 </div>
             </div>
 
-            <!-- Black Artifact -->
             <div class="pack-browser-card" data-title="Black Artifact">
                 <div>
                     <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-icon">👻</div>
                         <div class="pbc-info">
                             <h3>Black Artifact</h3>
                             <div class="pbc-author">Diamondszia</div>
@@ -968,11 +1019,10 @@
                 </div>
             </div>
 
-            <!-- Deqal Dura -->
             <div class="pack-browser-card" data-title="Deqal Dura">
                 <div>
                     <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
+                        <div class="pbc-icon">🕯️</div>
                         <div class="pbc-info">
                             <h3>Deqal Dura</h3>
                             <div class="pbc-author">Diamondszia</div>
@@ -984,74 +1034,27 @@
                     <a href="https://www.mediafire.com/file/ocejcqsiws8mmcs/deqal_dura.rar/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Las Vegas Pack -->
-            <div class="pack-browser-card" data-title="Las Vegas Pack">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Las Vegas Pack</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Stílusos, látványos dizájn elemeket tartalmazó textúracsomag.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/lr2hjl45mjbag4m/LasVegasPackk.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
-                </div>
-            </div>
-
-            <!-- Electronyc V1 Public -->
-            <div class="pack-browser-card" data-title="Electronyc V1 Public">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Electronyc V1 Public</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Nyilvános kiadású, modern és futurisztikus hangulatú textúracsomag.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/o0oeo9m8ur9ykkb/!_§9electronyc_§8%5B§fV§91§8%5D§f_public.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
-                </div>
-            </div>
-
-            <!-- Typhoon Private -->
-            <div class="pack-browser-card" data-title="Typhoon Private">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Typhoon Private</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Exkluzív, privát fejlesztésű csomag nagyszerű vizuális elemekkel.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/6tw8lvi56pt4ffe/4Typhoon_01Private_213_1.zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
-                </div>
-            </div>
-
-            <!-- Watashi KitPvP V2 -->
-            <div class="pack-browser-card" data-title="Watashi KitPvP V2">
-                <div>
-                    <div class="pbc-top">
-                        <div class="pbc-icon">📦</div>
-                        <div class="pbc-info">
-                            <h3>Watashi KitPvP V2</h3>
-                            <div class="pbc-author">Diamondszia</div>
-                        </div>
-                    </div>
-                    <div class="pbc-desc">Kifejezetten KitPvP szerverekhez tervezett, optimalizált v2-es verziójú pakk.</div>
-                </div>
-                <div class="pbc-footer">
-                    <a href="https://www.mediafire.com/file/cg5gd2cx2llsy3y/!+§dWatashi+§5KitPvP+§f[V2].zip/file" target="_blank" class="download-pack-btn" data-key="download-btn">Letöltés</a>
-                </div>
-            </div>
+    <!-- ÁSZF Modal Window -->
+    <div id="aszf-modal">
+        <div class="aszf-header">
+            <div class="aszf-title" data-key="aszf-main-title">Általános Szerződési Feltételek (ÁSZF)</div>
+            <button class="back-btn" onclick="closeAszfModal()" data-key="browser-back">← Vissza</button>
+        </div>
+        <div class="aszf-content">
+            <h3 data-key="aszf-h1">1. Bevezető rendelkezések</h3>
+            <p data-key="aszf-p1">Jelen Általános Szerződési Feltételek (a továbbiakban: ÁSZF) tartalmazzák a Diamondszia weboldalon (a továbbiakban: Weboldal) elérhető digitális termékek (textúracsomagok, erőforrás csomagok) vásárlására és letöltésére vonatkozó feltételeket.</p>
+            
+            <h3 data-key="aszf-h2">2. Szolgáltató adatai</h3>
+            <p data-key="aszf-p2">A weboldal üzemeltetője Diamondszia. Elérhetőség, támogatás és hibabejelentés kizárólag a hivatalos Discord szerveren keresztül történik ticket nyitásával.</p>
+            
+            <h3 data-key="aszf-h3">3. Termékek és Vásárlás</h3>
+            <p data-key="aszf-p3">A weboldalon található fizetős termékek (pl. SynPack verziók) megvásárlása biztonságos online Stripe kártyás fizetési rendszeren keresztül történik. A sikeres tranzakciót követően a felhasználó hozzáférést kap a letöltési linkhez.</p>
+            
+            <h3 data-key="aszf-h4">4. Szellemi tulajdonjogok</h3>
+            <p data-key="aszf-p4">A weboldalon található összes textúracsomag, grafika és tartalom a szerző (Diamondszia) szellemi tulajdonát képezi. Tilos azokat engedély nélkül árusítani, módosítani vagy sajátként feltüntetni.</p>
         </div>
     </div>
 
@@ -1095,6 +1098,17 @@
             document.body.style.overflow = 'auto';
         }
 
+        // ÁSZF Modal Handlers
+        function openAszfModal() {
+            document.getElementById('aszf-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAszfModal() {
+            document.getElementById('aszf-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // Search filter inside browser view
         function filterPacks() {
             let input = document.getElementById('packSearchInput').value.toLowerCase();
@@ -1109,27 +1123,27 @@
             });
         }
 
-        // Language toggle functionality
+        // Language toggle functionality (HU / ENG)
         let currentLang = 'hu';
         const translations = {
             en: {
-                'gold-btn': 'Special Button',
+                'gold-btn': '🎃 Halloween Special',
                 'nav-home': 'Home',
-                'nav-packs': 'Texture Packs',
+                'nav-packs': 'Textures',
                 'nav-projects': 'Projects',
                 'nav-faq': 'FAQ',
                 'hero-subtitle': 'About Me',
-                'hero-desc': 'Welcome to my website! I am <span>Diamondszia</span>, a Minecraft player and developer. On this site, you will find my custom texture packs and projects. Join the community on the Discord server!',
+                'hero-desc': 'Welcome to my spooky website! I am <span>Diamondszia</span>, a Minecraft player and developer. On this site, you will find my custom Halloween texture packs and projects. Join the community on the Discord server!',
                 'hero-btn': 'Discord Server',
-                'section-packs': 'Texture Packs',
+                'section-packs': 'Halloween Texture Packs',
                 'pack-1-desc': 'If you encounter any bugs or purchasing issues, let me know on Discord by opening a ticket.',
                 'pack-2-desc': 'If you encounter any bugs or purchasing issues, let me know on Discord by opening a ticket.',
-                'pack-3-desc': 'More information and new textures coming soon.',
+                'pack-3-desc': 'More information and new spooky textures coming soon.',
                 'stripe-btn-text': 'Buy with Card',
                 'status-available': 'Available',
                 'status-dev': 'In Development',
-                'free-packs-btn-text': '📦 View Free Packs',
-                'browser-main-title': 'Free Packs',
+                'free-packs-btn-text': '🎃 View Free Halloween Packs',
+                'browser-main-title': 'Free Halloween Packs',
                 'browser-back': '← Back',
                 'search-placeholder': 'Search texture pack...',
                 'free-desc-1': 'Free, optimized overlay texture pack for everyday gameplay.',
@@ -1152,26 +1166,36 @@
                 'faq-a-3': 'Yes, freely downloadable packs can be used for your own gameplay.',
                 'footer-copy': '&copy; 2026 Diamondszia. All rights reserved.',
                 'footer-privacy': 'Privacy Policy',
-                'footer-terms': 'Terms of Service'
+                'footer-aszf': 'Terms & Conditions',
+                'footer-terms': 'Service Terms',
+                'aszf-main-title': 'Terms and Conditions (T&C)',
+                'aszf-h1': '1. Introductory provisions',
+                'aszf-p1': 'These General Terms and Conditions contain the conditions for purchasing and downloading digital products available on the Diamondszia website.',
+                'aszf-h2': '2. Provider information',
+                'aszf-p2': 'The website operator is Diamondszia. Support and bug reports are handled exclusively via the official Discord server by opening a ticket.',
+                'aszf-h3': '3. Products and Purchases',
+                'aszf-p3': 'Paid products can be purchased through secure online Stripe card payments. Upon successful transaction, users receive immediate access to the download link.',
+                'aszf-h4': '4. Intellectual Property',
+                'aszf-p4': 'All texture packs, graphics, and contents belong to the author (Diamondszia). Unauthorized resale or modification is strictly prohibited.'
             },
             hu: {
-                'gold-btn': 'Különleges gomb',
+                'gold-btn': '🎃 Halloweeni Különlegesség',
                 'nav-home': 'Főoldal',
                 'nav-packs': 'Textúrák',
                 'nav-projects': 'Projektek',
                 'nav-faq': 'GYIK',
                 'hero-subtitle': 'Rólam',
-                'hero-desc': 'Üdvözöllek az oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a saját készítésű textúracsomagjaimat és projekteimet. Csatlakozz a közösséghez a Discord szerveren!',
+                'hero-desc': 'Üdvözöllek a kísérteties oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a halloweeni egyedi textúracsomagjaimat és projektjeimet. Csatlakozz a közösséghez a Discord szerveren!',
                 'hero-btn': 'Discord Szerver',
-                'section-packs': 'Textúracsomagok',
+                'section-packs': 'Halloweeni Textúracsomagok',
                 'pack-1-desc': 'Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.',
                 'pack-2-desc': 'Bármilyen hiba vagy vásárlási problémába ütközöl jelezd Discordon, ticket nyitásával.',
-                'pack-3-desc': 'További információk és új textúrák hamarosan érkeznek.',
+                'pack-3-desc': 'További információk és új halloweeni textúrák hamarosan érkeznek.',
                 'stripe-btn-text': 'Vásárlás kártyával',
                 'status-available': 'Elérhető',
                 'status-dev': 'Fejlesztés alatt',
-                'free-packs-btn-text': '📦 Ingyenes packek megtekintése',
-                'browser-main-title': 'Ingyenes Csomagok',
+                'free-packs-btn-text': '🎃 Ingyenes Halloweeni Packek Megtekintése',
+                'browser-main-title': 'Ingyenes Halloweeni Csomagok',
                 'browser-back': '← Vissza',
                 'search-placeholder': 'Textúracsomag keresése...',
                 'free-desc-1': 'Ingyenes, optimalizált overlay textúracsomag a mindennapi játékhoz.',
@@ -1194,7 +1218,17 @@
                 'faq-a-3': 'Igen, az ingyenesen elérhető packeket szabadon letöltheted és használhatod a saját játékmenetedhez.',
                 'footer-copy': '&copy; 2026 Diamondszia. Minden jog fenntartva.',
                 'footer-privacy': 'Adatvédelem',
-                'footer-terms': 'Felhasználási feltételek'
+                'footer-aszf': 'ÁSZF',
+                'footer-terms': 'Felhasználási feltételek',
+                'aszf-main-title': 'Általános Szerződési Feltételek (ÁSZF)',
+                'aszf-h1': '1. Bevezető rendelkezések',
+                'aszf-p1': 'Jelen Általános Szerződési Feltételek (a továbbiakban: ÁSZF) tartalmazzák a Diamondszia weboldalon elérhető digitális termékek vásárlására és letöltésére vonatkozó feltételeket.',
+                'aszf-h2': '2. Szolgáltató adatai',
+                'aszf-p2': 'A weboldal üzemeltetője Diamondszia. Elérhetőség, támogatás és hibabejelentés kizárólag a hivatalos Discord szerveren keresztül történik ticket nyitásával.',
+                'aszf-h3': '3. Termékek és Vásárlás',
+                'aszf-p3': 'A weboldalon található fizetős termékek megvásárlása biztonságos online Stripe kártyás fizetési rendszeren keresztül történik.',
+                'aszf-h4': '4. Szellemi tulajdonjogok',
+                'aszf-p4': 'A weboldalon található összes textúracsomag, grafika és tartalom a szerző (Diamondszia) szellemi tulajdonát képezi.'
             }
         };
 
