@@ -478,6 +478,70 @@
             margin-bottom: 15px;
         }
 
+        /* Értékelés (1-5 csillag) */
+        .rating-section {
+            padding: 0 6% 40px 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rating-card {
+            background-color: #16060a;
+            border: 1px solid #3b111c;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .rating-card:hover {
+            border-color: #ea580c;
+        }
+
+        .stars {
+            display: flex;
+            gap: 8px;
+        }
+
+        .star-btn {
+            background: none;
+            border: none;
+            font-size: 2.4rem;
+            line-height: 1;
+            color: #3b111c;
+            cursor: pointer;
+            transition: color 0.15s, transform 0.15s;
+        }
+
+        .star-btn.filled {
+            color: #f97316;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+        }
+
+        .star-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .stars.locked .star-btn {
+            cursor: default;
+        }
+
+        .stars.locked .star-btn:hover {
+            transform: none;
+        }
+
+        .rating-msg {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            min-height: 1.4em;
+            text-align: center;
+        }
+
         /* Modal Overlay for Browser Packs & ÁSZF */
         #browser-view, #aszf-modal {
             display: none;
@@ -1003,6 +1067,25 @@
         </div>
     </section>
 
+    <!-- Értékelés Section -->
+    <section class="rating-section reveal" id="rating">
+        <div class="track-header">
+            <div class="track-subtitle" data-key="rating-subtitle">Visszajelzés</div>
+            <h2 data-key="rating-title">Értékeld az oldalt</h2>
+            <p data-key="rating-desc">Mennyire tetszik az oldal? Adj 1-től 5 csillagig!</p>
+        </div>
+        <div class="rating-card">
+            <div class="stars" id="stars">
+                <button class="star-btn" data-value="1" aria-label="1">★</button>
+                <button class="star-btn" data-value="2" aria-label="2">★</button>
+                <button class="star-btn" data-value="3" aria-label="3">★</button>
+                <button class="star-btn" data-value="4" aria-label="4">★</button>
+                <button class="star-btn" data-value="5" aria-label="5">★</button>
+            </div>
+            <div class="rating-msg" id="rating-msg"></div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section class="faq-section reveal" id="faq">
         <div class="track-header">
@@ -1219,6 +1302,11 @@
                 'bot-f4': '➕ And many more features',
                 'bot-rent': 'Would you like to rent a bot like this for your server? Get in touch and we will sort it out!',
                 'bot-btn': 'Get in touch',
+                'rating-subtitle': 'Feedback',
+                'rating-title': 'Rate the website',
+                'rating-desc': 'How do you like the site? Give it 1 to 5 stars!',
+                'rating-prompt': 'Click a star to rate',
+                'rating-thanks': 'Thank you for your {n}-star rating!',
                 'nav-faq': 'FAQ',
                 'hero-subtitle': 'About Me',
                 'hero-desc': 'Welcome to my spooky website! I am <span>Diamondszia</span>, a Minecraft player and developer. On this site, you will find my custom Halloween texture packs and projects. Join the community on the Discord server!',
@@ -1282,6 +1370,11 @@
                 'bot-f4': '➕ És még sok más funkció',
                 'bot-rent': 'Szeretnél te is ilyen botot bérelni a szerveredre? Keress fel, és megbeszéljük!',
                 'bot-btn': 'Kapcsolatfelvétel',
+                'rating-subtitle': 'Visszajelzés',
+                'rating-title': 'Értékeld az oldalt',
+                'rating-desc': 'Mennyire tetszik az oldal? Adj 1-től 5 csillagig!',
+                'rating-prompt': 'Kattints egy csillagra az értékeléshez',
+                'rating-thanks': 'Köszönjük az értékelésed: {n} csillag!',
                 'nav-faq': 'GYIK',
                 'hero-subtitle': 'Rólam',
                 'hero-desc': 'Üdvözöllek a kísérteties oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a halloweeni egyedi textúracsomagjaimat és projektjeimet. Csatlakozz a közösséghez a Discord szerveren!',
@@ -1331,9 +1424,63 @@
             }
         };
 
+        // Értékelés (1-5 csillag)
+        // Ha szeretnéd megkapni az értékeléseket, ide írd be egy űrlapszolgáltatás
+        // (pl. Formspree) címét. Üresen hagyva az értékelés csak a látogató böngészőjében tárolódik.
+        const RATING_ENDPOINT = '';
+
+        let savedRating = 0;
+        try { savedRating = Number(localStorage.getItem('siteRating')) || 0; } catch (e) {}
+
+        function renderStars(value) {
+            document.querySelectorAll('.star-btn').forEach(btn => {
+                btn.classList.toggle('filled', Number(btn.dataset.value) <= value);
+            });
+        }
+
+        function setRatingMessage(value) {
+            const msg = document.getElementById('rating-msg');
+            if (!msg) return;
+            const t = translations[currentLang];
+            msg.textContent = value ? t['rating-thanks'].replace('{n}', value) : t['rating-prompt'];
+        }
+
+        (function initRating() {
+            const stars = document.getElementById('stars');
+            if (!stars) return;
+            renderStars(savedRating);
+            setRatingMessage(savedRating);
+            if (savedRating) stars.classList.add('locked');
+
+            document.querySelectorAll('.star-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    if (!savedRating) renderStars(Number(btn.dataset.value));
+                });
+                btn.addEventListener('mouseleave', () => {
+                    if (!savedRating) renderStars(0);
+                });
+                btn.addEventListener('click', () => {
+                    if (savedRating) return;
+                    savedRating = Number(btn.dataset.value);
+                    try { localStorage.setItem('siteRating', String(savedRating)); } catch (e) {}
+                    renderStars(savedRating);
+                    setRatingMessage(savedRating);
+                    stars.classList.add('locked');
+                    if (RATING_ENDPOINT) {
+                        fetch(RATING_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify({ rating: savedRating })
+                        }).catch(() => {});
+                    }
+                });
+            });
+        })();
+
         function toggleLanguage() {
             currentLang = currentLang === 'hu' ? 'en' : 'hu';
             document.getElementById('langToggleBtn').innerText = currentLang === 'hu' ? 'ENG' : 'HU';
+            setRatingMessage(savedRating);
             
             document.querySelectorAll('[data-key]').forEach(el => {
                 let key = el.getAttribute('data-key');
