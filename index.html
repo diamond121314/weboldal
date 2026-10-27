@@ -401,6 +401,83 @@
             box-shadow: 0 6px 20px rgba(234, 88, 12, 0.6);
         }
 
+        /* Grizzly Discord Bot szekció */
+        .bot-section {
+            padding: 0 6% 40px 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bot-card {
+            background-color: #16060a;
+            border: 1px solid #3b111c;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .bot-card:hover {
+            border-color: #ea580c;
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.2);
+        }
+
+        .bot-image {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #3b111c;
+            flex-shrink: 0;
+        }
+
+        .bot-info {
+            flex: 1;
+        }
+
+        .bot-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff7ed;
+            margin-bottom: 8px;
+        }
+
+        .bot-desc {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .bot-features {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .bot-features li {
+            background-color: #1a080e;
+            border: 1px solid #3b111c;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            color: #fff7ed;
+            font-weight: 600;
+        }
+
+        .bot-rent {
+            color: #d1d5db;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
         /* Modal Overlay for Browser Packs & ÁSZF */
         #browser-view, #aszf-modal {
             display: none;
@@ -804,6 +881,16 @@
             .projects, .servers-grid {
                 flex-direction: column;
             }
+            .bot-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .bot-image {
+                width: 100%;
+                max-width: 260px;
+                height: auto;
+                aspect-ratio: 1 / 1;
+            }
             footer {
                 flex-direction: column;
                 text-align: center;
@@ -835,6 +922,7 @@
             <nav>
                 <a href="#" data-key="nav-home">Főoldal</a>
                 <a href="#packs" data-key="nav-packs">Textúrák</a>
+                <a href="#bot" data-key="nav-bot">Bot</a>
                 <a href="#servers" data-key="nav-projects">Projektek</a>
                 <a href="#faq" data-key="nav-faq">GYIK</a>
                 <a href="https://discord.gg/PjXmDfD3Za" target="_blank">Discord</a>
@@ -863,6 +951,30 @@
     <div class="free-packs-container reveal">
         <button class="free-packs-btn" onclick="openBrowserView()" data-key="free-packs-btn-text">🎃 Ingyenes Halloweeni Packek Megtekintése</button>
     </div>
+
+    <!-- Grizzly Discord Bot Section -->
+    <section class="bot-section reveal" id="bot">
+        <div class="track-header">
+            <div class="track-subtitle" data-key="bot-subtitle">Discord Bot</div>
+            <h2 data-key="bot-title">Grizzly Bot</h2>
+            <p data-key="bot-intro">A saját fejlesztésű Discord botom, amit a te szervereden is használhatsz.</p>
+        </div>
+        <div class="bot-card">
+            <img src="maci.png" alt="Grizzly Discord Bot" class="bot-image">
+            <div class="bot-info">
+                <div class="bot-name">Grizzly</div>
+                <div class="bot-desc" data-key="bot-desc">Többfunkciós Discord bot a közösséged kezeléséhez és szórakoztatásához.</div>
+                <ul class="bot-features">
+                    <li data-key="bot-f1">🎫 Ticket rendszer</li>
+                    <li data-key="bot-f2">🎁 Nyereményjáték (giveaway)</li>
+                    <li data-key="bot-f3">💡 Javaslatok</li>
+                    <li data-key="bot-f4">➕ És még sok más funkció</li>
+                </ul>
+                <div class="bot-rent" data-key="bot-rent">Szeretnél te is ilyen botot bérelni a szerveredre? Keress fel, és megbeszéljük!</div>
+                <a href="https://discord.gg/Nf6J8c8zHG" target="_blank" class="discord-btn" data-key="bot-btn">Kapcsolatfelvétel</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Track Record Section -->
     <section class="track-record-section reveal" id="servers">
@@ -1096,6 +1208,17 @@
                 'nav-home': 'Home',
                 'nav-packs': 'Textures',
                 'nav-projects': 'Projects',
+                'nav-bot': 'Bot',
+                'bot-subtitle': 'Discord Bot',
+                'bot-title': 'Grizzly Bot',
+                'bot-intro': 'My own Discord bot, which you can use on your server too.',
+                'bot-desc': 'A multi-purpose Discord bot for managing and entertaining your community.',
+                'bot-f1': '🎫 Ticket system',
+                'bot-f2': '🎁 Giveaways',
+                'bot-f3': '💡 Suggestions',
+                'bot-f4': '➕ And many more features',
+                'bot-rent': 'Would you like to rent a bot like this for your server? Get in touch and we will sort it out!',
+                'bot-btn': 'Get in touch',
                 'nav-faq': 'FAQ',
                 'hero-subtitle': 'About Me',
                 'hero-desc': 'Welcome to my spooky website! I am <span>Diamondszia</span>, a Minecraft player and developer. On this site, you will find my custom Halloween texture packs and projects. Join the community on the Discord server!',
@@ -1148,6 +1271,17 @@
                 'nav-home': 'Főoldal',
                 'nav-packs': 'Textúrák',
                 'nav-projects': 'Projektek',
+                'nav-bot': 'Bot',
+                'bot-subtitle': 'Discord Bot',
+                'bot-title': 'Grizzly Bot',
+                'bot-intro': 'A saját fejlesztésű Discord botom, amit a te szervereden is használhatsz.',
+                'bot-desc': 'Többfunkciós Discord bot a közösséged kezeléséhez és szórakoztatásához.',
+                'bot-f1': '🎫 Ticket rendszer',
+                'bot-f2': '🎁 Nyereményjáték (giveaway)',
+                'bot-f3': '💡 Javaslatok',
+                'bot-f4': '➕ És még sok más funkció',
+                'bot-rent': 'Szeretnél te is ilyen botot bérelni a szerveredre? Keress fel, és megbeszéljük!',
+                'bot-btn': 'Kapcsolatfelvétel',
                 'nav-faq': 'GYIK',
                 'hero-subtitle': 'Rólam',
                 'hero-desc': 'Üdvözöllek a kísérteties oldalamon! <span>Diamondszia</span> vagyok, Minecraft játékos és fejlesztő. Ezen az oldalon találod a halloweeni egyedi textúracsomagjaimat és projektjeimet. Csatlakozz a közösséghez a Discord szerveren!',
